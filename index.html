@@ -2,1208 +2,774 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>NUIT LAB (뉘이랩 공식몰) — 리포좀 이너뷰티 &amp; 나이트 포뮬러 스토어</title>
-  <meta name="description" content="뉘이랩(NUIT LAB) 공식 온라인 스토어. 인지질 리포좀 마그네슘 & 몽모랑시 타트체리 나이트 샷, 캐모마일 릴렉스 앰플 등 잠들기 30분 전 고요한 밤을 설계하는 D2C 이너뷰티 브랜드몰." />
-  <meta property="og:title" content="NUIT LAB 공식몰 — 리포좀 마그네슘 &amp; 타트체리 나이트 샷" />
-  <meta property="og:description" content="누적 48만 포 돌파 · 실구매 평점 4.9 · 신규회원 5,000원 웰컴 쿠폰팩 & 당일출고" />
-  <meta property="og:image" content="assets/images/nuit-main-hero-banner.jpg" />
-  <meta property="og:type" content="website" />
-
-  <!-- Editorial Serif & Korean Sans Webfonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUIT LAB (뉘이랩) | 보태니컬 슬립 연구소 공식 브랜드 홈페이지 & 샘플키트 신청</title>
+  <meta name="description" content="서울 성수 보태니컬 슬립 연구소 뉘이랩(NUIT LAB). 인지질 리포좀 마그네슘 150mg과 미시간 몽모랑시 타트체리 나이트 샷 포뮬러 데이터 확인 및 무료 샘플키트·B2B 입점 제휴 신청." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Organization & Store Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "OnlineStore",
-    "name": "NUIT LAB (뉘이랩 공식몰)",
-    "description": "인지질 리포좀 마그네슘과 몽모랑시 타트체리 나이트 샷을 선보이는 이너뷰티 D2C 공식 온라인 스토어",
-    "image": "assets/images/nuit-main-hero-banner.jpg",
-    "telephone": "1644-8920",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "연무장길 42",
-      "addressLocality": "성동구",
-      "addressRegion": "서울특별시",
-      "addressCountry": "KR"
-    }
-  }
-  </script>
 </head>
 <body>
-  <!-- 1. Top Same-Day Dispatch & Welcome Benefit Bar -->
-  <div class="announcement-bar" role="region" aria-label="출고 및 멤버십 혜택 안내">
+  <!-- 1. Top Campaign Bar -->
+  <div class="announcement-bar" role="region" aria-label="캠페인 안내">
     <div class="announcement-inner">
       <span class="announcement-dot" aria-hidden="true"></span>
-      <span>공식몰 단독 <strong>신규 5,000원 쿠폰팩</strong> · 평일 14시 이전 당일출고</span>
-      <span class="announcement-timer" id="dispatch-countdown">출고 마감까지 04:18:42</span>
+      <span><strong>2026 FORMULATION CAMPAIGN</strong> · 3차 프리오더 얼리버드 알림 &amp; 무료 2포 샘플키트 당일 발송 마감까지</span>
+      <span class="announcement-timer" id="dispatch-countdown">04:42:19</span>
     </div>
   </div>
 
-  <!-- 2. Sticky Official Mall Header (Desktop GNB + Mobile Scrollable GNB) -->
+  <!-- 2. Sticky Brand Homepage Header (Zero Cart Clutter) -->
   <header class="site-header">
     <div class="header-inner">
-      <button type="button" class="brand-logo" id="nav-brand-logo" data-nav-view="home" aria-label="뉘이랩 공식몰 홈으로 이동">
+      <a href="#top" class="brand-logo" aria-label="NUIT LAB 홈으로 이동">
         <span class="brand-wordmark">NUIT LAB</span>
-        <span class="brand-sub">OFFICIAL ONLINE BOUTIQUE</span>
-      </button>
+        <span class="brand-sub">SEOUL · BOTANICAL SLEEP LAB</span>
+      </a>
 
-      <nav class="header-nav" aria-label="공식몰 메인 메뉴">
-        <button type="button" class="gnb-tab-btn active" data-nav-view="home" id="gnb-home">
-          <span>홈</span>
-        </button>
-        <button type="button" class="gnb-tab-btn" data-nav-view="shop" id="gnb-shop">
-          <span>전제품 스토어</span>
-          <span class="gnb-hot-dot">4</span>
-        </button>
-        <button type="button" class="gnb-tab-btn" data-nav-view="detail" id="gnb-detail">
-          <span>나이트 샷 상세</span>
-          <span class="gnb-hot-dot">BEST</span>
-        </button>
-        <button type="button" class="gnb-tab-btn" data-nav-view="subscription" id="gnb-subscription">
-          <span>정기구독 CLUB</span>
-        </button>
-        <button type="button" class="gnb-tab-btn" data-nav-view="story" id="gnb-story">
-          <span>브랜드 스토리</span>
-        </button>
+      <nav class="header-nav" aria-label="주요 섹션 내비게이션">
+        <a href="#philosophy-section">브랜드 철학</a>
+        <a href="#science-section">리포좀 흡수과학</a>
+        <a href="#lineup-section">포뮬러 라인업</a>
+        <a href="#routine-section">14일 루틴</a>
+        <a href="#voice-section">테스터 리포트</a>
+        <a href="#faq-section">FAQ</a>
       </nav>
 
       <div class="header-actions">
-        <button type="button" class="coupon-trigger-btn" id="header-coupon-btn" aria-label="5,000원 웰컴 쿠폰 받기">
-          <span id="header-coupon-label">5,000원 쿠폰</span>
-        </button>
-        <button type="button" class="cart-trigger-btn" id="header-cart-btn" aria-label="장바구니 열기">
-          <span>장바구니</span>
-          <span class="cart-count-badge" id="header-cart-count">0</span>
-        </button>
+        <button type="button" class="btn-header-outline" data-jump-form="b2b">B2B 입점·제휴</button>
+        <button type="button" class="btn-header-primary" data-jump-form="b2c">무료 샘플키트 신청</button>
       </div>
     </div>
 
-    <!-- Mobile 1-Click Mall Navigation Bar -->
-    <div class="mobile-gnb-bar" role="navigation" aria-label="모바일 스토어 메뉴">
-      <div class="mobile-gnb-inner">
-        <button type="button" class="mobile-gnb-btn active" data-nav-view="home" id="m-gnb-home">홈</button>
-        <button type="button" class="mobile-gnb-btn" data-nav-view="shop" id="m-gnb-shop">전제품 (4)</button>
-        <button type="button" class="mobile-gnb-btn" data-nav-view="detail" id="m-gnb-detail">나이트 샷 상세</button>
-        <button type="button" class="mobile-gnb-btn" data-nav-view="subscription" id="m-gnb-subscription">정기구독 10%↓</button>
-        <button type="button" class="mobile-gnb-btn" data-nav-view="story" id="m-gnb-story">브랜드 스토리</button>
+    <!-- Mobile 1-Tap Quick Scroll Bar -->
+    <nav class="mobile-anchor-bar" aria-label="모바일 빠른 이동">
+      <div class="mobile-anchor-inner">
+        <a href="#philosophy-section" class="mobile-anchor-link">브랜드 철학</a>
+        <a href="#science-section" class="mobile-anchor-link">리포좀 과학</a>
+        <a href="#lineup-section" class="mobile-anchor-link">라인업 4종</a>
+        <a href="#routine-section" class="mobile-anchor-link">14일 변화</a>
+        <a href="#voice-section" class="mobile-anchor-link">후기(4.9)</a>
+        <a href="#conversion-section" class="mobile-anchor-link highlight" data-jump-form="b2c">샘플신청 →</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main id="top">
-    <!-- ===================================================================
-         VIEW 1: OFFICIAL MALL HOME (메인 스토어프론트)
-         =================================================================== -->
-    <div class="mall-view active-view" id="view-home">
-      <!-- Main Storefront Hero -->
-      <section class="home-hero-section" aria-labelledby="home-hero-heading">
-        <div class="container">
-          <div class="home-hero-grid">
-            <div>
-              <span class="home-hero-kicker">SEOUL EVENING FORMULATION LAB</span>
-              <h1 class="home-hero-title" id="home-hero-heading">
-                잠들기 30분 전,<br />
-                고요한 밤을 설계하는<br />
-                리포좀 이너뷰티 루틴
-              </h1>
-              <p class="home-hero-desc">
-                위장에 부담을 주는 정제 알약과 설탕 가득한 주스 대신, 세포막 친화형 인지질 리포좀 공법으로 완성한 고농축 15kcal 액상 앰플 컬렉션을 만나보세요.
-              </p>
+    <!-- 3. Editorial Hero Section -->
+    <section class="hero-section" id="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="hero-kicker">Formulation No. 04 · Clinical Night Ritual</span>
+            <h1 class="hero-title">깊은 밤을 설계하는<br />인지질 리포좀 마그네슘과<br />몽모랑시 타트체리 한 포</h1>
+            <p class="hero-lead">
+              정제 알약의 더딘 붕해와 미네랄 특유의 속쓰림을 덜어냈습니다.
+              세포막과 유사한 해바라기 레시틴 이중층으로 마그네슘 150mg을 감싸 안아,
+              잠들기 30분 전 가장 편안하게 스며드는 고밀도 액상 슬립 리추얼을 제안합니다.
+            </p>
 
-              <div class="home-hero-metrics">
-                <div>
-                  <span class="hero-metric-val">482,000포+</span>
-                  <span class="hero-metric-label">누적 판매 돌파</span>
-                </div>
-                <div>
-                  <span class="hero-metric-val">★ 4.9 / 5.0</span>
-                  <span class="hero-metric-label">실구매자 만족도 (1,428건)</span>
-                </div>
-                <div>
-                  <span class="hero-metric-val">68.4%</span>
-                  <span class="hero-metric-label">3박스 이상 재구매율</span>
-                </div>
-              </div>
-
-              <div class="home-hero-ctas">
-                <button type="button" class="btn-hero-primary" id="hero-go-pdp-btn" data-open-pdp="3box">
-                  <span>베스트셀러 나이트 샷 상세보기</span>
-                  <span aria-hidden="true">→</span>
-                </button>
-                <button type="button" class="btn-hero-secondary" id="hero-go-shop-btn" data-nav-view="shop">
-                  <span>전제품 컬렉션 (4종)</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="home-hero-visual">
-              <img
-                src="assets/images/nuit-main-hero-banner.jpg"
-                alt="뉘이랩 리포좀 마그네슘 앤 타트체리 나이트 샷 메인 캠페인 화보"
-              />
-              <div class="hero-floating-product-card" id="hero-floating-card" data-open-pdp="3box" role="button" tabindex="0">
-                <div>
-                  <span class="floating-card-tag">SIGNATURE BEST · 최대 45% 혜택</span>
-                  <div class="floating-card-title">리포좀 마그네슘 &amp; 몽모랑시 타트체리 나이트 샷</div>
-                </div>
-                <span class="floating-card-cta">구매/상세 보기 →</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Official Mall Member Coupon Strip -->
-      <section class="member-coupon-strip" aria-label="공식몰 웰컴 쿠폰팩">
-        <div class="container">
-          <div class="coupon-strip-inner">
-            <div class="coupon-strip-left">
-              <div class="coupon-ticket-badge">
-                <span class="ticket-amount">5,000원</span>
-                <span class="ticket-sub">WELCOME COUPON</span>
+            <div class="hero-stats-row" aria-label="브랜드 핵심 지표">
+              <div>
+                <span class="hero-stat-num">91.4%</span>
+                <span class="hero-stat-label">생체 전달 효율*</span>
               </div>
               <div>
-                <h2 class="coupon-strip-title">공식몰 첫 방문 고객 전용 5,000원 즉시 할인 쿠폰</h2>
-                <p class="coupon-strip-desc">버튼 클릭 즉시 발급되며, 장바구니 결제 시 조건 없이 바로 차감됩니다.</p>
+                <span class="hero-stat-num">48만 포+</span>
+                <span class="hero-stat-label">누적 생산·출고</span>
               </div>
-            </div>
-            <button type="button" class="btn-claim-coupon" id="home-claim-coupon-btn">
-              + 5,000원 쿠폰 즉시 받기
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Best & All Formulations Showcase on Home -->
-      <section class="store-section" aria-labelledby="home-best-heading">
-        <div class="container">
-          <div class="store-section-head">
-            <div>
-              <span class="section-kicker">CURATED FORMULATIONS</span>
-              <h2 class="store-section-title" id="home-best-heading">공식몰 베스트 &amp; 루틴 컬렉션</h2>
-              <p class="store-section-sub">상품을 클릭하면 상세 설득 페이지로 이동하며, 장바구니에 바로 담을 수도 있습니다.</p>
-            </div>
-            <button type="button" class="link-view-all" data-nav-view="shop" id="home-view-all-shop-btn">
-              전제품 스토어 전체보기 (4) →
-            </button>
-          </div>
-
-          <div class="product-catalog-grid" id="home-product-grid">
-            <!-- Populated dynamically via app.js from STORE_PRODUCTS -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Why NUIT LAB Formulation Standards -->
-      <section class="store-section" style="background: var(--bg-stone)" aria-labelledby="home-pillars-heading">
-        <div class="container">
-          <div class="store-section-head">
-            <div>
-              <span class="section-kicker">WHY NUIT LAB</span>
-              <h2 class="store-section-title" id="home-pillars-heading">뉘이랩이 밤의 컨디션을 바꾸는 3가지 기준</h2>
-            </div>
-            <button type="button" class="link-view-all" data-nav-view="story">
-              브랜드 연구 철학 보기 →
-            </button>
-          </div>
-
-          <div class="home-pillars-grid">
-            <article class="home-pillar-card">
-              <span class="pillar-num">01 · Liposome Matrix</span>
-              <h3 class="pillar-title">91% 체내 전달 효율의 인지질 리포좀 액상</h3>
-              <p class="pillar-desc">
-                일반 산화마그네슘 정제의 낮은 흡수율(24%)과 속쓰림을 극복하기 위해 세포막과 유사한 해바라기 레시틴 인지질 이중층으로 미네랄을 캡슐화했습니다.
-              </p>
-            </article>
-
-            <article class="home-pillar-card">
-              <span class="pillar-num">02 · Zero Sugar 15kcal</span>
-              <h3 class="pillar-title">당류 0g 무설탕 · 미시간 몽모랑시 타트체리</h3>
-              <p class="pillar-desc">
-                자기 전 마셔도 혈당 스파이크나 칼로리 부담이 없도록 설탕·액상과당을 100% 배제하고 미국 미시간산 몽모랑시 원과 농축액 5,000mg을 담았습니다.
-              </p>
-            </article>
-
-            <article class="home-pillar-card">
-              <span class="pillar-num">03 · Clinical Clean Line</span>
-              <h3 class="pillar-title">식약처 HACCP · GMP &amp; 320종 잔류농약 불검출</h3>
-              <p class="pillar-desc">
-                매일 밤 섭취하는 루틴이기에 6대 화학부형제를 완전히 배제하고 매 생산 배치마다 미생물·중금속·잔류농약 정밀 검사를 통과한 제품만 출고합니다.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CLUB NUIT Subscription Banner on Home -->
-      <section class="store-section" aria-label="정기구독 멤버십 안내">
-        <div class="container">
-          <div class="home-club-banner">
-            <div>
-              <span class="section-kicker" style="color: #F0B4C0">CLUB NUIT MEMBERSHIP</span>
-              <h2 class="store-section-title" style="color: #FAF8F5">
-                가장 현명하게 유지하는 밤의 루틴,<br />정기구독 추가 10% 상시 할인
-              </h2>
-              <p style="margin-top: 10px; color: var(--ink-on-dark-muted); font-size: 15px">
-                번들 할인가에서 결제할 때마다 10%가 한 번 더 할인됩니다. 약정이나 위약금 없이 1회차 수령 후에도 언제든 주기를 변경하거나 해지할 수 있습니다.
-              </p>
-
-              <div class="club-perks-grid">
-                <div class="club-perk-box">
-                  <div class="club-perk-title">전 회차 추가 10%↓</div>
-                  <div class="club-perk-sub">최대 32~45% 번들 중복 할인</div>
-                </div>
-                <div class="club-perk-box">
-                  <div class="club-perk-title">무조건 무료배송</div>
-                  <div class="club-perk-sub">1박스만 구독해도 배송비 0원</div>
-                </div>
-                <div class="club-perk-box">
-                  <div class="club-perk-title">3회차 스페셜 기프트</div>
-                  <div class="club-perk-sub">트라이얼 5포 파우치 본품 증정</div>
-                </div>
+              <div>
+                <span class="hero-stat-num">4.9 / 5</span>
+                <span class="hero-stat-label">테스터 재선택률</span>
+              </div>
+              <div>
+                <span class="hero-stat-num">128곳</span>
+                <span class="hero-stat-label">제휴 약국·클리닉</span>
               </div>
             </div>
 
-            <div style="background: rgba(250,248,245,0.06); border: 1px solid rgba(250,248,245,0.14); border-radius: 12px; padding: 28px; text-align: center">
-              <div style="font-size: 13px; color: #F0B4C0; font-weight: 700">가장 많이 구독하는 3박스+4포 세트 기준</div>
-              <div style="font-size: 14px; color: var(--ink-on-dark-muted); text-decoration: line-through; margin-top: 8px">정가 126,000원</div>
-              <div style="font-size: 32px; font-weight: 800; color: #FFFFFF; margin-top: 2px">월 76,950원</div>
-              <div style="font-size: 13px; color: var(--ink-on-dark-muted); margin-top: 4px">1포당 1,673원꼴 · 총 49,050원 절약</div>
-              <button
-                type="button"
-                class="btn-hero-primary"
-                style="width: 100%; justify-content: center; margin-top: 18px"
-                data-nav-view="subscription"
-                id="home-go-sub-btn"
-              >
-                정기구독 혜택 계산기 보기 →
+            <div class="hero-cta-group">
+              <button type="button" class="btn-cta-primary" data-jump-form="b2c">
+                무료 샘플키트 &amp; 얼리버드 혜택 신청 →
               </button>
+              <a href="#science-section" class="btn-cta-secondary">
+                리포좀 흡수 메커니즘 보기
+              </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Home Verified Review Highlights -->
-      <section class="store-section" style="background: var(--bg-stone); border-bottom: none" aria-labelledby="home-reviews-heading">
-        <div class="container">
-          <div class="store-section-head">
-            <div>
-              <span class="section-kicker">REAL VOICE · ★ 4.9</span>
-              <h2 class="store-section-title" id="home-reviews-heading">실구매 고객 베스트 포토 리뷰</h2>
-              <p class="store-section-sub">광고성 체험단 없이 실제 공식몰 구매 고객이 남겨주신 후기입니다.</p>
+          <div class="hero-visual-frame">
+            <img
+              src="assets/images/nuit-main-hero-banner.jpg"
+              alt="뉘이랩 리포좀 마그네슘 &amp; 몽모랑시 타트체리 나이트 샷 플래그십 화보"
+              width="1280"
+              height="832"
+              fetchpriority="high"
+            />
+            <div class="hero-visual-caption-bar">
+              <span><strong>NUIT LAB ORIGINAL</strong> · 1포 20mL 고농축 액상 앰플</span>
+              <span>무설탕 15kcal · 카페인 ZERO</span>
             </div>
-            <button type="button" class="link-view-all" id="home-go-all-reviews-btn">
-              1,428건 리뷰 전체보기 →
-            </button>
-          </div>
-
-          <div class="review-cards-grid" id="home-featured-reviews">
-            <!-- Populated via app.js -->
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ===================================================================
-         VIEW 2: SHOP ALL FORMULATIONS (전제품 카테고리 스토어)
-         =================================================================== -->
-    <div class="mall-view" id="view-shop">
-      <section class="subpage-hero-banner">
-        <div class="container">
-          <span class="subpage-kicker">ALL FORMULATIONS</span>
-          <h1 class="subpage-title">전제품 스토어</h1>
-          <p class="subpage-desc">나에게 필요한 밤의 회복 단계에 맞춰 단품부터 기프트 번들, 허브 릴렉스 라인까지 선택해 보세요.</p>
-        </div>
-      </section>
-
-      <section class="store-section">
-        <div class="container">
-          <div class="review-filter-bar" style="margin-bottom: 28px">
-            <div class="review-tabs" role="tablist" aria-label="상품 카테고리 필터">
-              <button type="button" class="review-tab-btn active" data-shop-cat="all" id="shop-tab-all">
-                전체 상품 (4)
-              </button>
-              <button type="button" class="review-tab-btn" data-shop-cat="nightshot" id="shop-tab-nightshot">
-                나이트 샷·번들 (2)
-              </button>
-              <button type="button" class="review-tab-btn" data-shop-cat="relax" id="shop-tab-relax">
-                허브 릴렉스 앰플 (1)
-              </button>
-              <button type="button" class="review-tab-btn" data-shop-cat="trial" id="shop-tab-trial">
-                트라이얼·선물세트 (2)
-              </button>
-            </div>
-
-            <label for="shop-sort-select" class="sr-only">상품 정렬</label>
-            <select id="shop-sort-select" class="review-sort-select">
-              <option value="popular">인기 베스트순</option>
-              <option value="discount">할인율 높은순</option>
-              <option value="price-asc">낮은 가격순</option>
-            </select>
-          </div>
-
-          <div class="product-catalog-grid" id="shop-product-grid">
-            <!-- Populated dynamically via app.js -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Product Routine Guide Comparison inside SHOP -->
-      <section class="store-section" style="background: var(--bg-stone); border-bottom: none">
-        <div class="container">
-          <div class="section-header centered">
-            <span class="section-kicker">CURATION GUIDE</span>
-            <h2 class="section-title">어떤 포뮬러부터 시작할지 고민되시나요?</h2>
-          </div>
-
-          <div class="comparison-table-wrap">
-            <table class="comparison-table">
-              <thead>
-                <tr>
-                  <th scope="col">구분</th>
-                  <th scope="col" class="col-nuit">나이트 샷 3박스+4포 [BEST]</th>
-                  <th scope="col">L-테아닌 &amp; 캐모마일 앰플</th>
-                  <th scope="col">트라이얼 5포 파우치 키트</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>추천 대상</td>
-                  <td class="col-nuit">본격적인 6주 수면·이완 루틴 정착</td>
-                  <td>카페인 민감자 · 오후~저녁 스트레스 케어</td>
-                  <td>첫 구매 맛·목넘김 테스트 &amp; 출장 휴대</td>
-                </tr>
-                <tr>
-                  <td>핵심 원료</td>
-                  <td class="col-nuit">리포좀 마그네슘 150mg + 타트체리</td>
-                  <td>L-테아닌 250mg + 크로아티아 캐모마일</td>
-                  <td>리포좀 마그네슘 150mg + 타트체리</td>
-                </tr>
-                <tr>
-                  <td>구성 및 혜택가</td>
-                  <td class="col-nuit">총 46포 · 85,500원 (32%↓ 무료배송)</td>
-                  <td>총 14포 · 38,500원 (13%↓)</td>
-                  <td>5포 + 리넨 파우치 · 13,900원 (16%↓)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ===================================================================
-         VIEW 3: HIGH-CONVERSION PRODUCT DETAIL PAGE (PDP)
-         =================================================================== -->
-    <div class="mall-view" id="view-detail">
-      <!-- Breadcrumb & Product Context Switcher -->
-      <div class="pdp-breadcrumb-bar">
-        <div class="container pdp-breadcrumb-inner">
-          <div class="breadcrumb-trail">
-            <button type="button" data-nav-view="home">홈</button>
-            <span>/</span>
-            <button type="button" data-nav-view="shop">전제품 스토어</button>
-            <span>/</span>
-            <span class="breadcrumb-current" id="pdp-breadcrumb-name">리포좀 마그네슘 &amp; 몽모랑시 타트체리 나이트 샷</span>
-          </div>
-
-          <div class="pdp-quick-switch" aria-label="다른 상품 상세 빠른 전환">
-            <button type="button" class="pdp-switch-pill active" data-pdp-product="nightshot">나이트 샷 본품</button>
-            <button type="button" class="pdp-switch-pill" data-pdp-product="gift3box">3박스+4포 기프트</button>
-            <button type="button" class="pdp-switch-pill" data-pdp-product="chamomile">캐모마일 릴렉스</button>
-            <button type="button" class="pdp-switch-pill" data-pdp-product="trial">트라이얼 5포 키트</button>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- FIRST-FOLD BUY BOX: Gallery + Bundle Selector + Subscription Toggle -->
-      <section class="hero-buybox-section" aria-labelledby="main-product-title">
-        <div class="container">
-          <div class="buybox-grid">
-            <!-- Left: Editorial Product Gallery -->
-            <div class="gallery-column">
-              <div class="gallery-main-frame">
-                <img
-                  src="assets/images/nuit-hero-box.jpg"
-                  alt="뉘이랩 리포좀 마그네슘 앤 몽모랑시 타트체리 나이트 샷 본품 패키지 및 스틱 앰플"
-                  id="main-gallery-image"
-                />
-                <span class="gallery-caption-tag" id="main-gallery-caption">1박스 14포 (20g × 14 액상 스틱 앰플)</span>
-              </div>
-
-              <div class="gallery-thumbs" role="tablist" aria-label="제품 이미지 선택">
-                <button
-                  type="button"
-                  class="thumb-btn active"
-                  id="thumb-btn-0"
-                  data-src="assets/images/nuit-hero-box.jpg"
-                  data-caption="1박스 14포 (20g × 14 액상 스틱 앰플)"
-                  aria-label="패키지 정면 이미지"
-                >
-                  <img src="assets/images/nuit-hero-box.jpg" alt="본품 박스 썸네일" />
-                </button>
-                <button
-                  type="button"
-                  class="thumb-btn"
-                  id="thumb-btn-1"
-                  data-src="assets/images/nuit-liquid-texture.jpg"
-                  data-caption="미국산 몽모랑시 타트체리 농축액 &amp; 인지질 리포좀 액상 제형"
-                  aria-label="리포좀 액상 제형 이미지"
-                >
-                  <img src="assets/images/nuit-liquid-texture.jpg" alt="액상 제형 썸네일" />
-                </button>
-                <button
-                  type="button"
-                  class="thumb-btn"
-                  id="thumb-btn-2"
-                  data-src="assets/images/nuit-night-ritual.jpg"
-                  data-caption="잠들기 30분 전, 물 없이 가볍게 비우는 15kcal 나이트 루틴"
-                  aria-label="침실 나이트 루틴 이미지"
-                >
-                  <img src="assets/images/nuit-night-ritual.jpg" alt="나이트 루틴 썸네일" />
-                </button>
-                <button
-                  type="button"
-                  class="thumb-btn"
-                  id="thumb-btn-3"
-                  data-src="assets/images/nuit-gift-bundle-3box.jpg"
-                  data-caption="구매 고객 74% 선택 · 3박스 + 본품 4포 기프트 에디션"
-                  aria-label="3박스 기프트 에디션 이미지"
-                >
-                  <img src="assets/images/nuit-gift-bundle-3box.jpg" alt="3박스 세트 썸네일" />
-                </button>
-              </div>
-
-              <div class="gallery-trust-strip">
-                <div class="trust-mini-item">
-                  <span class="trust-mini-title">당류 0g · 15kcal</span>
-                  <span class="trust-mini-sub">야간 섭취 부담 제로</span>
-                </div>
-                <div class="trust-mini-item">
-                  <span class="trust-mini-title">리포좀 액상 공법</span>
-                  <span class="trust-mini-sub">인지질 이중층 보호</span>
-                </div>
-                <div class="trust-mini-item">
-                  <span class="trust-mini-title">100% 환불 보장</span>
-                  <span class="trust-mini-sub">7일 이내 불만족 시</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: High-Conversion Buy Box -->
-            <div class="buybox-column">
-              <div class="product-meta-top">
-                <span class="product-category-kicker" id="pdp-category-kicker">LIPOSOMAL NIGHT AMPOULE</span>
-                <a href="#reviews-section" class="review-anchor-link" id="buybox-review-anchor">
-                  <span class="star-icons" aria-hidden="true">★★★★★</span>
-                  <span>4.9</span>
-                  <span>(1,428건 실구매 리뷰)</span>
-                </a>
-              </div>
-
-              <h1 class="product-title" id="main-product-title">
-                리포좀 마그네슘 &amp;<br />몽모랑시 타트체리 나이트 샷
-              </h1>
-              <p class="product-subtitle" id="main-product-subtitle">
-                정제 알약의 더딘 흡수와 위장 부담을 덜어낸 고농축 액상 한 포. 잠들기 30분 전, 뭉친 신경과 하루의 긴장을 부드럽게 이완합니다.
-              </p>
-
-              <div class="product-spec-summary" id="main-product-spec">
-                <span>용량 <strong>1박스 280g (20g × 14포)</strong></span>
-                <span>핵심성분 <strong>리포좀 마그네슘 150mg · 타트체리 5,000mg</strong></span>
-              </div>
-
-              <!-- Live Price Hero -->
-              <div class="live-price-summary-head">
-                <div class="price-head-left">
-                  <span class="discount-rate-hero" id="hero-discount-pct">32%</span>
-                  <span class="final-unit-price-hero" id="hero-final-price">85,500원</span>
-                  <span class="retail-strike-hero" id="hero-origin-price">126,000원</span>
-                </div>
-                <span class="per-stick-note" id="hero-per-stick">1포당 1,859원꼴</span>
-              </div>
-
-              <!-- Same-Day Shipping Metadata -->
-              <div class="dispatch-info-box">
-                <span class="dispatch-label">배송안내</span>
-                <span class="dispatch-val" id="buybox-shipping-text"><strong>무료배송</strong> (50,000원 이상 무료 · 기본 3,000원)</span>
-                <span class="dispatch-label">출고일정</span>
-                <span class="dispatch-val">평일 14:00 이전 결제 시 <strong>오늘 바로 출고</strong> (CJ대한통운)</span>
-              </div>
-
-              <!-- Quantity Bundle Radio Cards -->
-              <div class="bundle-selector-wrap">
-                <div class="selector-heading-row">
-                  <span class="selector-title">수량 및 루틴 패키지 선택</span>
-                  <span class="selector-helper">구매 고객 74%가 3박스 이상 루틴을 선택했습니다</span>
-                </div>
-
-                <div class="bundle-cards" role="radiogroup" aria-label="번들 수량 옵션">
-                  <!-- Option 1: 1 Box -->
-                  <div
-                    class="bundle-card"
-                    role="radio"
-                    aria-checked="false"
-                    tabindex="0"
-                    id="bundle-option-1"
-                    data-bundle-id="1box"
-                  >
-                    <div class="bundle-left">
-                      <span class="radio-circle" aria-hidden="true"></span>
-                      <div>
-                        <div class="bundle-title-line">
-                          <span class="bundle-name">1박스 · 2주 체험 구성</span>
-                        </div>
-                        <p class="bundle-desc">총 14포 · 가볍게 시작하는 입문용 나이트 루틴</p>
-                      </div>
-                    </div>
-                    <div class="bundle-right">
-                      <div class="bundle-origin-price">42,000원</div>
-                      <div class="bundle-price-line">
-                        <span class="bundle-discount-pct" data-price-pct="1box">12%↓</span>
-                        <span class="bundle-final-price" data-price-val="1box">36,900원</span>
-                      </div>
-                      <div class="bundle-per-stick" data-per-stick="1box">1포당 2,636원 · 배송비 3,000원</div>
-                    </div>
-                  </div>
-
-                  <!-- Option 2: 3 Boxes + 4 Free Sticks (BEST Default) -->
-                  <div
-                    class="bundle-card selected"
-                    role="radio"
-                    aria-checked="true"
-                    tabindex="0"
-                    id="bundle-option-3"
-                    data-bundle-id="3box"
-                  >
-                    <div class="bundle-left">
-                      <span class="radio-circle" aria-hidden="true"></span>
-                      <div>
-                        <div class="bundle-title-line">
-                          <span class="bundle-name">3박스 + 본품 4포 추가증정</span>
-                          <span class="bundle-tag best">BEST · 무료배송</span>
-                        </div>
-                        <p class="bundle-desc">총 46포 (6주 루틴) · 가장 만족도가 높은 집중 회복 구성</p>
-                      </div>
-                    </div>
-                    <div class="bundle-right">
-                      <div class="bundle-origin-price">126,000원</div>
-                      <div class="bundle-price-line">
-                        <span class="bundle-discount-pct" data-price-pct="3box">32%↓</span>
-                        <span class="bundle-final-price" data-price-val="3box">85,500원</span>
-                      </div>
-                      <div class="bundle-per-stick" data-per-stick="3box">1포당 1,859원 · 무료배송</div>
-                    </div>
-                  </div>
-
-                  <!-- Option 3: 6 Boxes (45% OFF) -->
-                  <div
-                    class="bundle-card"
-                    role="radio"
-                    aria-checked="false"
-                    tabindex="0"
-                    id="bundle-option-6"
-                    data-bundle-id="6box"
-                  >
-                    <div class="bundle-left">
-                      <span class="radio-circle" aria-hidden="true"></span>
-                      <div>
-                        <div class="bundle-title-line">
-                          <span class="bundle-name">6박스 집중 슬립 루틴</span>
-                          <span class="bundle-tag max">최대 45%↓</span>
-                        </div>
-                        <p class="bundle-desc">총 84포 (12주 완성) · 온 가족 및 장기 섭취 최저가 구성</p>
-                      </div>
-                    </div>
-                    <div class="bundle-right">
-                      <div class="bundle-origin-price">252,000원</div>
-                      <div class="bundle-price-line">
-                        <span class="bundle-discount-pct" data-price-pct="6box">45%↓</span>
-                        <span class="bundle-final-price" data-price-val="6box">138,600원</span>
-                      </div>
-                      <div class="bundle-per-stick" data-per-stick="6box">1포당 1,650원 · 무료배송</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Real-Time Subscription Extra 10% Toggle -->
-              <div class="subscription-toggle-card" id="subscription-card">
-                <div
-                  class="sub-toggle-row"
-                  role="switch"
-                  aria-checked="false"
-                  tabindex="0"
-                  id="subscription-toggle-btn"
-                >
-                  <div class="sub-label-group">
-                    <div class="sub-title">
-                      <span>정기구독으로 받고 추가 10% 더 할인</span>
-                      <span class="sub-save-highlight" id="sub-extra-badge">즉시 적용</span>
-                    </div>
-                    <p class="sub-desc">위약금 없이 마이페이지에서 1회차 후 언제든 일시정지·해지 가능</p>
-                  </div>
-                  <span class="switch-ui" aria-hidden="true"></span>
-                </div>
-              </div>
-
-              <!-- Total Calculation Box -->
-              <div class="buybox-total-bar">
-                <div>
-                  <span class="total-meta-label" id="selected-summary-name">3박스 + 본품 4포 증정 (일회성 구매)</span>
-                  <span class="total-meta-saving" id="selected-summary-saving">정가 대비 총 40,500원 절약 · 무료배송 혜택</span>
-                </div>
-                <div class="total-amount-display" id="selected-total-price">85,500원</div>
-              </div>
-
-              <!-- Primary CTA Buttons -->
-              <div class="buybox-cta-group">
-                <button type="button" class="btn-secondary-cart" id="buybox-add-cart-btn">
-                  장바구니 담기
-                </button>
-                <button type="button" class="btn-primary-buy" id="buybox-direct-buy-btn">
-                  바로 구매하기
-                </button>
-              </div>
-            </div>
-          </div>
+    <!-- Authority Partner Strip -->
+    <div class="partner-authority-strip" role="region" aria-label="품질 및 인증 기준">
+      <div class="container authority-inner">
+        <span>서울 성동구 연무장길 뉘이랩 포뮬러 연구소 자체 배합 설계</span>
+        <div class="authority-badges">
+          <span>✓ 식약처 HACCP 인증 제조</span>
+          <span>✓ 우수건강기능식품 GMP 기준</span>
+          <span>✓ 미국 미시간산 몽모랑시 100%</span>
+          <span>✓ 합성향료·설탕 6종 무첨가</span>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- PERSUASION SECTION 1: Problem & Liposomal Absorption Visualization -->
-      <section class="funnel-section" id="absorption-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-kicker">01 · BIOAVAILABILITY SCIENCE</span>
-            <h2 class="section-title">
-              마그네슘을 챙겨 먹어도 밤마다 뒤척였다면,<br />
-              문제는 함량이 아니라 ‘흡수 형태’입니다
-            </h2>
-            <p class="section-lead">
-              일반 산화마그네슘 정제는 체내 흡수율이 낮고 소화기관에 남아 속쓰림이나 묽은 변을 유발하기 쉽습니다. 뉘이랩은 세포막과 동일한 인지질 이중층으로 마그네슘을 감싼 <strong>리포좀 액상 공법</strong>을 적용했습니다.
-            </p>
-          </div>
-
-          <div class="problem-absorption-grid">
-            <div class="problem-visual-card">
+    <!-- 4. Brand Philosophy & Origin Story -->
+    <section class="funnel-section" id="philosophy-section">
+      <div class="container">
+        <div class="philosophy-grid">
+          <div class="philosophy-img-grid">
+            <div class="philosophy-img-card">
               <img
-                src="assets/images/nuit-liquid-texture.jpg"
-                alt="몽모랑시 타트체리 농축액과 미세 인지질 리포좀 캡슐 클로즈업"
+                src="assets/images/nuit-hero-box.jpg"
+                alt="뉘이랩 14포 나이트 샷 패키지와 타트체리 원물 스튜디오 컷"
                 loading="lazy"
               />
-              <div class="problem-visual-caption">
-                <span><strong>Micro-Liposome Matrix</strong> · 세포막 친화형 인지질 캡슐화 제형</span>
-                <span>무합성향료 · 무설탕</span>
-              </div>
             </div>
-
-            <div class="absorption-panel">
-              <h3 class="absorption-panel-title">제형별 체내 생체이용률 지수 비교</h3>
-              <p class="absorption-panel-sub">위산 손실을 방어하고 장 점막을 통과하는 전달 효율 비교</p>
-
-              <div class="bar-metric-list">
-                <div class="bar-metric-item">
-                  <div class="bar-metric-head highlight">
-                    <span>NUIT LAB 인지질 리포좀 액상 마그네슘</span>
-                    <span>3.8배 높은 전달 효율 (91%)</span>
-                  </div>
-                  <div class="bar-track">
-                    <div class="bar-fill nuit-primary" style="width: 91%"></div>
-                  </div>
-                </div>
-
-                <div class="bar-metric-item">
-                  <div class="bar-metric-head">
-                    <span>일반 유기염 분말 마그네슘</span>
-                    <span>46%</span>
-                  </div>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width: 46%"></div>
-                  </div>
-                </div>
-
-                <div class="bar-metric-item">
-                  <div class="bar-metric-head">
-                    <span>일반 무기염(산화) 정제 알약</span>
-                    <span>24%</span>
-                  </div>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width: 24%"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mechanism-steps">
-                <div class="mech-step">
-                  <div class="mech-num">Step 01</div>
-                  <div class="mech-title">위산 파괴 보호</div>
-                  <p class="mech-desc">해바라기 레시틴 인지질 막이 위산으로부터 유효 성분을 보호합니다.</p>
-                </div>
-                <div class="mech-step">
-                  <div class="mech-num">Step 02</div>
-                  <div class="mech-title">빠른 액상 도달</div>
-                  <p class="mech-desc">붕해 과정이 필요한 알약과 달리 마시는 즉시 소장으로 전달됩니다.</p>
-                </div>
-                <div class="mech-step">
-                  <div class="mech-num">Step 03</div>
-                  <div class="mech-title">편안한 밤 컨디션</div>
-                  <p class="mech-desc">미흡수 잔여물로 인한 야간 복부 불편감 없이 부드럽게 작용합니다.</p>
-                </div>
-              </div>
-
-              <p class="footnote-disclaimer">
-                * 원료적 특성 및 제형 설계에 관한 설명이며, 개인의 체질에 따라 체감 속도는 다를 수 있습니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PERSUASION SECTION 2: 5-Point Spec Comparison Table -->
-      <section class="funnel-section bg-stone" id="comparison-section">
-        <div class="container">
-          <div class="section-header centered">
-            <span class="section-kicker">02 · FORMULA COMPARISON</span>
-            <h2 class="section-title">타사 제품과 5가지 기준만 비교해 보세요</h2>
-            <p class="section-lead">
-              당류가 높은 일반 타트체리 주스나 목에 걸리는 대용량 정제 알약과의 명확한 설계 차이입니다.
-            </p>
-          </div>
-
-          <div class="comparison-table-wrap">
-            <table class="comparison-table">
-              <thead>
-                <tr>
-                  <th scope="col">비교 항목</th>
-                  <th scope="col" class="col-nuit">NUIT LAB 나이트 샷</th>
-                  <th scope="col">시중 일반 타트체리 주스</th>
-                  <th scope="col">일반 정제형 마그네슘</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>마그네슘 공법 및 함량</td>
-                  <td class="col-nuit">인지질 리포좀 마그네슘 150mg</td>
-                  <td class="comp-muted">미함유 또는 극미량</td>
-                  <td>일반 산화마그네슘 위주</td>
-                </tr>
-                <tr>
-                  <td>타트체리 원료 등급</td>
-                  <td class="col-nuit">미국 미시간산 몽모랑시 5,000mg</td>
-                  <td>일반 터키산 혼합 농축액</td>
-                  <td class="comp-muted">미함유</td>
-                </tr>
-                <tr>
-                  <td>당류 및 야간 칼로리</td>
-                  <td class="col-nuit">당류 0g (무설탕) · 1포 15kcal</td>
-                  <td>당류 14g~22g · 95kcal 이상</td>
-                  <td>0kcal (정제 부형제 포함)</td>
-                </tr>
-                <tr>
-                  <td>시너지 부원료 배합</td>
-                  <td class="col-nuit">L-테아닌 · 미강발효 GABA · 캐모마일</td>
-                  <td class="comp-muted">단일 과채 주스</td>
-                  <td class="comp-muted">단일 미네랄</td>
-                </tr>
-                <tr>
-                  <td>섭취 편의성 &amp; 위장 부담</td>
-                  <td class="col-nuit">물 없이 뜯어 마시는 고농축 액상</td>
-                  <td>개봉 후 변질 우려 · 계량 번거로움</td>
-                  <td>큰 알약 목넘김 불편 · 속쓰림 우려</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- PERSUASION SECTION 3: Raw Ingredients & 2-Week Night Timeline -->
-      <section class="funnel-section bg-charcoal" id="timeline-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-kicker">03 · 14-NIGHT RITUAL &amp; SYNERGY</span>
-            <h2 class="section-title">
-              밤 11시, 조명을 낮추고 마시는<br />
-              14일간의 나이트 밸런스 타임라인
-            </h2>
-            <p class="section-lead">
-              수면제나 멜라토닌 합성 호르몬이 아닙니다. 우리 몸이 스스로 긴장을 내려놓을 수 있도록 설계된 식물성·미네랄 배합입니다.
-            </p>
-          </div>
-
-          <div class="synergy-layout">
-            <div class="ritual-editorial-card">
+            <div class="philosophy-img-card">
               <img
                 src="assets/images/nuit-night-ritual.jpg"
-                alt="침실 협탁 위 따뜻한 조명과 뉘이랩 나이트 샷 액상 루틴"
+                alt="침실 협탁 위 잠들기 30분 전 뉘이랩 나이트 리추얼 연출 컷"
                 loading="lazy"
               />
-              <div class="ingredient-spec-list">
-                <div class="ing-row">
-                  <div>
-                    <span class="ing-name">미국 미시간주 몽모랑시 타트체리</span>
-                    <span class="ing-origin">1포당 원과 약 28알 분량의 고밀도 농축액</span>
-                  </div>
-                  <span class="ing-dose">5,000 mg</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="section-kicker">Brand Philosophy · Why Nuit Lab</span>
+            <h2 class="section-title">“좋은 성분표를 넘어,<br />밤마다 거르지 않고 마실 수 있는<br />액상 설계에 집중했습니다.”</h2>
+            <p class="section-lead">
+              수많은 현대인이 밤의 긴장을 풀기 위해 마그네슘을 찾지만, 목에 걸리는 큼직한 정제 크기와
+              아침까지 남는 위장 부담 때문에 일주일을 넘기지 못하고 서랍 속에 방치하곤 합니다.
+            </p>
+
+            <blockquote class="philosophy-quote">
+              “물 한 모금조차 망설여지는 늦은 밤 11시 30분, 찢어서 그대로 마셔도 위장에 부드럽고
+              입안에 깔끔한 루비빛 산미만 남는 한 포가 필요했습니다.”
+            </blockquote>
+
+            <div class="philosophy-pillars">
+              <div class="phil-mini-box">
+                <div class="phil-mini-title">01 · 위장 저자극 리포좀</div>
+                <div class="phil-mini-sub">인지질 캡슐화 공법으로 빈속 섭취 부담 완화</div>
+              </div>
+              <div class="phil-mini-box">
+                <div class="phil-mini-title">02 · 원산지 투명 공개</div>
+                <div class="phil-mini-sub">미시간 몽모랑시 &amp; 비유전자변형 해바라기 레시틴</div>
+              </div>
+              <div class="phil-mini-box">
+                <div class="phil-mini-title">03 · 야간 당류 ZERO 설계</div>
+                <div class="phil-mini-sub">설탕·액상과당 배제, 잠들기 전 가벼운 15kcal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Bioavailability Science Section -->
+    <section class="funnel-section bg-stone" id="science-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Liposomal Delivery Science</span>
+          <h2 class="section-title">같은 150mg이라도 몸이 받아들이는 밀도는 다릅니다.<br />인지질 이중층 리포좀 공법의 차이</h2>
+          <p class="section-lead">
+            수용성 미네랄인 일반 산화마그네슘은 소화 효소와 위산 환경에서 상당량 유실됩니다.
+            뉘이랩은 인체 세포막과 동일한 인지질 구조로 마그네슘 이온을 감싸 장 점막 도달 효율을 끌어올렸습니다.
+          </p>
+        </div>
+
+        <div class="problem-absorption-grid">
+          <div class="problem-visual-card">
+            <img
+              src="assets/images/nuit-liquid-texture.jpg"
+              alt="루비빛 몽모랑시 타트체리 농축액과 골든 리포좀 구체 매크로 텍스처"
+              loading="lazy"
+            />
+            <div class="problem-visual-caption">
+              <span><strong>Micro-Liposome Matrix</strong> · 해바라기 레시틴 인지질 미세 캡슐화</span>
+              <span>비린 철분·금속 맛 차폐 완료</span>
+            </div>
+          </div>
+
+          <div class="absorption-panel">
+            <h3 class="absorption-panel-title">마그네슘 제형별 체내 전달 지수 비교</h3>
+            <p class="absorption-panel-sub">동일 조건 In-vitro 인공 장막 투과율 비교 리포트 기반 재구성</p>
+
+            <div class="bar-metric-list">
+              <div class="bar-metric-item">
+                <div class="bar-metric-head highlight">
+                  <span>뉘이랩 인지질 리포좀 액상 마그네슘</span>
+                  <span>91.4% 전달</span>
                 </div>
-                <div class="ing-row">
-                  <div>
-                    <span class="ing-name">리포좀 글루콘산·피돌산 마그네슘</span>
-                    <span class="ing-origin">신경 및 근육 기능 유지 · 눈가 떨림 및 긴장 완화</span>
-                  </div>
-                  <span class="ing-dose">150 mg</span>
+                <div class="bar-track">
+                  <div class="bar-fill nuit-primary" style="width: 91.4%"></div>
                 </div>
-                <div class="ing-row">
-                  <div>
-                    <span class="ing-name">녹차 유래 L-테아닌 &amp; 현미발효 가바(GABA)</span>
-                    <span class="ing-origin">복잡한 저녁 생각의 볼륨을 낮추는 릴렉스 부원료</span>
-                  </div>
-                  <span class="ing-dose">250 mg</span>
+              </div>
+
+              <div class="bar-metric-item">
+                <div class="bar-metric-head">
+                  <span>유기염 킬레이트 정제 (글리시네이트 등)</span>
+                  <span>46.0% 전달</span>
                 </div>
-                <div class="ing-row">
-                  <div>
-                    <span class="ing-name">알룰로스 &amp; 크로아티아산 캐모마일 추출물</span>
-                    <span class="ing-origin">설탕·액상과당 무첨가 깔끔한 루비 베리 피니시</span>
-                  </div>
-                  <span class="ing-dose">Sugar 0g</span>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width: 46%"></div>
+                </div>
+              </div>
+
+              <div class="bar-metric-item">
+                <div class="bar-metric-head">
+                  <span>일반 무기염 산화마그네슘 알약</span>
+                  <span>23.8% 전달</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width: 23.8%"></div>
                 </div>
               </div>
             </div>
 
-            <div class="timeline-list">
-              <article class="timeline-card">
-                <div class="timeline-day">Night 01</div>
-                <div>
-                  <h3 class="timeline-heading">물 없이도 깔끔한 상큼함, 위장 부담 없는 첫 밤</h3>
-                  <p class="timeline-copy">
-                    진한 루비빛 타트체리 본연의 산뜻한 산미로 양치 전 가볍게 한 포를 비웁니다. 알약을 삼킬 때의 텁텁함이나 속 불편함이 없습니다.
-                  </p>
-                </div>
-              </article>
-
-              <article class="timeline-card">
-                <div class="timeline-day">Night 04</div>
-                <div>
-                  <h3 class="timeline-heading">굳어 있던 어깨와 미세한 신경 긴장의 완화</h3>
-                  <p class="timeline-copy">
-                    카페인과 모니터 피로로 팽팽했던 저녁 몸 상태가 한결 부드럽게 풀리며 침대에 눕는 시간이 편안해집니다.
-                  </p>
-                </div>
-              </article>
-
-              <article class="timeline-card">
-                <div class="timeline-day">Night 07</div>
-                <div>
-                  <h3 class="timeline-heading">자다 깨는 횟수가 줄어드는 깊은 휴식 리듬</h3>
-                  <p class="timeline-copy">
-                    야간 갈증이나 당 스파이크 없이 아침 알람이 울리기 전까지 끊기지 않는 차분한 밤의 흐름을 경험합니다.
-                  </p>
-                </div>
-              </article>
-
-              <article class="timeline-card">
-                <div class="timeline-day">Night 14</div>
-                <div>
-                  <h3 class="timeline-heading">개운한 기상 컨디션과 가벼운 아침 바디 밸런스</h3>
-                  <p class="timeline-copy">
-                    1박스(14포) 루틴이 끝날 무렵, 무겁게 가라앉던 오전 피로감이 정돈되어 자연스럽게 3박스 루틴으로 이어집니다.
-                  </p>
-                </div>
-              </article>
+            <div class="mechanism-steps">
+              <div class="mech-step">
+                <div class="mech-num">Step 01</div>
+                <div class="mech-title">인지질 이중 캡슐</div>
+                <div class="mech-desc">미네랄 특유의 비린 맛과 위산 반응을 원천 보호</div>
+              </div>
+              <div class="mech-step">
+                <div class="mech-num">Step 02</div>
+                <div class="mech-title">붕해 시간 단축</div>
+                <div class="mech-desc">고체 정제와 달리 섭취 즉시 부드럽게 분산</div>
+              </div>
+              <div class="mech-step">
+                <div class="mech-num">Step 03</div>
+                <div class="mech-title">세포막 친화 흡수</div>
+                <div class="mech-desc">장내 삼투압 자극을 줄여 다음 날 아침까지 편안함</div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- PERSUASION SECTION 4: Safety & Manufacturing Certifications -->
-      <section class="funnel-section" id="certification-section">
-        <div class="container">
-          <div class="section-header centered">
-            <span class="section-kicker">04 · CLEAN &amp; CERTIFIED</span>
-            <h2 class="section-title">매일 밤 마시는 것이기에 타협하지 않은 안전 기준</h2>
-            <p class="section-lead">
-              원료 입고부터 액상 충진·살균까지 전 공정을 국내 우수 제조시설에서 엄격하게 검증합니다.
+            <p class="footnote-disclaimer">
+              * 상기 수치는 원료사 제형별 용출·투과 실험 참고 데이터이며 개인의 소화 환경에 따라 차이가 있을 수 있습니다. (질병의 예방 및 치료를 위한 의약품이 아님)
             </p>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="cert-grid">
-            <div class="cert-card">
-              <div class="cert-seal">HACCP</div>
-              <div>
-                <h3 class="cert-title">식약처 HACCP 안전관리인증</h3>
-                <p class="cert-desc">위해요소 중점관리기준을 통과한 액상 스틱 전용 클린 라인에서 위생적으로 생산합니다.</p>
+    <!-- 6. Formulation Lineup Showcase (Brand Catalog without E-commerce Clutter) -->
+    <section class="funnel-section" id="lineup-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Formulation Portfolio</span>
+          <h2 class="section-title">라이프스타일과 제휴 목적에 맞춘<br />뉘이랩 4가지 슬립 &amp; 릴렉스 라인업</h2>
+          <p class="section-lead">
+            개인 무료 샘플 체험부터 클리닉·약국 전용 디스플레이 패키지, 기업 VIP 웰니스 기프트까지
+            각 배합의 원료 스펙을 확인하고 맞춤 샘플·제휴 상담을 신청하실 수 있습니다.
+          </p>
+        </div>
+
+        <div class="lineup-grid" id="lineup-grid-container">
+          <!-- Rendered cleanly via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Competitor Comparison Table -->
+    <section class="funnel-section bg-stone">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-kicker">Formulation Standard</span>
+          <h2 class="section-title">일반 나이트 음료·정제 영양제와 무엇이 다른가요?</h2>
+          <p class="section-lead">성분 함량부터 당류 설계까지 5가지 핵심 기준으로 투명하게 비교했습니다.</p>
+        </div>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">비교 항목</th>
+                <th scope="col" class="col-nuit">NUIT LAB 나이트 샷</th>
+                <th scope="col">일반 정제 마그네슘</th>
+                <th scope="col">시중 타트체리 주스</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>핵심 미네랄 공법</td>
+                <td class="col-nuit">인지질 리포좀 액상 (150mg)</td>
+                <td class="comp-muted">산화마그네슘 고체 타정</td>
+                <td class="comp-muted">마그네슘 미함유 (단순 과채주스)</td>
+              </tr>
+              <tr>
+                <td>부원료 시너지 배합</td>
+                <td class="col-nuit">미시간 몽모랑시 2,400mg + L-테아닌 + GABA</td>
+                <td class="comp-muted">부형제(이산화규소·스테아린산) 포함</td>
+                <td class="comp-muted">타트체리 단일 농축액 위주</td>
+              </tr>
+              <tr>
+                <td>섭취 편의성</td>
+                <td class="col-nuit">물 없이 3초 만에 마시는 20mL 스틱</td>
+                <td class="comp-muted">큰 알약 2~3정 물과 함께 복용</td>
+                <td class="comp-muted">개봉 후 냉장 보관 및 계량 필요</td>
+              </tr>
+              <tr>
+                <td>당류 및 열량</td>
+                <td class="col-nuit">당류 0g · 저열량 15kcal</td>
+                <td class="comp-muted">열량 낮으나 금속성 이물감 존재</td>
+                <td class="comp-muted">1잔당 당류 12~24g (야간 혈당 부담)</td>
+              </tr>
+              <tr>
+                <td>위장 편안함</td>
+                <td class="col-nuit">빈속 섭취 시에도 속쓰림 부담 최소화</td>
+                <td class="comp-muted">위산 소모 및 장 자극 빈번</td>
+                <td class="comp-muted">고농도 산도로 인한 늦은 밤 속쓰림 주의</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 14-Night Ritual & Active Milligram Breakdown -->
+    <section class="funnel-section bg-charcoal" id="routine-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">14-Night Recovery Protocol</span>
+          <h2 class="section-title">하루 한 포, 잠들기 30분 전<br />2주간 차곡차곡 쌓이는 밤의 밀도</h2>
+          <p class="section-lead">
+            일시적인 졸음을 유도하는 성분이 아닙니다. 낮 동안 소모된 신경·근육의 긴장을 부드럽게 이완해
+            스스로 깊어지는 밤의 리듬을 되찾아 줍니다.
+          </p>
+        </div>
+
+        <div class="synergy-layout">
+          <div class="ritual-editorial-card">
+            <img
+              src="assets/images/nuit-night-ritual.jpg"
+              alt="취침 30분 전 조명 아래 준비된 뉘이랩 나이트 샷 앰플"
+              loading="lazy"
+            />
+            <div class="ingredient-spec-list" aria-label="1포당 핵심 원료 배합량">
+              <div class="ing-row">
+                <div>
+                  <span class="ing-name">리포좀 마그네슘 글리시네이트 블렌드</span>
+                  <span class="ing-origin">비유전자변형 해바라기 레시틴 인지질 캡슐화</span>
+                </div>
+                <span class="ing-dose">순수 Mg 150mg</span>
+              </div>
+              <div class="ing-row">
+                <div>
+                  <span class="ing-name">미국 미시간산 몽모랑시 타트체리</span>
+                  <span class="ing-origin">저온 효소 추출 공법 · 식물성 멜라토닌·안토시아닌 함유</span>
+                </div>
+                <span class="ing-dose">원물 환산 2,400mg</span>
+              </div>
+              <div class="ing-row">
+                <div>
+                  <span class="ing-name">발효 미강 유래 GABA &amp; L-테아닌</span>
+                  <span class="ing-origin">유산균 발효 가바 + 녹차 유래 아미노산 밸런스</span>
+                </div>
+                <span class="ing-dose">220mg 시너지</span>
+              </div>
+              <div class="ing-row">
+                <div>
+                  <span class="ing-name">비타민 B6 (피리독살 인산염 활성형)</span>
+                  <span class="ing-origin">마그네슘 세포 내 이동 및 신경 전달 대사 보조</span>
+                </div>
+                <span class="ing-dose">일일 권장량 100%</span>
               </div>
             </div>
+          </div>
 
-            <div class="cert-card">
-              <div class="cert-seal">GMP</div>
+          <div class="timeline-list">
+            <article class="timeline-card">
+              <div class="timeline-day">Night 01</div>
               <div>
-                <h3 class="cert-title">우수제조기준 GMP 파트너사</h3>
-                <p class="cert-desc">원료 함량 균일도와 미생물 안전성 검사를 매 배치(Batch)마다 전수 실시합니다.</p>
+                <h3 class="timeline-heading">거부감 없는 첫 모금과 편안한 위장</h3>
+                <p class="timeline-copy">
+                  상큼하고 진한 타트체리 풍미로 정제 알약을 삼킬 때의 답답함이 사라집니다.
+                  양치 전 가볍게 한 포를 비우거나 미온수·탄산수에 타서 나이트 티로 즐기세요.
+                </p>
               </div>
-            </div>
+            </article>
 
-            <div class="cert-card">
-              <div class="cert-seal">6 FREE</div>
+            <article class="timeline-card">
+              <div class="timeline-day">Night 04</div>
               <div>
-                <h3 class="cert-title">6無 화학부형제 원칙</h3>
-                <p class="cert-desc">이산화규소, 스테아린산마그네슘, 합성착색료, 합성보존료, 설탕, 액상과당을 일절 배제했습니다.</p>
+                <h3 class="timeline-heading">잠자리 들기 전 팽팽했던 긴장 완화</h3>
+                <p class="timeline-copy">
+                  모니터와 스마트폰으로 지친 눈가·어깨 주변의 미세한 떨림과 뻣뻣함이 한결 차분해지며,
+                  침대에 누워 뒤척이는 시간이 자연스럽게 정돈됩니다.
+                </p>
               </div>
-            </div>
+            </article>
 
-            <div class="cert-card">
-              <div class="cert-seal">ZERO</div>
+            <article class="timeline-card">
+              <div class="timeline-day">Night 07</div>
               <div>
-                <h3 class="cert-title">잔류농약 320종 불검출</h3>
-                <p class="cert-desc">공인 시험기관을 통해 중금속 4종 및 잔류농약 320종 불검출 성적서를 확인 완료했습니다.</p>
+                <h3 class="timeline-heading">새벽 중간 각성 감소와 또렷한 기상</h3>
+                <p class="timeline-copy">
+                  자다 깨기를 반복하던 얕은 밤 대신 끊김 없이 이어지는 휴식을 경험하기 시작합니다.
+                  일어난 직후 머리가 무겁지 않고 개운한 아침 컨디션을 마주합니다.
+                </p>
               </div>
-            </div>
+            </article>
+
+            <article class="timeline-card">
+              <div class="timeline-day">Night 14</div>
+              <div>
+                <h3 class="timeline-heading">몸이 먼저 기억하는 안정된 나이트 리추얼</h3>
+                <p class="timeline-copy">
+                  2주간의 미네랄 밸런스 충전으로 야근·출장·운동 후에도 흔들리지 않는 저녁 회복 루틴이 완성됩니다.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- VERIFIED PHOTO REVIEWS (Interactive Filter Tabs & Sort) -->
-      <section class="funnel-section bg-stone" id="reviews-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-kicker">05 · VERIFIED REVIEWS</span>
-            <h2 class="section-title">실구매 고객 1,428명이 증명하는 밤의 변화</h2>
-            <p class="section-lead">광고성 체험단 없이 실제 결제 완료 회원만 작성할 수 있는 정품 인증 리뷰입니다.</p>
-          </div>
-
-          <div class="review-summary-banner">
-            <div class="score-big-box">
-              <div class="score-num">4.9</div>
-              <div class="score-stars" aria-label="5점 만점에 4.9점">★★★★★</div>
-              <div class="score-count">총 1,428건 실구매 만족도</div>
-            </div>
-
-            <div class="satisfaction-bars">
-              <div>
-                <div class="sat-item-label">아침 컨디션 만족도</div>
-                <div class="sat-item-title">“자고 일어났을 때 개운해요”</div>
-                <div class="sat-item-pct">96%</div>
-              </div>
-              <div>
-                <div class="sat-item-label">섭취감 &amp; 맛 만족도</div>
-                <div class="sat-item-title">“달지 않고 깔끔해서 손이 가요”</div>
-                <div class="sat-item-pct">98%</div>
-              </div>
-              <div>
-                <div class="sat-item-label">3박스 이상 전환율</div>
-                <div class="sat-item-title">“1박스 체험 후 재구매했어요”</div>
-                <div class="sat-item-pct">68.4%</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-filter-bar">
-            <div class="review-tabs" role="tablist" aria-label="리뷰 주제 필터">
-              <button type="button" class="review-tab-btn active" data-filter="all" id="review-tab-all">
-                전체보기 (8)
-              </button>
-              <button type="button" class="review-tab-btn" data-filter="repurchase" id="review-tab-repurchase">
-                재구매 인증 (3)
-              </button>
-              <button type="button" class="review-tab-btn" data-filter="sleep" id="review-tab-sleep">
-                수면·컨디션 (3)
-              </button>
-              <button type="button" class="review-tab-btn" data-filter="taste" id="review-tab-taste">
-                맛·목넘김 (2)
-              </button>
-            </div>
-
-            <label for="review-sort" class="sr-only">리뷰 정렬</label>
-            <select id="review-sort" class="review-sort-select">
-              <option value="best">베스트 추천순</option>
-              <option value="recent">최신 등록순</option>
-            </select>
-          </div>
-
-          <div class="review-cards-grid" id="review-cards-container">
-            <!-- Populated dynamically via app.js -->
-          </div>
+    <!-- 9. Safety & Manufacturing Certifications -->
+    <section class="funnel-section" id="cert-section">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-kicker">Safety &amp; Quality Assurance</span>
+          <h2 class="section-title">매일 밤 몸에 닿는 한 포이기에<br />타협 없는 4중 안전 기준을 통과합니다</h2>
         </div>
-      </section>
 
-      <!-- FAQ ACCORDION SECTION -->
-      <section class="funnel-section" id="faq-section">
-        <div class="container">
-          <div class="section-header centered">
-            <span class="section-kicker">06 · FREQUENTLY ASKED QUESTIONS</span>
-            <h2 class="section-title">자주 묻는 질문</h2>
-          </div>
-
-          <div class="faq-container" id="faq-list">
-            <div class="faq-item open">
-              <button type="button" class="faq-question-btn" aria-expanded="true" id="faq-btn-1">
-                <span><span class="faq-q-prefix">Q.</span>언제, 어떻게 섭취하는 것이 가장 좋나요?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">
-                하루 1포, 저녁 식후 또는 잠들기 30분~1시간 전에 원액 그대로 섭취하시거나 기호에 따라 시원한 탄산수·미온수 100ml에 희석해 드셔도 좋습니다. 당류 0g(15kcal) 무설탕 설계로 저녁 늦게 드셔도 부담이 적습니다.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question-btn" aria-expanded="false" id="faq-btn-2">
-                <span><span class="faq-q-prefix">Q.</span>수면제나 합성 멜라토닌처럼 내성이 생기지 않나요?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">
-                뉘이랩 나이트 샷은 의약품이나 합성 호르몬제가 아닌 식품·영양 배합으로, 인위적으로 졸음을 유발하거나 내성을 만들지 않습니다. 신경·근육 이완을 돕는 리포좀 마그네슘과 자연 유래 몽모랑시 타트체리를 통해 매일 밤 편안한 루틴을 형성하도록 돕습니다.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question-btn" aria-expanded="false" id="faq-btn-3">
-                <span><span class="faq-q-prefix">Q.</span>평소 마그네슘을 먹으면 배가 아프거나 설사를 했는데 괜찮을까요?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">
-                일반 산화마그네슘은 흡수되지 못한 잔여 미네랄이 장으로 수분을 끌어당겨 묽은 변을 유발할 수 있습니다. 뉘이랩은 인지질 이중층으로 감싼 리포좀 액상 마그네슘을 사용하여 공복이나 야간에도 위장 자극을 최소화했습니다.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question-btn" aria-expanded="false" id="faq-btn-4">
-                <span><span class="faq-q-prefix">Q.</span>정기구독 추가 10% 할인은 약정 기간이나 위약금이 있나요?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">
-                전혀 없습니다. 첫 결제부터 즉시 추가 10% 할인이 적용되며, 1회차 수령 후에도 마이페이지에서 버튼 한 번으로 배송 주기를 미루거나 위약금 없이 즉시 해지하실 수 있습니다.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question-btn" aria-expanded="false" id="faq-btn-5">
-                <span><span class="faq-q-prefix">Q.</span>임산부나 수유부가 섭취해도 되나요?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">
-                합성보존료와 카페인이 전혀 들어있지 않은 안전한 원료로 제조되었으나, 임신 및 수유기는 시기별로 권장 미네랄 섭취량이 다를 수 있으므로 전성분표를 지참하시어 담당 전문의와 상담 후 섭취하시는 것을 권장드립니다.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ===================================================================
-         VIEW 4: CLUB NUIT SUBSCRIPTION (정기구독 멤버십 전용관)
-         =================================================================== -->
-    <div class="mall-view" id="view-subscription">
-      <section class="subpage-hero-banner">
-        <div class="container">
-          <span class="subpage-kicker">CLUB NUIT MEMBERSHIP</span>
-          <h1 class="subpage-title">정기구독 전용 혜택관</h1>
-          <p class="subpage-desc">번들 할인에 추가 10% 할인을 더하고, 회차별 스페셜 본품 기프트까지 누리는 정기 루틴 서비스입니다.</p>
-        </div>
-      </section>
-
-      <section class="store-section">
-        <div class="container">
-          <div class="sub-simulator-box">
+        <div class="cert-grid">
+          <div class="cert-card">
             <div>
-              <span class="section-kicker">SAVINGS SIMULATOR</span>
-              <h2 class="store-section-title">구독 구성을 선택하고 절약 금액을 확인하세요</h2>
-              <p class="store-section-sub">모든 정기구독 상품은 금액 상관없이 전 회차 무료배송으로 발송됩니다.</p>
+              <div class="cert-seal">HACCP</div>
+              <h3 class="cert-title">식약처 해썹 인증 시설</h3>
+              <p class="cert-desc">원료 입고부터 액상 충진, 고온 살균까지 전 공정 자동화 위생 관리 라인에서 생산합니다.</p>
+            </div>
+          </div>
 
-              <div class="sim-tier-btns" id="sub-sim-buttons">
-                <button type="button" class="sim-tier-btn" data-sim-tier="1box">
-                  <span>1박스 (2주 주기로 배송 · 14포)</span>
-                  <span>월 33,210원 (21%↓)</span>
-                </button>
-                <button type="button" class="sim-tier-btn active" data-sim-tier="3box">
-                  <span>3박스 + 4포 증정 [BEST · 6주 주기]</span>
-                  <span>회당 76,950원 (39%↓)</span>
-                </button>
-                <button type="button" class="sim-tier-btn" data-sim-tier="6box">
-                  <span>6박스 집중 루틴 (12주 주기 · 84포)</span>
-                  <span>회당 124,740원 (51%↓)</span>
-                </button>
+          <div class="cert-card">
+            <div>
+              <div class="cert-seal">GMP</div>
+              <h3 class="cert-title">우수제조관리 기준 준수</h3>
+              <p class="cert-desc">배치(Batch)별 마그네슘 함량 균일도 시험과 미생물 안전성 검사를 매 회차 실시합니다.</p>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div>
+              <div class="cert-seal">6 FREE</div>
+              <h3 class="cert-title">6종 화학 부형제 무첨가</h3>
+              <p class="cert-desc">설탕, 합성착색료, 보존료(안식향산나트륨), 카페인, 이산화규소, 스테아린산마그네슘 ZERO.</p>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div>
+              <div class="cert-seal">320종</div>
+              <h3 class="cert-title">잔류농약·중금속 불검출</h3>
+              <p class="cert-desc">공인 시험기관을 통해 납·카드뮴·수은 중금속 4종 및 잔류농약 320종 불검출 성적서를 보유하고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Tester & Partner Voice (Filterable Reviews) -->
+    <section class="funnel-section bg-stone" id="voice-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Verified Tester &amp; Partner Reports</span>
+          <h2 class="section-title">먼저 경험한 1,840명의 테스터와<br />제휴 클리닉이 기록한 실제 변화</h2>
+        </div>
+
+        <div class="review-summary-banner">
+          <div class="score-big-box">
+            <div class="score-num">4.9</div>
+            <div class="score-stars" aria-label="별점 5점 만점에 4.9점">★★★★★</div>
+            <div class="score-count">누적 실사용자 리포트 1,842건</div>
+          </div>
+
+          <div class="satisfaction-bars">
+            <div>
+              <div class="sat-item-label">섭취 후 속 편안함</div>
+              <div class="sat-item-title">빈속에도 부담 없음</div>
+              <div class="sat-item-pct">97.8%</div>
+            </div>
+            <div>
+              <div class="sat-item-label">기상 직후 개운함</div>
+              <div class="sat-item-title">아침 컨디션 만족</div>
+              <div class="sat-item-pct">94.2%</div>
+            </div>
+            <div>
+              <div class="sat-item-label">맛 · 휴대 편의성</div>
+              <div class="sat-item-title">본품 전환 희망률</div>
+              <div class="sat-item-pct">92.6%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-filter-bar">
+          <div class="review-tabs" role="tablist" aria-label="후기 주제 필터">
+            <button type="button" class="review-tab-btn active" data-filter="all">전체 리포트 (6)</button>
+            <button type="button" class="review-tab-btn" data-filter="sleep">수면·아침 컨디션</button>
+            <button type="button" class="review-tab-btn" data-filter="routine">지속 섭취·위장 편안함</button>
+            <button type="button" class="review-tab-btn" data-filter="taste">맛·탄산수 레시피</button>
+          </div>
+
+          <label class="sr-only" for="review-sort">정렬 기준</label>
+          <select id="review-sort" class="review-sort-select">
+            <option value="helpful">도움순 정렬</option>
+            <option value="recent">최신 등록순</option>
+          </select>
+        </div>
+
+        <div class="review-cards-grid" id="review-cards-container">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FAQ Accordion -->
+    <section class="funnel-section" id="faq-section">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-kicker">Frequently Asked Questions</span>
+          <h2 class="section-title">자주 묻는 질문</h2>
+          <p class="section-lead">섭취 방법부터 무료 샘플키트 발송, B2B 약국·클리닉 입점 절차까지 안내해 드립니다.</p>
+        </div>
+
+        <div class="faq-container" id="faq-accordion">
+          <div class="faq-item open">
+            <button type="button" class="faq-question-btn" aria-expanded="true">
+              <span><span class="faq-q-prefix">Q1.</span>무료 샘플키트 &amp; 얼리버드 신청 시 어떤 혜택을 받게 되나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              신청해 주신 연락처로 <strong>뉘이랩 나이트 샷 오리지널 2포 체험 키트 발송 안내 알림톡</strong>과 함께,
+              본품 프리오더 오픈 시에만 사용 가능한 <strong>30% 시크릿 얼리버드 혜택 코드</strong>를 우선 발송해 드립니다. 별도의 자동 결제나 정기구독 강제 전환이 전혀 없으니 안심하고 경험해 보세요.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span><span class="faq-q-prefix">Q2.</span>언제, 어떻게 섭취하는 것이 가장 효과적인가요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              하루 일과를 마치고 <strong>잠자리에 들기 30분~1시간 전 1포(20mL)</strong>를 원액 그대로 섭취하시거나,
+              따뜻한 미온수 100mL 또는 시원한 탄산수에 희석해 나이트 릴렉스 음료로 드시는 것을 권장합니다. 인지질 리포좀 공법이 적용되어 저녁 식후나 빈속에도 편안하게 섭취하실 수 있습니다.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span><span class="faq-q-prefix">Q3.</span>수면유도제처럼 다음 날 아침 멍하거나 내성이 생기지 않나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              뉘이랩 나이트 샷은 중추신경을 강제로 억제하는 수면제·의약품이 아닌, <strong>마그네슘과 식물 유래 타트체리·테아닌을 배합한 식품 포뮬러</strong>입니다.
+              내성이나 낮 시간대 졸음 유발 걱정 없이 매일 저녁 꾸준히 섭취하실 수 있습니다.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span><span class="faq-q-prefix">Q4.</span>임산부나 기존 복용 중인 영양제와 함께 먹어도 괜찮을까요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              설탕·카페인·합성보존료를 배제한 안전한 원료로 설계되어 비타민D, 오메가3, 유산균 등 일상 영양제와 병행 섭취가 가능합니다.
+              다만 마그네슘이 이미 고함량 포함된 종합비타민을 드시거나 임신·수유기인 경우 담당 전문의와 일일 총 마그네슘 섭취량(315~350mg 내외)을 상의하시는 것을 권장합니다.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span><span class="faq-q-prefix">Q5.</span>약국·클리닉 입점 및 기업 VIP 기프트 대량 구매 최소 수량(MOQ)은 어떻게 되나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              약국 및 수면·웰니스 클리닉 전용 카운터 디스플레이 세트는 <strong>초도 30박스부터 입점 계약</strong>이 가능하며,
+              기업 임직원 웰니스 키트·호텔 어메니티·웨딩 답례품의 경우 <strong>50세트 이상부터 커스텀 메시지 슬리브 제작 및 B2B 공급가</strong>가 적용됩니다. 하단 [B2B 입점·제휴 문의] 탭으로 남겨주시면 전담 매니저가 24시간 내 제안서를 회신드립니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. High-Converting Dual Lead Capture & B2B Inquiry Section -->
+    <section class="conversion-section" id="conversion-section">
+      <div class="container">
+        <div class="conversion-grid">
+          <div>
+            <span class="section-kicker">Direct Experience &amp; Partnership</span>
+            <h2 class="section-title">광고 문구 대신 직접 마셔보고 결정하세요.<br />샘플키트 신청 &amp; B2B 제휴 접수</h2>
+            <p class="section-lead">
+              첫 경험의 문턱을 낮추기 위해 매일 선착순 100분께 2일분 체험 샘플키트 발송 혜택과
+              프리오더 30% 시크릿 쿠폰 알림을 보내드립니다. 약국·클리닉·기업 담당자분께는 전용 샘플 박스와 공급가 제안서를 즉시 전달해 드립니다.
+            </p>
+
+            <div class="quota-status-card" aria-live="polite">
+              <div class="quota-head">
+                <span>오늘 무료 샘플키트 잔여 배정 수량</span>
+                <strong id="quota-remaining-text">잔여 17 / 100세트 (83% 마감)</strong>
+              </div>
+              <div class="quota-bar-track">
+                <div class="quota-bar-fill" id="quota-bar-fill" style="width: 83%"></div>
               </div>
             </div>
 
-            <div class="sim-result-panel">
-              <div style="font-size: 13px; color: #F0B4C0; font-weight: 700" id="sim-result-title">
-                3박스 + 본품 4포 증정 정기구독 시
-              </div>
-              <div style="font-size: 34px; font-weight: 800; margin-top: 8px" id="sim-result-price">
-                회당 76,950원
-              </div>
-              <div style="font-size: 14px; color: var(--ink-on-dark-muted); margin-top: 4px" id="sim-result-saving">
-                정가 대비 회당 49,050원 절약 · 1포당 1,673원꼴
-              </div>
-              <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(250,248,245,0.14); font-size: 13.5px; color: var(--ink-on-dark-muted)">
-                ✓ 1회차부터 즉시 추가 10% 할인 및 무료배송<br />
-                ✓ 2회차 캐모마일 릴렉스 앰플 2포 동봉 증정<br />
-                ✓ 3회차 트라이얼 5포 &amp; 리넨 파우치 본품 증정
-              </div>
+            <ul class="conversion-perks-list">
+              <li>✓ <strong>개인 고객 혜택</strong> : 나이트 샷 2포 샘플키트 안내 + 3차 프리오더 30% 시크릿 코드 즉시 발송</li>
+              <li>✓ <strong>클리닉 · 약국 특전</strong> : 원장님·약사님 시음용 본품 1박스 무상 지원 및 POP 카운터 진열대 제공</li>
+              <li>✓ <strong>안심 개인정보 보호</strong> : 마케팅 스팸 전화 없이 신청하신 안내 알림톡 및 제휴 제안서 회신 목적으로만 사용됩니다.</li>
+            </ul>
+          </div>
+
+          <div class="lead-form-card">
+            <div class="form-mode-tabs" role="tablist" aria-label="신청 유형 선택">
               <button
                 type="button"
-                class="btn-hero-primary"
-                style="width: 100%; justify-content: center; margin-top: 20px"
-                id="sim-start-sub-btn"
+                class="form-mode-btn active"
+                id="tab-btn-b2c"
+                role="tab"
+                aria-selected="true"
+                aria-controls="form-panel-b2c"
+                data-form-tab="b2c"
               >
-                이 구성으로 정기구독 담기 →
+                개인 무료 샘플 · 얼리버드
+              </button>
+              <button
+                type="button"
+                class="form-mode-btn"
+                id="tab-btn-b2b"
+                role="tab"
+                aria-selected="false"
+                aria-controls="form-panel-b2b"
+                data-form-tab="b2b"
+              >
+                B2B 입점 · 대량납품 문의
               </button>
             </div>
+
+            <!-- Panel A: B2C Sample Kit & Early-Bird Lead Capture -->
+            <form id="form-panel-b2c" class="lead-form-panel active" role="tabpanel" aria-labelledby="tab-btn-b2c" novalidate>
+              <div class="form-row-grid">
+                <div class="form-field">
+                  <label class="form-label" for="b2c-name">성함<span class="req">*</span></label>
+                  <input type="text" id="b2c-name" class="form-input" placeholder="홍길동" autocomplete="name" required />
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="b2c-phone">휴대폰 번호 (알림톡 수신)<span class="req">*</span></label>
+                  <input type="tel" id="b2c-phone" class="form-input" placeholder="010-0000-0000" maxlength="13" autocomplete="tel" required />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <span class="form-label">현재 가장 해결하고 싶은 밤의 고민 (선택)</span>
+                <div class="concern-chips" id="b2c-concern-chips">
+                  <button type="button" class="concern-chip-btn selected" data-concern="잠들기까지 뒤척임 완화">잠들기까지 뒤척임 완화</button>
+                  <button type="button" class="concern-chip-btn" data-concern="새벽 중간 각성 · 얕은 잠">새벽 중간 각성 · 얕은 잠</button>
+                  <button type="button" class="concern-chip-btn" data-concern="정제 알약 속쓰림 · 목넘김 불편">정제 알약 속쓰림 · 목넘김 불편</button>
+                  <button type="button" class="concern-chip-btn" data-concern="야근 · 운동 후 저녁 근육 긴장">야근 · 운동 후 저녁 근육 긴장</button>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="b2c-product">관심 포뮬러 라인업<span class="req">*</span></label>
+                <select id="b2c-product" class="form-select">
+                  <option value="나이트 샷 오리지널 (리포좀 마그네슘 & 타트체리)">01. 나이트 샷 오리지널 (리포좀 마그네슘 &amp; 타트체리)</option>
+                  <option value="6주 리커버리 기프트 에디션 (3박스 구성)">02. 6주 리커버리 기프트 에디션 (3박스 구성)</option>
+                  <option value="L-테아닌 & 캐모마일 릴렉스 앰플">03. L-테아닌 &amp; 캐모마일 릴렉스 앰플</option>
+                  <option value="5-Night 리넨 트래블 스타터 키트">04. 5-Night 리넨 트래블 스타터 키트</option>
+                </select>
+              </div>
+
+              <label class="privacy-check-row" for="b2c-privacy">
+                <input type="checkbox" id="b2c-privacy" checked />
+                <span>[필수] 샘플키트 발송 안내 및 프리오더 혜택 알림톡 발송을 위한 개인정보 수집·이용에 동의합니다.</span>
+              </label>
+
+              <div class="form-error-msg" id="b2c-error-msg" role="alert"></div>
+
+              <button type="submit" class="btn-form-submit" id="b2c-submit-btn">
+                무료 샘플키트 &amp; 30% 얼리버드 혜택 신청하기
+              </button>
+            </form>
+
+            <!-- Panel B: B2B Pharmacy / Clinic / Corporate Partnership Form -->
+            <form id="form-panel-b2b" class="lead-form-panel" role="tabpanel" aria-labelledby="tab-btn-b2b" novalidate>
+              <div class="form-row-grid">
+                <div class="form-field">
+                  <label class="form-label" for="b2b-company">상호 · 기관 · 기업명<span class="req">*</span></label>
+                  <input type="text" id="b2b-company" class="form-input" placeholder="예: 성수 바른약국 / (주)웰니스랩" required />
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="b2b-manager">담당자 성함 · 직함<span class="req">*</span></label>
+                  <input type="text" id="b2b-manager" class="form-input" placeholder="예: 김서연 대표약사" required />
+                </div>
+              </div>
+
+              <div class="form-row-grid">
+                <div class="form-field">
+                  <label class="form-label" for="b2b-phone">연락처<span class="req">*</span></label>
+                  <input type="tel" id="b2b-phone" class="form-input" placeholder="010-0000-0000" maxlength="13" required />
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="b2b-email">제안서 수신 이메일<span class="req">*</span></label>
+                  <input type="email" id="b2b-email" class="form-input" placeholder="partner@company.co.kr" required />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="b2b-type">제휴 · 납품 희망 분야<span class="req">*</span></label>
+                <select id="b2b-type" class="form-select">
+                  <option value="약국 · 수면/웰니스 클리닉 공식 입점 (시음 본품 지원)">약국 · 수면/웰니스 클리닉 공식 입점 (시음 본품 지원)</option>
+                  <option value="기업 임직원 복지 · VIP 웰니스 기프트 대량 구매">기업 임직원 복지 · VIP 웰니스 기프트 대량 구매</option>
+                  <option value="호텔 · 에스테틱 · 리조트 웰컴 어메니티 제휴">호텔 · 에스테틱 · 리조트 웰컴 어메니티 제휴</option>
+                  <option value="브랜드 콜라보 · 인플루언서 프라이빗 캠페인">브랜드 콜라보 · 인플루언서 프라이빗 캠페인</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="b2b-message">예상 수량 및 문의 내용</label>
+                <textarea
+                  id="b2b-message"
+                  class="form-textarea"
+                  placeholder="희망하시는 라인업, 예상 초도 수량 또는 시음 샘플 수령 주소를 남겨주시면 맞춤형 공급가 제안서를 회신드립니다."
+                ></textarea>
+              </div>
+
+              <label class="privacy-check-row" for="b2b-privacy">
+                <input type="checkbox" id="b2b-privacy" checked />
+                <span>[필수] B2B 입점 상담 및 공급 제안서 발송을 위한 기업·담당자 정보 수집에 동의합니다.</span>
+              </label>
+
+              <div class="form-error-msg" id="b2b-error-msg" role="alert"></div>
+
+              <button type="submit" class="btn-form-submit" id="b2b-submit-btn">
+                B2B 시음 박스 &amp; 공급가 제안서 요청하기
+              </button>
+            </form>
           </div>
         </div>
-      </section>
-    </div>
-
-    <!-- ===================================================================
-         VIEW 5: BRAND STORY (브랜드 스토리 & 연구소 철학)
-         =================================================================== -->
-    <div class="mall-view" id="view-story">
-      <section class="subpage-hero-banner">
-        <div class="container">
-          <span class="subpage-kicker">PHILOSOPHY &amp; ARCHIVE</span>
-          <h1 class="subpage-title">밤 11시, 서울의 가장 고요한 포뮬러 연구소</h1>
-          <p class="subpage-desc">NUIT LAB(뉘이랩)은 프랑스어로 ‘밤(Nuit)’과 ‘연구소(Lab)’의 결합에서 출발했습니다.</p>
-        </div>
-      </section>
-
-      <section class="store-section" style="border-bottom: none">
-        <div class="container">
-          <div class="story-editorial-grid">
-            <div>
-              <span class="section-kicker">OUR ORIGIN</span>
-              <h2 class="section-title">왜 밤을 위한 영양제는 늘 삼키기 힘들고 속이 불편할까?</h2>
-              <p class="section-lead">
-                하루 종일 카페인과 디지털 화면에 노출된 현대인에게 가장 필요한 것은 거창한 수면제가 아니라, 잠들기 30분 전 신경과 근육의 긴장을 부드럽게 풀어주는 ‘안전하고 흡수가 빠른 한 포’였습니다.
-              </p>
-              <div class="story-quote-box">
-                “우리가 타협하지 않은 두 가지는 세포막 친화형 인지질 리포좀 공법과 설탕 0g의 순수 미시간산 몽모랑시 타트체리입니다.”
-              </div>
-              <div style="margin-top: 28px">
-                <button type="button" class="btn-hero-primary" data-open-pdp="3box">
-                  시그니처 나이트 샷 살펴보기 →
-                </button>
-              </div>
-            </div>
-
-            <div class="problem-visual-card">
-              <img src="assets/images/nuit-main-hero-banner.jpg" alt="뉘이랩 연구소 보타니컬 포뮬러 비주얼" />
-              <div class="problem-visual-caption">
-                <span><strong>NUIT LAB SEOUL</strong> · 성동구 연무장길 포뮬러 아카이브</span>
-                <span>Since 2024</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -1212,315 +778,120 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">NUIT LAB</div>
-          <p>서울특별시 성동구 연무장길 42, 뉘이랩 보타니컬 포뮬러 스튜디오</p>
-          <p>사업자등록번호: 214-88-02941 · 통신판매업신고: 제2026-서울성동-0842호</p>
+          <p>서울특별시 성동구 연무장길 42, 4층 뉘이랩 보태니컬 슬립 연구소</p>
+          <p>대표이사: 윤서하 · 사업자등록번호: 214-88-02941 · 식품유통전문판매업 제2025-서울성동-0842호</p>
         </div>
         <div>
-          <div class="footer-cs-phone">1644-8920</div>
-          <p>평일 10:00 – 17:00 (점심시간 12:30 – 13:30 · 주말/공휴일 휴무)</p>
-          <p>단체 선물 및 B2B 입점 문의: concierge@nuitlab.kr</p>
+          <div class="footer-cs-phone">02-6952-0418</div>
+          <p>포뮬러 연구소 상담실 · 평일 10:00 – 17:30 (점심 12:30 – 13:30 / 주말·공휴일 휴무)</p>
+          <p>B2B 입점·제휴 직통: partnership@nuitlab.co.kr</p>
         </div>
       </div>
       <div class="footer-legal">
-        ※ 본 사이트는 TimeSaver Studio의 건기식·이너뷰티 D2C 공식 자사몰 &amp; 고전환 세일즈 랜딩 포트폴리오 데모 스토어입니다. 메인 홈, 전제품 카테고리 스토어, 고전환 상품 상세페이지(번들 계산기·정기구독 토글), 5,000원 웰컴 쿠폰팩, 무료배송 업셀 장바구니까지 전 기능을 직접 체험하실 수 있습니다.
+        본 페이지는 브랜드 공식 홈페이지 및 DB 전환형 캠페인 랜딩페이지 제작 역량을 시연하기 위해 구축된 포트폴리오 데모입니다.
+        표시된 제품은 질병의 예방 및 치료를 위한 의약품이 아닌 일반식품(혼합음료/추출가공품) 컨셉 시안이며, 입력하신 상담 데이터는 외부 서버로 저장·전송되지 않습니다.
+        <br />© 2026 NUIT LAB SEOUL. Crafted by TimeSaver Web Studio.
       </div>
     </div>
   </footer>
 
-  <!-- =====================================================================
-       MOBILE IN-APP STICKY PURCHASE BAR (390px Funnel Entry)
-       ===================================================================== -->
-  <div class="mobile-sticky-cta" id="mobile-sticky-bar">
+  <!-- Mobile Fixed Bottom Dual CTA Bar (390px Optimized) -->
+  <div class="mobile-sticky-cta" role="region" aria-label="모바일 빠른 신청 바">
     <div class="mobile-sticky-inner">
-      <div class="mobile-sticky-price-info">
-        <span class="mobile-sticky-label" id="mobile-bar-option-name">3박스 + 4포 증정 [BEST]</span>
-        <span class="mobile-sticky-price">
-          <em id="mobile-bar-discount">32%</em>
-          <span id="mobile-bar-price">85,500원</span>
-        </span>
-      </div>
-      <button type="button" class="mobile-sticky-btn" id="mobile-open-sheet-btn">
-        옵션 선택 · 구매하기
-      </button>
+      <button type="button" class="mobile-b2b-btn" data-jump-form="b2b">B2B 제휴</button>
+      <button type="button" class="mobile-sample-btn" data-jump-form="b2c">무료 샘플키트 · 얼리버드 신청</button>
     </div>
   </div>
 
-  <!-- Shared Backdrop -->
-  <div class="overlay-backdrop" id="global-backdrop"></div>
+  <!-- Shared Modal Backdrop -->
+  <div class="overlay-backdrop" id="modal-backdrop" aria-hidden="true"></div>
 
-  <!-- =====================================================================
-       MOBILE OPTION BOTTOM SHEET
-       ===================================================================== -->
-  <aside class="mobile-bottom-sheet" id="mobile-option-sheet" aria-label="모바일 옵션 선택">
-    <div class="sheet-handle"></div>
-    <div class="sheet-header">
-      <h3 class="sheet-title">수량 및 정기혜택 선택</h3>
-      <button type="button" class="icon-close-btn" id="close-sheet-btn" aria-label="닫기">×</button>
+  <!-- Modal 1: Formulation Ingredient & Nutrition Briefing Modal -->
+  <div class="center-modal" id="spec-modal" role="dialog" aria-modal="true" aria-labelledby="spec-modal-title">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
+      <div>
+        <span class="lineup-code" id="spec-modal-code">FORMULATION 01</span>
+        <h3 id="spec-modal-title" style="font-size: 19px; font-weight: 700; margin-top: 2px;">나이트 샷 오리지널</h3>
+      </div>
+      <button type="button" class="icon-close-btn" data-close-modal aria-label="닫기">×</button>
     </div>
-
-    <div class="sheet-options-list" id="sheet-bundle-list">
-      <button type="button" class="sheet-option-btn" data-sheet-bundle="1box" id="sheet-opt-1box">
-        <div>
-          <strong>1박스 · 2주 체험 (14포)</strong>
-          <div style="font-size: 12px; color: var(--ink-muted)">입문용 · 배송비 3,000원</div>
-        </div>
-        <div style="text-align: right">
-          <span style="color: var(--accent-burgundy); font-weight: 800; font-size: 13px" data-sheet-pct="1box">12%↓</span>
-          <strong style="display: block; font-size: 15px" data-sheet-price="1box">36,900원</strong>
-        </div>
-      </button>
-
-      <button type="button" class="sheet-option-btn selected" data-sheet-bundle="3box" id="sheet-opt-3box">
-        <div>
-          <strong>3박스 + 본품 4포 증정 [BEST]</strong>
-          <div style="font-size: 12px; color: var(--accent-burgundy)">총 46포 · 무료배송</div>
-        </div>
-        <div style="text-align: right">
-          <span style="color: var(--accent-burgundy); font-weight: 800; font-size: 13px" data-sheet-pct="3box">32%↓</span>
-          <strong style="display: block; font-size: 15px" data-sheet-price="3box">85,500원</strong>
-        </div>
-      </button>
-
-      <button type="button" class="sheet-option-btn" data-sheet-bundle="6box" id="sheet-opt-6box">
-        <div>
-          <strong>6박스 집중 루틴 (84포)</strong>
-          <div style="font-size: 12px; color: var(--ink-muted)">12주 최저가 · 무료배송</div>
-        </div>
-        <div style="text-align: right">
-          <span style="color: var(--accent-burgundy); font-weight: 800; font-size: 13px" data-sheet-pct="6box">45%↓</span>
-          <strong style="display: block; font-size: 15px" data-sheet-price="6box">138,600원</strong>
-        </div>
-      </button>
-    </div>
-
-    <div class="subscription-toggle-card" id="sheet-sub-card" style="margin-top: 12px">
-      <div class="sub-toggle-row" id="sheet-sub-toggle">
-        <div class="sub-label-group">
-          <div class="sub-title">
-            <span>정기구독 추가 10% 더 할인</span>
-          </div>
-          <p class="sub-desc">언제든 위약금 없이 해지 가능</p>
-        </div>
-        <span class="switch-ui" aria-hidden="true"></span>
-      </div>
-    </div>
-
-    <div class="buybox-cta-group" style="margin-top: 16px">
-      <button type="button" class="btn-secondary-cart" id="sheet-add-cart-btn">장바구니</button>
-      <button type="button" class="btn-primary-buy" id="sheet-buy-now-btn">바로 구매하기</button>
-    </div>
-  </aside>
-
-  <!-- =====================================================================
-       SLIDE-OVER CART DRAWER (Free Shipping Gauge + Upsell + Coupon)
-       ===================================================================== -->
-  <aside class="cart-drawer" id="cart-drawer" aria-label="장바구니 드로어">
-    <div class="drawer-header">
-      <h3 class="drawer-title">장바구니</h3>
-      <button type="button" class="icon-close-btn" id="close-cart-btn" aria-label="장바구니 닫기">×</button>
-    </div>
-
-    <!-- Real-Time Free Shipping Progress Bar -->
-    <div class="shipping-gauge-box">
-      <p class="shipping-gauge-text" id="shipping-gauge-label">
-        무료배송까지 <strong>13,100원</strong> 남았어요!
-      </p>
-      <div class="shipping-gauge-track">
-        <div class="shipping-gauge-fill" id="shipping-gauge-bar" style="width: 0%"></div>
-      </div>
-    </div>
-
-    <div class="drawer-body">
-      <div id="cart-items-list">
-        <!-- Rendered dynamically -->
-      </div>
-
-      <!-- 1-Click Upsell Module -->
-      <div class="cart-upsell-card" id="cart-upsell-module">
-        <div class="upsell-kicker" id="upsell-kicker-text">함께 담으면 배송비 3,000원 즉시 무료!</div>
-        <div class="upsell-row">
-          <div>
-            <div class="upsell-info-title">나이트 샷 트라이얼 5포 파우치</div>
-            <div class="upsell-info-price"><s>16,500원</s> <strong>13,900원 (16%↓)</strong></div>
-          </div>
-          <button type="button" class="upsell-add-btn" id="cart-upsell-add-btn">
-            + 1클릭 추가
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="drawer-footer">
-      <div class="drawer-summary-row">
-        <span>상품 합계</span>
-        <span id="cart-subtotal-val">0원</span>
-      </div>
-      <div class="drawer-summary-row" id="cart-coupon-row" style="display: none; color: var(--accent-burgundy); font-weight: 700">
-        <span>신규 웰컴 쿠폰 할인</span>
-        <span id="cart-coupon-val">-5,000원</span>
-      </div>
-      <div class="drawer-summary-row">
-        <span>배송비 (50,000원 이상 무료)</span>
-        <span id="cart-shipping-val">0원</span>
-      </div>
-      <div class="drawer-summary-total">
-        <span>최종 결제 예정금액</span>
-        <strong id="cart-final-val">0원</strong>
-      </div>
-      <button type="button" class="drawer-checkout-btn" id="cart-checkout-btn">
-        주문하기 (당일출고 예약)
-      </button>
-    </div>
-  </aside>
-
-  <!-- =====================================================================
-       WELCOME 5,000 KRW COUPON ISSUED MODAL
-       ===================================================================== -->
-  <div class="center-modal" id="coupon-modal" role="dialog" aria-modal="true" aria-labelledby="coupon-modal-heading">
-    <div class="order-check-badge">✓</div>
-    <h3 class="order-modal-title" id="coupon-modal-heading">5,000원 웰컴 쿠폰이 발급되었습니다</h3>
-    <p class="order-modal-sub">장바구니 결제 시 자동으로 -5,000원 즉시 할인이 적용됩니다.</p>
-    <div class="order-receipt-box">
-      <div class="receipt-line">
-        <span>쿠폰명</span>
-        <strong>NUIT LAB 공식몰 첫 방문 웰컴 쿠폰</strong>
-      </div>
-      <div class="receipt-line">
-        <span>할인금액</span>
-        <strong style="color: var(--accent-burgundy)">5,000원 즉시 차감</strong>
-      </div>
-      <div class="receipt-line">
-        <span>적용조건</span>
-        <strong>전 품목 조건 없이 사용 가능 (중복 적용)</strong>
-      </div>
-    </div>
-    <button
-      type="button"
-      class="btn-primary-buy"
-      id="close-coupon-modal-btn"
-      style="width: 100%; margin-top: 16px; height: 48px"
-    >
-      쇼핑 계속하기
+    <p id="spec-modal-desc" style="font-size: 14px; color: var(--ink-secondary); line-height: 1.6;"></p>
+    <div class="modal-summary-box" id="spec-modal-rows"></div>
+    <button type="button" class="btn-form-submit" id="spec-modal-apply-btn" style="margin-top: 18px; height: 48px; font-size: 14.5px;">
+      이 라인업으로 샘플 · 제휴 상담 신청하기
     </button>
   </div>
 
-  <!-- =====================================================================
-       ORDER COMPLETE DEMO MODAL
-       ===================================================================== -->
-  <div class="center-modal" id="order-complete-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-heading">
-    <div class="order-check-badge">✓</div>
-    <h3 class="order-modal-title" id="order-modal-heading">데모 주문이 접수되었습니다</h3>
-    <p class="order-modal-sub">실제 결제되지 않은 포트폴리오 전환 퍼널 시연 화면입니다.</p>
-
-    <div class="order-receipt-box">
-      <div class="receipt-line">
-        <span>주문번호</span>
-        <strong id="receipt-order-no">NL-20261108-4812</strong>
-      </div>
-      <div class="receipt-line">
-        <span>주문구성</span>
-        <strong id="receipt-items-summary">3박스 + 본품 4포 증정</strong>
-      </div>
-      <div class="receipt-line">
-        <span>출고예정</span>
-        <strong>오늘 당일출고 (CJ대한통운)</strong>
-      </div>
-      <div class="receipt-line">
-        <span>최종 혜택 결제액</span>
-        <strong style="color: var(--accent-burgundy)" id="receipt-total-paid">85,500원</strong>
-      </div>
+  <!-- Modal 2: Lead Capture / B2B Submission Confirmation Modal -->
+  <div class="center-modal" id="lead-success-modal" role="dialog" aria-modal="true" aria-labelledby="lead-success-title">
+    <div style="display: flex; justify-content: flex-end;">
+      <button type="button" class="icon-close-btn" data-close-modal aria-label="닫기">×</button>
     </div>
-
-    <button
-      type="button"
-      class="btn-primary-buy"
-      id="close-order-modal-btn"
-      style="width: 100%; margin-top: 18px; height: 48px"
-    >
+    <div class="modal-check-badge">✓</div>
+    <h3 id="lead-success-title" style="text-align: center; font-size: 20px; font-weight: 700;">신청이 정상 접수되었습니다</h3>
+    <p id="lead-success-sub" style="text-align: center; font-size: 14px; color: var(--ink-secondary); margin-top: 6px; line-height: 1.55;"></p>
+    <div class="modal-summary-box" id="lead-success-summary"></div>
+    <button type="button" class="btn-form-submit" data-close-modal style="margin-top: 18px; height: 48px; font-size: 14.5px;">
       확인 완료
     </button>
   </div>
 
-  <!-- =====================================================================
-       REVIEW PHOTO LIGHTBOX MODAL
-       ===================================================================== -->
-  <div class="center-modal" id="review-lightbox-modal" role="dialog" aria-modal="true" aria-label="포토 리뷰 확대보기">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px">
-      <strong id="lightbox-author" style="font-size: 14px">실구매 포토 리뷰</strong>
-      <button type="button" class="icon-close-btn" id="close-lightbox-btn" aria-label="닫기">×</button>
+  <!-- Modal 3: Review Photo Lightbox Modal -->
+  <div class="center-modal" id="review-lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-reviewer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <strong id="lightbox-reviewer" style="font-size: 15px;">테스터 포토 리포트</strong>
+      <button type="button" class="icon-close-btn" data-close-modal aria-label="닫기">×</button>
     </div>
-    <img
-      src="assets/images/nuit-review-desk.jpg"
-      alt="실구매자 리뷰 확대 이미지"
-      id="lightbox-img"
-      style="width: 100%; border-radius: 8px; aspect-ratio: 1/1; object-fit: cover"
-    />
-    <p id="lightbox-text" style="margin-top: 12px; font-size: 13.5px; color: var(--ink-secondary)"></p>
+    <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border-hairline); margin-bottom: 12px;">
+      <img id="lightbox-img" src="assets/images/nuit-review-desk.jpg" alt="테스터 리뷰 확대 이미지" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" />
+    </div>
+    <p id="lightbox-caption" style="font-size: 13.5px; color: var(--ink-secondary); line-height: 1.55;"></p>
   </div>
 
-  <!-- =====================================================================
-       OUTSOURCING INQUIRY MODAL (TimeSaver Studio)
-       ===================================================================== -->
-  <div class="center-modal" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="inquiry-heading">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px">
-      <span class="ts-badge">TimeSaver D2C Studio</span>
-      <button type="button" class="icon-close-btn" id="close-inquiry-btn" aria-label="닫기">×</button>
+  <!-- Modal 4: TimeSaver Studio Outsourcing Inquiry Modal -->
+  <div class="center-modal" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="inquiry-modal-title">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <span class="ts-badge">TimeSaver Web Studio</span>
+      <button type="button" class="icon-close-btn" data-close-modal aria-label="닫기">×</button>
     </div>
-    <h3 class="order-modal-title" id="inquiry-heading" style="text-align: left">
-      매출과 객단가를 바꾸는 고전환 자사몰·랜딩 제작 문의
-    </h3>
-    <p class="order-modal-sub" style="text-align: left; margin-top: 8px">
-      통짜 JPG 이미지가 아닌 공식 브랜드 자사몰(홈·카테고리·정기구독) + 웹 시맨틱 설득 상세페이지 + 번들 계산기 &amp; 무료배송 업셀 장바구니까지 맞춤 구축해 드립니다.
+    <h3 id="inquiry-modal-title" style="font-size: 20px; font-weight: 700;">브랜드 홈페이지 &amp; DB 전환 랜딩페이지 제작 문의</h3>
+    <p style="font-size: 14px; color: var(--ink-secondary); margin-top: 8px; line-height: 1.6;">
+      카페24·아임웹 기본 템플릿으로는 담기 어려운 <strong>독보적인 브랜드 스토리텔링, 설득형 원페이지 퍼널, 실시간 고객 DB 수집·B2B 제휴 폼</strong>을 맞춤형으로 구축해 드립니다.
     </p>
-    <div class="order-receipt-box">
-      <div class="receipt-line">
-        <span>구축 범위</span>
-        <strong>브랜드 공식 자사몰 + 고전환 세일즈 상세페이지</strong>
+    <div class="modal-summary-box">
+      <div class="modal-summary-line">
+        <span>추천 업종</span>
+        <strong>건기식·뷰티 브랜드 / 병의원·약국 / B2B 솔루션</strong>
       </div>
-      <div class="receipt-line">
+      <div class="modal-summary-line">
         <span>핵심 포함</span>
-        <strong>번들할인 계산기 · 업셀 드로어 · 웰컴쿠폰 퍼널</strong>
+        <strong>기획 카피라이팅 + 반응형 웹 + DB 알림톡/노션 연동</strong>
       </div>
-      <div class="receipt-line">
-        <span>상담 채널</span>
-        <strong>Threads @TimeSaver DM 상시 오픈</strong>
+      <div class="modal-summary-line">
+        <span>제작 문의</span>
+        <strong>Threads @timesaver 프로필 링크 또는 DM</strong>
       </div>
     </div>
-    <button
-      type="button"
-      class="btn-primary-buy"
-      id="confirm-inquiry-btn"
-      style="width: 100%; margin-top: 16px; height: 48px"
-    >
+    <button type="button" class="btn-form-submit" data-close-modal style="margin-top: 18px; height: 48px; font-size: 14.5px;">
       포트폴리오 계속 둘러보기
     </button>
   </div>
 
-  <!-- =====================================================================
-       THREADS RECORDING CLEAN MODE & TIMESAVER PORTFOLIO BANNER
-       ===================================================================== -->
-  <div class="timesaver-banner" id="timesaver-portfolio-bar">
-    <span class="ts-badge">PORTFOLIO</span>
+  <!-- TimeSaver Portfolio Floating Bar & Threads Clean Mode Toggle -->
+  <aside class="timesaver-banner" id="timesaver-portfolio-bar" aria-label="포트폴리오 제작 안내">
+    <span class="ts-badge">Portfolio</span>
     <div class="ts-copy-wrap">
-      <span class="ts-title">TimeSaver · 고전환 건기식·이너뷰티 D2C 샘플몰</span>
-      <span class="ts-sub">스레드 영상 촬영/캡처 시 우측 [클린모드] 버튼(단축키 C)으로 배너를 숨길 수 있습니다.</span>
+      <span class="ts-title">TimeSaver 제작 · 브랜드 홈페이지 &amp; DB 랜딩페이지 시안</span>
+      <span class="ts-sub">쇼핑몰 템플릿 없이 설득 카피와 신청 DB 전환에 집중한 맞춤형 웹 퍼널 (단축키 C: 촬영 클린모드)</span>
     </div>
     <div class="ts-actions">
-      <button type="button" class="ts-inquiry-btn" id="open-inquiry-btn">외주 제작 문의</button>
-      <button type="button" class="ts-clean-btn" id="enable-clean-mode-btn" title="단축키 C">
-        스레드 클린모드
-      </button>
+      <button type="button" class="ts-inquiry-btn" id="open-ts-inquiry-btn">외주 제작 안내</button>
+      <button type="button" class="ts-clean-btn" id="enable-clean-mode-btn">촬영 클린모드</button>
     </div>
-  </div>
+  </aside>
 
-  <!-- Subtle Restore Pill shown ONLY when Clean Mode is active -->
-  <button
-    type="button"
-    class="clean-mode-restore-pill"
-    id="disable-clean-mode-btn"
-    title="TimeSaver 외주 배너 다시 표시 (단축키 C)"
-  >
-    <span>배너 표시</span>
+  <button type="button" class="clean-mode-restore-pill" id="disable-clean-mode-btn" title="클린모드 해제 (단축키 C)">
+    배너 표시
   </button>
 
   <script src="app.js"></script>
