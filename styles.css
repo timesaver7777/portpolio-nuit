@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NUIT LAB (뉘이랩) — High-Conversion D2C Sales Funnel Design System
+   NUIT LAB (뉘이랩) — Official D2C Brand Mall & High-Conversion PDP System
    Palette: Warm Ivory (#FAF8F5) · Botanical Charcoal (#181A18) · Tart Cherry (#8E2438)
    Zero AI Clichés: No purple dark themes, no neon glows, no colored left-borders
    ========================================================================== */
@@ -71,6 +71,8 @@ body {
   line-height: 1.6;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -132,8 +134,29 @@ ol {
   border: 0;
 }
 
+/* Multi-View Switching */
+.mall-view {
+  display: none;
+  animation: fadeInView 240ms ease;
+}
+
+.mall-view.active-view {
+  display: block;
+}
+
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================================================
-   1. Top Dispatch Announcement Bar & Sticky Header
+   1. Top Dispatch Announcement Bar & Sticky Official Mall Header (GNB)
    ========================================================================== */
 .announcement-bar {
   background-color: var(--bg-charcoal);
@@ -174,7 +197,7 @@ ol {
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(250, 248, 245, 0.94);
+  background: rgba(250, 248, 245, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-hairline);
@@ -183,7 +206,7 @@ ol {
 .header-inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  height: 64px;
+  height: 66px;
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -195,11 +218,12 @@ ol {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  cursor: pointer;
 }
 
 .brand-wordmark {
   font-family: var(--font-serif);
-  font-size: 25px;
+  font-size: 26px;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--ink-primary);
@@ -215,26 +239,78 @@ ol {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
 }
 
-.header-nav a {
-  font-size: 14px;
-  font-weight: 500;
+.gnb-tab-btn {
+  font-size: 14.5px;
+  font-weight: 600;
   color: var(--ink-secondary);
   transition: color var(--transition-fast);
   position: relative;
-  padding: 4px 0;
+  padding: 6px 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.header-nav a:hover {
+.gnb-tab-btn:hover {
+  color: var(--ink-primary);
+}
+
+.gnb-tab-btn.active {
   color: var(--accent-burgundy);
+  font-weight: 700;
+}
+
+.gnb-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -19px;
+  height: 2px;
+  background: var(--accent-burgundy);
+}
+
+.gnb-hot-dot {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 99px;
+  background: var(--accent-burgundy-soft);
+  color: var(--accent-burgundy);
+  border: 1px solid var(--accent-burgundy-border);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+}
+
+.coupon-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 11px;
+  border: 1px solid var(--accent-burgundy-border);
+  border-radius: var(--radius-sm);
+  background: var(--accent-burgundy-soft);
+  color: var(--accent-burgundy);
+  font-size: 12.5px;
+  font-weight: 700;
+  transition: background-color var(--transition-fast);
+}
+
+.coupon-trigger-btn:hover {
+  background: #F2DDE1;
+}
+
+.coupon-trigger-btn.claimed {
+  background: var(--success-soft);
+  border-color: #B7D4C0;
+  color: var(--success-olive);
 }
 
 .cart-trigger-btn {
@@ -269,8 +345,715 @@ ol {
   justify-content: center;
 }
 
+/* Mobile Secondary GNB Bar (Visible on Mobile/Tablet so Mall Navigation is always 1-click) */
+.mobile-gnb-bar {
+  display: none;
+  border-top: 1px solid var(--border-hairline);
+  background: var(--bg-ivory);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.mobile-gnb-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-gnb-inner {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 4px;
+  min-width: max-content;
+}
+
+.mobile-gnb-btn {
+  padding: 10px 11px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.mobile-gnb-btn.active {
+  color: var(--accent-burgundy);
+  border-bottom-color: var(--accent-burgundy);
+  font-weight: 700;
+}
+
 /* ==========================================================================
-   2. First-Fold Buy Box (Gallery + Conversion Engine)
+   2. OFFICIAL MALL HOME VIEW (Storefront)
+   ========================================================================== */
+.home-hero-section {
+  padding: 36px 0 64px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.home-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-burgundy);
+  margin-bottom: 14px;
+}
+
+.home-hero-title {
+  font-size: 40px;
+  line-height: 1.24;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+}
+
+.home-hero-desc {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+}
+
+.home-hero-metrics {
+  margin-top: 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hero-metric-val {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink-primary);
+}
+
+.hero-metric-label {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+.home-hero-ctas {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  height: 52px;
+  padding: 0 26px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-burgundy);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-hero-primary:hover {
+  background: var(--accent-burgundy-hover);
+}
+
+.btn-hero-secondary {
+  height: 52px;
+  padding: 0 22px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--ink-primary);
+  background: var(--bg-white);
+  color: var(--ink-primary);
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-hero-secondary:hover {
+  background: var(--bg-stone);
+}
+
+.home-hero-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-stone);
+  box-shadow: var(--shadow-subtle);
+}
+
+.home-hero-visual img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.hero-floating-product-card {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  background: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-floating-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.floating-card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-burgundy);
+}
+
+.floating-card-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin-top: 1px;
+}
+
+.floating-card-cta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-burgundy);
+  white-space: nowrap;
+}
+
+/* Member Welcome Coupon Strip */
+.member-coupon-strip {
+  background: var(--bg-stone);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 20px 0;
+}
+
+.coupon-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+}
+
+.coupon-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coupon-ticket-badge {
+  background: var(--bg-charcoal);
+  color: var(--ink-on-dark);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ticket-amount {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  color: #F4DCE0;
+}
+
+.ticket-sub {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-on-dark-muted);
+}
+
+.coupon-strip-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.coupon-strip-desc {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  margin-top: 2px;
+}
+
+.btn-claim-coupon {
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-burgundy);
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-claim-coupon.claimed {
+  background: var(--success-olive);
+}
+
+/* Storefront Product Collection Grid (Shared by HOME & SHOP) */
+.store-section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.store-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.store-section-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.store-section-sub {
+  font-size: 14.5px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+}
+
+.link-view-all {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-burgundy);
+  border-bottom: 1px solid var(--accent-burgundy);
+  padding-bottom: 2px;
+}
+
+.product-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.mall-product-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mall-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-subtle);
+  border-color: var(--border-strong);
+}
+
+.mall-card-thumb-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-stone);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mall-card-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mall-product-card:hover .mall-card-thumb-wrap img {
+  transform: scale(1.04);
+}
+
+.mall-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 9px;
+  border-radius: var(--radius-xs);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--bg-charcoal);
+  color: var(--ink-on-dark);
+}
+
+.mall-card-badge.burgundy {
+  background: var(--accent-burgundy);
+  color: #FFFFFF;
+}
+
+.mall-card-body {
+  padding: 18px 16px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mall-card-category {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.mall-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.38;
+  margin-top: 4px;
+  color: var(--ink-primary);
+  cursor: pointer;
+}
+
+.mall-card-title:hover {
+  color: var(--accent-burgundy);
+}
+
+.mall-card-desc {
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.mall-card-price-box {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.mall-card-origin {
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-decoration: line-through;
+}
+
+.mall-card-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.mall-card-discount {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--accent-burgundy);
+  margin-right: 4px;
+}
+
+.mall-card-final {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink-primary);
+}
+
+.mall-card-rating {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.mall-card-actions {
+  padding: 0 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-card-detail {
+  height: 38px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-ivory);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.btn-card-detail:hover {
+  background: var(--bg-sand);
+}
+
+.btn-card-cart {
+  height: 38px;
+  border-radius: var(--radius-xs);
+  background: var(--bg-charcoal);
+  color: #FFFFFF;
+  font-size: 12.5px;
+  font-weight: 700;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-card-cart:hover {
+  background: var(--accent-burgundy);
+}
+
+/* Brand Formulation Pillars on Home */
+.home-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.home-pillar-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+}
+
+.pillar-num {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-burgundy);
+}
+
+.pillar-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.pillar-desc {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* Home Subscription Membership Banner */
+.home-club-banner {
+  background: var(--bg-charcoal);
+  color: var(--ink-on-dark);
+  border-radius: var(--radius-lg);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.club-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.club-perk-box {
+  background: var(--bg-charcoal-elevated);
+  border: 1px solid rgba(250, 248, 245, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.club-perk-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #F4DCE0;
+}
+
+.club-perk-sub {
+  font-size: 12px;
+  color: var(--ink-on-dark-muted);
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   3. SHOP VIEW, SUBSCRIPTION VIEW & STORY VIEW
+   ========================================================================== */
+.subpage-hero-banner {
+  background: var(--bg-stone);
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.subpage-kicker {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-burgundy);
+}
+
+.subpage-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.subpage-desc {
+  font-size: 15px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+}
+
+/* PDP Breadcrumb & Context Bar */
+.pdp-breadcrumb-bar {
+  background: var(--bg-stone);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 11px 0;
+}
+
+.pdp-breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-muted);
+}
+
+.breadcrumb-trail button {
+  color: var(--ink-secondary);
+  font-weight: 600;
+}
+
+.breadcrumb-trail button:hover {
+  color: var(--accent-burgundy);
+}
+
+.breadcrumb-current {
+  color: var(--ink-primary);
+  font-weight: 700;
+}
+
+.pdp-quick-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pdp-switch-pill {
+  padding: 4px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-white);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.pdp-switch-pill.active {
+  background: var(--bg-charcoal);
+  border-color: var(--bg-charcoal);
+  color: #FFFFFF;
+}
+
+/* Subscription Simulator Card */
+.sub-simulator-box {
+  background: var(--bg-white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.sim-tier-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.sim-tier-btn {
+  padding: 15px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-hairline);
+  background: var(--bg-ivory);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.sim-tier-btn.active {
+  border-color: var(--accent-burgundy);
+  background: var(--accent-burgundy-soft);
+  color: var(--accent-burgundy);
+}
+
+.sim-result-panel {
+  background: var(--bg-charcoal);
+  color: var(--ink-on-dark);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+/* Story Magazine Grid */
+.story-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.story-quote-box {
+  padding: 28px;
+  background: var(--bg-stone);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  margin-top: 22px;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-primary);
+}
+
+/* ==========================================================================
+   4. First-Fold Buy Box (Gallery + Conversion Engine)
    ========================================================================== */
 .hero-buybox-section {
   padding: 36px 0 72px;
@@ -859,7 +1642,7 @@ ol {
 }
 
 /* ==========================================================================
-   3. Persuasion Funnel Sections (Semantic Web Storytelling)
+   5. Persuasion Funnel Sections (Semantic Web Storytelling)
    ========================================================================== */
 .funnel-section {
   padding: 88px 0;
@@ -1263,7 +2046,7 @@ ol {
 }
 
 /* ==========================================================================
-   4. Verified Photo Reviews (Filterable Tabs) & FAQ Accordion
+   6. Verified Photo Reviews (Filterable Tabs) & FAQ Accordion
    ========================================================================== */
 .review-summary-banner {
   background: var(--bg-white);
@@ -1579,7 +2362,7 @@ ol {
 }
 
 /* ==========================================================================
-   5. Mobile Sticky CTA Bar, Bottom Sheet, Cart Drawer & Order Modal
+   7. Mobile Sticky CTA Bar, Bottom Sheet, Cart Drawer & Order Modal
    ========================================================================== */
 .mobile-sticky-cta {
   display: none;
@@ -2051,7 +2834,7 @@ ol {
 }
 
 /* ==========================================================================
-   6. Threads Recording Clean Mode & TimeSaver Portfolio Banner
+   8. Threads Recording Clean Mode & TimeSaver Portfolio Banner
    ========================================================================== */
 .timesaver-banner {
   position: fixed;
@@ -2159,9 +2942,17 @@ body.clean-mode .clean-mode-restore-pill {
 }
 
 /* ==========================================================================
-   7. Responsive & 390px Mobile In-App Optimization
+   9. Responsive & 390px Mobile In-App Optimization
    ========================================================================== */
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
+  .product-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-hero-grid,
+  .home-club-banner,
+  .sub-simulator-box,
+  .story-editorial-grid,
   .buybox-grid,
   .problem-absorption-grid,
   .synergy-layout {
@@ -2175,6 +2966,10 @@ body.clean-mode .clean-mode-restore-pill {
 
   .cert-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-pillars-grid {
+    grid-template-columns: 1fr;
   }
 
   .review-summary-banner {
@@ -2196,8 +2991,14 @@ body.clean-mode .clean-mode-restore-pill {
   }
 
   .header-inner {
-    height: 56px;
-    padding: 0 16px;
+    height: 54px;
+    padding: 0 14px;
+    gap: 8px;
+  }
+
+  .brand-wordmark {
+    font-size: 21px;
+    white-space: nowrap;
   }
 
   .brand-sub {
@@ -2206,6 +3007,78 @@ body.clean-mode .clean-mode-restore-pill {
 
   .header-nav {
     display: none;
+  }
+
+  .coupon-trigger-btn {
+    padding: 6px 9px;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+
+  .cart-trigger-btn {
+    padding: 6px 10px;
+    font-size: 12.5px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .mobile-gnb-bar {
+    display: block;
+  }
+
+  .coupon-trigger-btn span.hide-sm {
+    display: none;
+  }
+
+  .home-hero-section {
+    padding: 20px 0 44px;
+  }
+
+  .home-hero-title {
+    font-size: 27px;
+  }
+
+  .home-hero-desc {
+    font-size: 14.5px;
+  }
+
+  .hero-metric-val {
+    font-size: 16px;
+  }
+
+  .hero-floating-product-card {
+    position: static;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border-hairline);
+  }
+
+  .coupon-strip-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .btn-claim-coupon {
+    width: 100%;
+    text-align: center;
+  }
+
+  .product-catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-club-banner {
+    padding: 28px 20px;
+  }
+
+  .club-perks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sub-simulator-box {
+    padding: 22px 18px;
   }
 
   .hero-buybox-section {
@@ -2221,12 +3094,15 @@ body.clean-mode .clean-mode-restore-pill {
     font-size: 24px;
   }
 
-  .funnel-section {
-    padding: 56px 0;
+  .funnel-section,
+  .store-section {
+    padding: 52px 0;
   }
 
-  .section-title {
-    font-size: 25px;
+  .section-title,
+  .store-section-title,
+  .subpage-title {
+    font-size: 24px;
   }
 
   .section-lead {

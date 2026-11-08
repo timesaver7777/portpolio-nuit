@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NUIT LAB (뉘이랩) — High-Conversion D2C Funnel Logic (app.js)
+   NUIT LAB (뉘이랩) — Official D2C Brand Mall & High-Conversion PDP (app.js)
    ========================================================================== */
 
 (function () {
@@ -7,6 +7,91 @@
 
   const FREE_SHIPPING_THRESHOLD = 50000;
   const BASE_SHIPPING_FEE = 3000;
+  const WELCOME_COUPON_AMOUNT = 5000;
+
+  /* 4-Product Official Mall Lineup */
+  const STORE_PRODUCTS = [
+    {
+      id: 'prod-nightshot-1box',
+      pdpKey: 'nightshot',
+      bundleTarget: '1box',
+      categories: ['all', 'nightshot'],
+      badge: 'BEST · 누적 1위',
+      badgeTone: 'burgundy',
+      categoryLabel: 'LIPOSOMAL NIGHT AMPOULE',
+      title: '리포좀 마그네슘 & 몽모랑시 타트체리 나이트 샷 (1박스 14포)',
+      subtitle: '세포막 친화형 인지질 리포좀 마그네슘 150mg과 미국산 몽모랑시 타트체리 농축액 5,000mg을 담은 15kcal 무설탕 액상 스틱.',
+      specHtml: '<span>용량 <strong>1박스 280g (20g × 14포)</strong></span><span>핵심성분 <strong>리포좀 마그네슘 150mg · 타트체리 5,000mg</strong></span>',
+      originPrice: 42000,
+      salePrice: 36900,
+      discountPct: 12,
+      rating: '4.9',
+      reviewCount: '1,428',
+      popularityRank: 1,
+      thumb: 'assets/images/nuit-hero-box.jpg',
+      caption: '1박스 14포 (20g × 14 액상 스틱 앰플)'
+    },
+    {
+      id: 'prod-gift-3box',
+      pdpKey: 'gift3box',
+      bundleTarget: '3box',
+      categories: ['all', 'nightshot', 'trial'],
+      badge: '32%↓ 인기세트 · 무료배송',
+      badgeTone: 'burgundy',
+      categoryLabel: '6-WEEK RECOVERY GIFT SET',
+      title: '6주 집중 회복 3박스 + 본품 4포 증정 스페셜 기프트 세트',
+      subtitle: '구매 고객 74%가 선택한 가장 만족도 높은 6주 루틴 구성. 본품 4포 추가 증정과 기프트 메시지 카드가 동봉됩니다.',
+      specHtml: '<span>용량 <strong>총 46포 (3박스 42포 + 추가 4포)</strong></span><span>혜택 <strong>32% 할인 + 조건 없이 무료배송</strong></span>',
+      originPrice: 126000,
+      salePrice: 85500,
+      discountPct: 32,
+      rating: '4.9',
+      reviewCount: '964',
+      popularityRank: 2,
+      thumb: 'assets/images/nuit-gift-bundle-3box.jpg',
+      caption: '구매 고객 74% 선택 · 3박스 + 본품 4포 기프트 에디션'
+    },
+    {
+      id: 'prod-chamomile-1box',
+      pdpKey: 'chamomile',
+      bundleTarget: '1box',
+      categories: ['all', 'relax'],
+      badge: 'NEW · 카페인 제로',
+      badgeTone: 'dark',
+      categoryLabel: 'BOTANICAL RELAX AMPOULE',
+      title: 'L-테아닌 & 크로아티아 캐모마일 딥 릴렉스 허브 앰플 (1박스 14포)',
+      subtitle: '오후부터 저녁까지 이어지는 긴장과 스트레스를 부드럽게 정돈하는 녹차 유래 L-테아닌 250mg & 캐모마일 농축 액상.',
+      specHtml: '<span>용량 <strong>1박스 280g (20g × 14포)</strong></span><span>핵심성분 <strong>L-테아닌 250mg · 크로아티아산 캐모마일 추출물</strong></span>',
+      originPrice: 44000,
+      salePrice: 38500,
+      discountPct: 13,
+      rating: '4.8',
+      reviewCount: '312',
+      popularityRank: 3,
+      thumb: 'assets/images/nuit-chamomile-box.jpg',
+      caption: 'L-테아닌 250mg & 크로아티아산 캐모마일 골든 허브 앰플'
+    },
+    {
+      id: 'prod-trial-pouch',
+      pdpKey: 'trial',
+      bundleTarget: '1box',
+      categories: ['all', 'trial'],
+      badge: 'TRIAL · 입문/출장용',
+      badgeTone: 'dark',
+      categoryLabel: '5-NIGHT STARTER KIT',
+      title: '나이트 샷 트라이얼 5포 & 코튼 리넨 트래블 파우치 키트',
+      subtitle: '본품 구매 전 맛과 목넘김을 먼저 경험해 보거나, 출장·여행지 침실에 가볍게 챙겨 떠나는 5일 나이트 스타터 키트.',
+      specHtml: '<span>구성 <strong>나이트 샷 본품 5포 + 전용 리넨 드로우스트링 파우치</strong></span><span>용도 <strong>첫 구매 체험 및 여행·선물용</strong></span>',
+      originPrice: 16500,
+      salePrice: 13900,
+      discountPct: 16,
+      rating: '4.9',
+      reviewCount: '520',
+      popularityRank: 4,
+      thumb: 'assets/images/nuit-trial-pouch.jpg',
+      caption: '나이트 샷 본품 5포 & 워시드 코튼 리넨 트래블 파우치'
+    }
+  ];
 
   const BUNDLES = {
     '1box': {
@@ -25,7 +110,7 @@
       sticks: 46,
       originPrice: 126000,
       salePrice: 85500,
-      thumb: 'assets/images/nuit-hero-box.jpg'
+      thumb: 'assets/images/nuit-gift-bundle-3box.jpg'
     },
     '6box': {
       id: '6box',
@@ -44,7 +129,7 @@
     meta: '장바구니 전용 16% 특가 구성',
     unitPrice: 13900,
     qty: 1,
-    thumb: 'assets/images/nuit-review-drink.jpg',
+    thumb: 'assets/images/nuit-trial-pouch.jpg',
     isUpsell: true
   };
 
@@ -157,8 +242,14 @@
 
   /* Application State */
   const state = {
+    currentView: 'home', // 'home' | 'shop' | 'detail' | 'subscription' | 'story'
+    activePdpKey: 'nightshot',
     selectedBundleId: '3box',
     isSubscription: false,
+    simTier: '3box',
+    shopCategory: 'all',
+    shopSort: 'popular',
+    couponClaimed: false,
     cart: [],
     reviewFilter: 'all',
     reviewSort: 'best',
@@ -182,11 +273,157 @@
       discountPct,
       perStick,
       totalSaved,
-      isFreeShipping: unitPrice >= FREE_SHIPPING_THRESHOLD
+      isFreeShipping: isSub || unitPrice >= FREE_SHIPPING_THRESHOLD
     };
   }
 
-  /* 1. Dispatch Countdown Timer */
+  /* 1. Multi-View Official Mall Navigation */
+  function switchView(viewName, options = {}) {
+    const validViews = ['home', 'shop', 'detail', 'subscription', 'story'];
+    const target = validViews.includes(viewName) ? viewName : 'home';
+    state.currentView = target;
+
+    document.querySelectorAll('.mall-view').forEach((el) => {
+      el.classList.toggle('active-view', el.id === `view-${target}`);
+    });
+
+    document.querySelectorAll('[data-nav-view]').forEach((btn) => {
+      if (btn.classList.contains('gnb-tab-btn') || btn.classList.contains('mobile-gnb-btn')) {
+        btn.classList.toggle('active', btn.getAttribute('data-nav-view') === target);
+      }
+    });
+
+    if (options.scrollToId) {
+      setTimeout(() => {
+        const anchor = document.getElementById(options.scrollToId);
+        if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
+      }, 60);
+    } else if (!options.preserveScroll) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  function openProductDetail(pdpKey = 'nightshot', bundleId = null) {
+    const prod = STORE_PRODUCTS.find((p) => p.pdpKey === pdpKey) || STORE_PRODUCTS[0];
+    state.activePdpKey = prod.pdpKey;
+    state.selectedBundleId = bundleId || prod.bundleTarget || '3box';
+
+    // Update PDP Breadcrumb & Header Metadata
+    document.getElementById('pdp-breadcrumb-name').textContent = prod.title;
+    document.getElementById('pdp-category-kicker').textContent = prod.categoryLabel;
+    document.getElementById('main-product-title').innerHTML = prod.title;
+    document.getElementById('main-product-subtitle').textContent = prod.subtitle;
+    document.getElementById('main-product-spec').innerHTML = prod.specHtml;
+
+    // Update Main Gallery Image
+    const mainImg = document.getElementById('main-gallery-image');
+    const mainCap = document.getElementById('main-gallery-caption');
+    mainImg.src = prod.thumb;
+    mainCap.textContent = prod.caption;
+
+    document.querySelectorAll('.pdp-switch-pill').forEach((pill) => {
+      pill.classList.toggle('active', pill.getAttribute('data-pdp-product') === prod.pdpKey);
+    });
+
+    renderSelectionUI();
+    switchView('detail');
+  }
+
+  /* 2. Render Product Cards for HOME & SHOP */
+  function createProductCardHTML(prod) {
+    const badgeClass = prod.badgeTone === 'burgundy' ? 'mall-card-badge burgundy' : 'mall-card-badge';
+    return `
+      <article class="mall-product-card" data-product-card="${prod.id}">
+        <div>
+          <div class="mall-card-thumb-wrap" data-card-open-pdp="${prod.pdpKey}" data-card-bundle="${prod.bundleTarget}">
+            <img src="${prod.thumb}" alt="${prod.title}" loading="lazy" />
+            <span class="${badgeClass}">${prod.badge}</span>
+          </div>
+          <div class="mall-card-body">
+            <div>
+              <div class="mall-card-category">${prod.categoryLabel}</div>
+              <h3 class="mall-card-title" data-card-open-pdp="${prod.pdpKey}" data-card-bundle="${prod.bundleTarget}">
+                ${prod.title}
+              </h3>
+              <p class="mall-card-desc">${prod.subtitle}</p>
+            </div>
+            <div class="mall-card-price-box">
+              <div class="mall-card-origin">${formatKRW(prod.originPrice)}</div>
+              <div class="mall-card-price-row">
+                <div>
+                  <span class="mall-card-discount">${prod.discountPct}%</span>
+                  <span class="mall-card-final">${formatKRW(prod.salePrice)}</span>
+                </div>
+                <span class="mall-card-rating"><span class="star-icons">★</span> ${prod.rating} (${prod.reviewCount})</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mall-card-actions">
+          <button
+            type="button"
+            class="btn-card-detail"
+            data-card-open-pdp="${prod.pdpKey}"
+            data-card-bundle="${prod.bundleTarget}"
+          >
+            상세보기
+          </button>
+          <button
+            type="button"
+            class="btn-card-cart"
+            data-card-add-cart="${prod.id}"
+          >
+            장바구니 담기
+          </button>
+        </div>
+      </article>
+    `;
+  }
+
+  function bindCatalogCardEvents(container) {
+    if (!container) return;
+    container.querySelectorAll('[data-card-open-pdp]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const pdpKey = el.getAttribute('data-card-open-pdp');
+        const bundleTarget = el.getAttribute('data-card-bundle');
+        openProductDetail(pdpKey, bundleTarget);
+      });
+    });
+
+    container.querySelectorAll('[data-card-add-cart]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const prodId = btn.getAttribute('data-card-add-cart');
+        addStoreProductToCart(prodId);
+        openCartDrawer();
+      });
+    });
+  }
+
+  function renderHomeAndShopCatalogs() {
+    // 1) Home Grid (all 4 products)
+    const homeGrid = document.getElementById('home-product-grid');
+    if (homeGrid) {
+      homeGrid.innerHTML = STORE_PRODUCTS.map(createProductCardHTML).join('');
+      bindCatalogCardEvents(homeGrid);
+    }
+
+    // 2) Shop Grid (filtered & sorted)
+    const shopGrid = document.getElementById('shop-product-grid');
+    if (shopGrid) {
+      let filtered = STORE_PRODUCTS.filter((p) => p.categories.includes(state.shopCategory));
+      if (state.shopSort === 'discount') {
+        filtered = [...filtered].sort((a, b) => b.discountPct - a.discountPct);
+      } else if (state.shopSort === 'price-asc') {
+        filtered = [...filtered].sort((a, b) => a.salePrice - b.salePrice);
+      } else {
+        filtered = [...filtered].sort((a, b) => a.popularityRank - b.popularityRank);
+      }
+      shopGrid.innerHTML = filtered.map(createProductCardHTML).join('');
+      bindCatalogCardEvents(shopGrid);
+    }
+  }
+
+  /* 3. Dispatch Countdown Timer */
   function startDispatchTimer() {
     const timerEl = document.getElementById('dispatch-countdown');
     if (!timerEl) return;
@@ -209,7 +446,7 @@
     setInterval(tick, 1000);
   }
 
-  /* 2. Gallery Switcher */
+  /* 4. Gallery Switcher */
   function initGallery() {
     const mainImg = document.getElementById('main-gallery-image');
     const mainCap = document.getElementById('main-gallery-caption');
@@ -231,15 +468,13 @@
     });
   }
 
-  /* 3. Sync Buy Box + Bottom Sheet + Mobile Sticky Bar */
+  /* 5. Sync Buy Box + Bottom Sheet + Mobile Sticky Bar */
   function renderSelectionUI() {
     const isSub = state.isSubscription;
     const currentBundle = BUNDLES[state.selectedBundleId];
     const currentCalc = calcBundlePrice(state.selectedBundleId, isSub);
 
-    // Update all 3 bundle cards on desktop & mobile sheet with live subscription math
     Object.keys(BUNDLES).forEach((id) => {
-      const b = BUNDLES[id];
       const c = calcBundlePrice(id, isSub);
 
       const pctEl = document.querySelector(`[data-price-pct="${id}"]`);
@@ -257,7 +492,6 @@
       if (sheetPctEl) sheetPctEl.textContent = `${c.discountPct}%↓`;
       if (sheetPriceEl) sheetPriceEl.textContent = formatKRW(c.unitPrice);
 
-      // Selected states
       const cardEl = document.querySelector(`.bundle-card[data-bundle-id="${id}"]`);
       if (cardEl) {
         const active = id === state.selectedBundleId;
@@ -310,7 +544,44 @@
     document.getElementById('mobile-bar-price').textContent = formatKRW(currentCalc.unitPrice);
   }
 
-  /* 4. Cart State & Free Shipping Gauge + 1-Click Upsell */
+  /* 6. Subscription Simulator in CLUB NUIT View */
+  function renderSubscriptionSimulator() {
+    const tier = state.simTier;
+    const bundle = BUNDLES[tier];
+    const calc = calcBundlePrice(tier, true);
+
+    document.querySelectorAll('[data-sim-tier]').forEach((btn) => {
+      btn.classList.toggle('active', btn.getAttribute('data-sim-tier') === tier);
+    });
+
+    document.getElementById('sim-result-title').textContent = `${bundle.name} 정기구독 시`;
+    document.getElementById('sim-result-price').textContent = `회당 ${formatKRW(calc.unitPrice)} (${calc.discountPct}%↓)`;
+    document.getElementById('sim-result-saving').textContent =
+      `정가 대비 회당 ${formatKRW(calc.totalSaved)} 절약 · 1포당 ${calc.perStick.toLocaleString('ko-KR')}원꼴`;
+  }
+
+  /* 7. Welcome 5,000 KRW Coupon Claim */
+  function claimWelcomeCoupon() {
+    state.couponClaimed = true;
+    const headerBtn = document.getElementById('header-coupon-btn');
+    const headerLabel = document.getElementById('header-coupon-label');
+    const homeBtn = document.getElementById('home-claim-coupon-btn');
+
+    headerBtn.classList.add('claimed');
+    headerLabel.textContent = '✓ 5,000원 쿠폰보유';
+    if (homeBtn) {
+      homeBtn.classList.add('claimed');
+      homeBtn.textContent = '✓ 5,000원 웰컴 쿠폰 발급완료 (장바구니 자동적용)';
+    }
+
+    renderCartUI();
+    closeAllOverlays();
+    backdrop.classList.add('open');
+    couponModal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+
+  /* 8. Cart State & Free Shipping Gauge + 1-Click Upsell + Coupon */
   function addCurrentSelectionToCart() {
     const bundle = BUNDLES[state.selectedBundleId];
     const calc = calcBundlePrice(state.selectedBundleId, state.isSubscription);
@@ -333,8 +604,28 @@
     renderCartUI();
   }
 
+  function addStoreProductToCart(prodId) {
+    const prod = STORE_PRODUCTS.find((p) => p.id === prodId);
+    if (!prod) return;
+    const existing = state.cart.find((item) => item.key === prod.id);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      state.cart.push({
+        key: prod.id,
+        name: prod.title,
+        meta: `${prod.discountPct}% 공식몰 특가`,
+        unitPrice: prod.salePrice,
+        qty: 1,
+        thumb: prod.thumb,
+        isUpsell: prod.id === 'prod-trial-pouch'
+      });
+    }
+    renderCartUI();
+  }
+
   function addUpsellToCart() {
-    const existing = state.cart.find((item) => item.key === UPSELL_ITEM.key);
+    const existing = state.cart.find((item) => item.key === UPSELL_ITEM.key || item.key === 'prod-trial-pouch');
     if (existing) {
       existing.qty += 1;
     } else {
@@ -356,28 +647,29 @@
   function getCartTotals() {
     const subtotal = state.cart.reduce((sum, item) => sum + item.unitPrice * item.qty, 0);
     const totalCount = state.cart.reduce((sum, item) => sum + item.qty, 0);
-    const shipping = subtotal === 0 || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : BASE_SHIPPING_FEE;
+    const hasSubItem = state.cart.some((item) => item.key.endsWith('-sub'));
+    const shipping = subtotal === 0 || hasSubItem || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : BASE_SHIPPING_FEE;
+    const couponDiscount = subtotal > 0 && state.couponClaimed ? WELCOME_COUPON_AMOUNT : 0;
     return {
       subtotal,
       totalCount,
       shipping,
-      finalTotal: subtotal + shipping
+      couponDiscount,
+      finalTotal: Math.max(0, subtotal - couponDiscount + shipping)
     };
   }
 
   function renderCartUI() {
-    const { subtotal, totalCount, shipping, finalTotal } = getCartTotals();
+    const { subtotal, totalCount, shipping, couponDiscount, finalTotal } = getCartTotals();
 
-    // Update header badge
     document.getElementById('header-cart-count').textContent = String(totalCount);
 
-    // Update Free Shipping Gauge
     const gaugeLabel = document.getElementById('shipping-gauge-label');
     const gaugeBar = document.getElementById('shipping-gauge-bar');
     const upsellModule = document.getElementById('cart-upsell-module');
     const upsellKicker = document.getElementById('upsell-kicker-text');
     const upsellBtn = document.getElementById('cart-upsell-add-btn');
-    const hasUpsell = state.cart.some((i) => i.key === UPSELL_ITEM.key);
+    const hasUpsell = state.cart.some((i) => i.key === UPSELL_ITEM.key || i.key === 'prod-trial-pouch');
 
     if (subtotal === 0) {
       gaugeLabel.innerHTML = `<strong>50,000원</strong> 이상 구매 시 조건 없이 무료배송!`;
@@ -386,7 +678,7 @@
       upsellKicker.textContent = '장바구니 전용 트라이얼 특가 (16%↓)';
       upsellBtn.textContent = '+ 1클릭 추가';
       upsellModule.style.display = 'block';
-    } else if (subtotal < FREE_SHIPPING_THRESHOLD) {
+    } else if (shipping > 0 && subtotal < FREE_SHIPPING_THRESHOLD) {
       const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
       const pct = Math.min(96, Math.round((subtotal / FREE_SHIPPING_THRESHOLD) * 100));
       gaugeLabel.innerHTML = `무료배송까지 <strong>${formatKRW(remaining)}</strong> 남았어요! (현재 배송비 3,000원)`;
@@ -408,7 +700,6 @@
       }
     }
 
-    // Render Cart Items
     const listEl = document.getElementById('cart-items-list');
     if (state.cart.length === 0) {
       listEl.innerHTML = `
@@ -448,18 +739,23 @@
       });
     }
 
-    // Update Summary Footer
+    const couponRow = document.getElementById('cart-coupon-row');
+    if (couponRow) {
+      couponRow.style.display = couponDiscount > 0 ? 'flex' : 'none';
+    }
+
     document.getElementById('cart-subtotal-val').textContent = formatKRW(subtotal);
     document.getElementById('cart-shipping-val').textContent =
       subtotal === 0 ? '0원' : shipping === 0 ? '무료 (0원)' : formatKRW(shipping);
     document.getElementById('cart-final-val').textContent = formatKRW(finalTotal);
   }
 
-  /* 5. Overlay / Sheet / Drawer / Modal Controls */
+  /* 9. Overlay / Sheet / Drawer / Modal Controls */
   const backdrop = document.getElementById('global-backdrop');
   const optionSheet = document.getElementById('mobile-option-sheet');
   const cartDrawer = document.getElementById('cart-drawer');
   const orderModal = document.getElementById('order-complete-modal');
+  const couponModal = document.getElementById('coupon-modal');
   const lightboxModal = document.getElementById('review-lightbox-modal');
   const inquiryModal = document.getElementById('inquiry-modal');
 
@@ -468,6 +764,7 @@
     optionSheet.classList.remove('open');
     cartDrawer.classList.remove('open');
     orderModal.classList.remove('open');
+    couponModal.classList.remove('open');
     lightboxModal.classList.remove('open');
     inquiryModal.classList.remove('open');
     document.body.classList.remove('modal-open');
@@ -505,59 +802,46 @@
     document.body.classList.add('modal-open');
   }
 
-  /* 6. Verified Reviews Filtering, Sorting, Helpful Vote & Lightbox */
-  function renderReviews() {
-    const container = document.getElementById('review-cards-container');
-    let list = REVIEWS_DATA.filter((r) =>
-      state.reviewFilter === 'all' ? true : r.category === state.reviewFilter
-    );
+  /* 10. Verified Reviews Filtering, Sorting, Helpful Vote & Lightbox */
+  function createReviewCardHTML(rev) {
+    const isVoted = state.votedReviews.has(rev.id);
+    const count = rev.helpful + (isVoted ? 1 : 0);
+    const badgeClass = rev.category === 'repurchase' ? 'repurchase-tag' : 'verified-tag';
 
-    if (state.reviewSort === 'best') {
-      list = [...list].sort((a, b) => b.helpful - a.helpful);
-    } else {
-      list = [...list].sort((a, b) => b.dateRank - a.dateRank);
-    }
-
-    container.innerHTML = list
-      .map((rev) => {
-        const isVoted = state.votedReviews.has(rev.id);
-        const count = rev.helpful + (isVoted ? 1 : 0);
-        const badgeClass = rev.category === 'repurchase' ? 'repurchase-tag' : 'verified-tag';
-
-        return `
-          <article class="review-card">
+    return `
+      <article class="review-card">
+        <div>
+          <div class="review-card-top">
             <div>
-              <div class="review-card-top">
-                <div>
-                  <div class="review-meta-badges">
-                    <span class="star-icons" aria-label="별점 5점">★★★★★</span>
-                    <span class="verified-tag">실구매 인증</span>
-                    <span class="${badgeClass}">${rev.badgeLabel}</span>
-                  </div>
-                  <h3 class="review-title">${rev.title}</h3>
-                </div>
-                ${
-                  rev.photo
-                    ? `<button type="button" class="review-thumb-btn" data-lightbox-id="${rev.id}" aria-label="리뷰 사진 크게 보기">
-                        <img src="${rev.photo}" alt="${rev.author} 포토 리뷰" loading="lazy" />
-                      </button>`
-                    : ''
-                }
+              <div class="review-meta-badges">
+                <span class="star-icons" aria-label="별점 5점">★★★★★</span>
+                <span class="verified-tag">실구매 인증</span>
+                <span class="${badgeClass}">${rev.badgeLabel}</span>
               </div>
-              <p class="review-body">${rev.body}</p>
+              <h3 class="review-title">${rev.title}</h3>
             </div>
-            <div class="review-card-footer">
-              <span>${rev.author} · ${rev.option} · ${rev.date}</span>
-              <button type="button" class="helpful-btn ${isVoted ? 'voted' : ''}" data-helpful-id="${rev.id}">
-                도움돼요 ${count}
-              </button>
-            </div>
-          </article>
-        `;
-      })
-      .join('');
+            ${
+              rev.photo
+                ? `<button type="button" class="review-thumb-btn" data-lightbox-id="${rev.id}" aria-label="리뷰 사진 크게 보기">
+                    <img src="${rev.photo}" alt="${rev.author} 포토 리뷰" loading="lazy" />
+                  </button>`
+                : ''
+            }
+          </div>
+          <p class="review-body">${rev.body}</p>
+        </div>
+        <div class="review-card-footer">
+          <span>${rev.author} · ${rev.option} · ${rev.date}</span>
+          <button type="button" class="helpful-btn ${isVoted ? 'voted' : ''}" data-helpful-id="${rev.id}">
+            도움돼요 ${count}
+          </button>
+        </div>
+      </article>
+    `;
+  }
 
-    // Bind Helpful Buttons
+  function bindReviewEvents(container) {
+    if (!container) return;
     container.querySelectorAll('[data-helpful-id]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-helpful-id');
@@ -570,7 +854,6 @@
       });
     });
 
-    // Bind Photo Lightbox Buttons
     container.querySelectorAll('[data-lightbox-id]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-lightbox-id');
@@ -587,7 +870,32 @@
     });
   }
 
-  /* 7. FAQ Accordion */
+  function renderReviews() {
+    // 1) Home Featured Reviews (Top 2 photo reviews)
+    const homeRevContainer = document.getElementById('home-featured-reviews');
+    if (homeRevContainer) {
+      const topTwo = REVIEWS_DATA.slice(0, 2);
+      homeRevContainer.innerHTML = topTwo.map(createReviewCardHTML).join('');
+      bindReviewEvents(homeRevContainer);
+    }
+
+    // 2) Full Filterable Reviews inside PDP
+    const container = document.getElementById('review-cards-container');
+    let list = REVIEWS_DATA.filter((r) =>
+      state.reviewFilter === 'all' ? true : r.category === state.reviewFilter
+    );
+
+    if (state.reviewSort === 'best') {
+      list = [...list].sort((a, b) => b.helpful - a.helpful);
+    } else {
+      list = [...list].sort((a, b) => b.dateRank - a.dateRank);
+    }
+
+    container.innerHTML = list.map(createReviewCardHTML).join('');
+    bindReviewEvents(container);
+  }
+
+  /* 11. FAQ Accordion */
   function initFAQ() {
     const items = document.querySelectorAll('#faq-list .faq-item');
     items.forEach((item) => {
@@ -606,7 +914,7 @@
     });
   }
 
-  /* 8. Threads Clean Mode Toggle */
+  /* 12. Threads Clean Mode Toggle */
   function applyCleanMode() {
     document.body.classList.toggle('clean-mode', state.cleanMode);
     sessionStorage.setItem('nuit_clean_mode', state.cleanMode ? '1' : '0');
@@ -614,6 +922,83 @@
 
   /* Event Wiring */
   function bindEvents() {
+    // Global View Navigation Buttons
+    document.querySelectorAll('[data-nav-view]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetView = btn.getAttribute('data-nav-view');
+        switchView(targetView);
+      });
+    });
+
+    // Open PDP Triggers on Home & Story
+    document.querySelectorAll('[data-open-pdp]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const bundleId = el.getAttribute('data-open-pdp') || '3box';
+        openProductDetail('nightshot', bundleId);
+      });
+    });
+
+    // PDP Product Context Switcher Pills
+    document.querySelectorAll('[data-pdp-product]').forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const pdpKey = pill.getAttribute('data-pdp-product');
+        openProductDetail(pdpKey);
+      });
+    });
+
+    // Home "View All 1,428 Reviews" Button -> Jump to PDP Reviews Section
+    const goAllReviewsBtn = document.getElementById('home-go-all-reviews-btn');
+    if (goAllReviewsBtn) {
+      goAllReviewsBtn.addEventListener('click', () => {
+        switchView('detail', { scrollToId: 'reviews-section' });
+      });
+    }
+
+    // Shop Category Tabs & Sort
+    document.querySelectorAll('[data-shop-cat]').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('[data-shop-cat]').forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+        state.shopCategory = tab.getAttribute('data-shop-cat');
+        renderHomeAndShopCatalogs();
+      });
+    });
+
+    const shopSortSelect = document.getElementById('shop-sort-select');
+    if (shopSortSelect) {
+      shopSortSelect.addEventListener('change', (e) => {
+        state.shopSort = e.target.value;
+        renderHomeAndShopCatalogs();
+      });
+    }
+
+    // Subscription Simulator Buttons
+    document.querySelectorAll('[data-sim-tier]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        state.simTier = btn.getAttribute('data-sim-tier');
+        renderSubscriptionSimulator();
+      });
+    });
+
+    const simStartBtn = document.getElementById('sim-start-sub-btn');
+    if (simStartBtn) {
+      simStartBtn.addEventListener('click', () => {
+        state.selectedBundleId = state.simTier;
+        state.isSubscription = true;
+        renderSelectionUI();
+        addCurrentSelectionToCart();
+        openCartDrawer();
+      });
+    }
+
+    // Welcome 5,000 KRW Coupon Buttons
+    document.getElementById('header-coupon-btn').addEventListener('click', claimWelcomeCoupon);
+    const homeCouponBtn = document.getElementById('home-claim-coupon-btn');
+    if (homeCouponBtn) {
+      homeCouponBtn.addEventListener('click', claimWelcomeCoupon);
+    }
+    document.getElementById('close-coupon-modal-btn').addEventListener('click', closeAllOverlays);
+
     // Desktop Bundle Cards
     document.querySelectorAll('.bundle-card').forEach((card) => {
       const selectCard = () => {
@@ -701,9 +1086,9 @@
     document.getElementById('confirm-inquiry-btn').addEventListener('click', closeAllOverlays);
 
     // Reviews Filter & Sort
-    document.querySelectorAll('.review-tab-btn').forEach((tab) => {
+    document.querySelectorAll('.review-tab-btn[data-filter]').forEach((tab) => {
       tab.addEventListener('click', () => {
-        document.querySelectorAll('.review-tab-btn').forEach((t) => t.classList.remove('active'));
+        document.querySelectorAll('.review-tab-btn[data-filter]').forEach((t) => t.classList.remove('active'));
         tab.classList.add('active');
         state.reviewFilter = tab.getAttribute('data-filter');
         renderReviews();
@@ -743,7 +1128,9 @@
   initGallery();
   initFAQ();
   applyCleanMode();
+  renderHomeAndShopCatalogs();
   renderSelectionUI();
+  renderSubscriptionSimulator();
   renderCartUI();
   renderReviews();
   bindEvents();
