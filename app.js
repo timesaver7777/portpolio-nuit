@@ -375,25 +375,87 @@
     updateOnScroll();
   }
 
-  function initHeroParallax() {
-    if (prefersReducedMotion) return;
-    const frame = document.getElementById('hero-parallax-frame');
-    const img = document.getElementById('hero-parallax-img');
-    if (!frame || !img) return;
+  function initHeroVideoController() {
+    const video = document.getElementById('hero-bg-video');
+    const toggleBtn = document.getElementById('hero-video-toggle-btn');
+    const toggleLabel = document.getElementById('hero-video-toggle-label');
+    const toggleIcon = document.getElementById('hero-video-toggle-icon');
+    const filmDot = document.getElementById('hero-film-dot');
+    const heroSection = document.getElementById('hero-section');
+    if (!video) return;
 
-    frame.addEventListener('pointermove', (e) => {
-      if (e.pointerType === 'touch') return;
-      const rect = frame.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width - 0.5;
-      const ny = (e.clientY - rect.top) / rect.height - 0.5;
-      img.style.setProperty('--hero-px', `${(-nx * 10).toFixed(1)}px`);
-      img.style.setProperty('--hero-py', `${(-ny * 8).toFixed(1)}px`);
-    });
+    video.muted = true;
+    video.defaultMuted = true;
+    let userManuallyPaused = false;
 
-    frame.addEventListener('pointerleave', () => {
-      img.style.setProperty('--hero-px', '0px');
-      img.style.setProperty('--hero-py', '0px');
-    });
+    const syncUi = (isPaused) => {
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
+        toggleBtn.setAttribute('aria-label', isPaused ? '배경 영상 재생' : '배경 영상 일시정지');
+      }
+      if (toggleLabel) {
+        toggleLabel.textContent = isPaused ? '재생' : '일시정지';
+      }
+      if (toggleIcon) {
+        toggleIcon.textContent = isPaused ? '▶' : '❚❚';
+      }
+      if (filmDot) {
+        filmDot.classList.toggle('is-paused', isPaused);
+      }
+    };
+
+    const safePlay = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise
+          .then(() => syncUi(false))
+          .catch(() => syncUi(true));
+      } else {
+        syncUi(video.paused);
+      }
+    };
+
+    if (prefersReducedMotion) {
+      video.pause();
+      userManuallyPaused = true;
+      syncUi(true);
+    } else {
+      safePlay();
+    }
+
+    video.addEventListener('play', () => syncUi(false));
+    video.addEventListener('pause', () => syncUi(true));
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        if (video.paused) {
+          userManuallyPaused = false;
+          safePlay();
+        } else {
+          userManuallyPaused = true;
+          video.pause();
+          syncUi(true);
+        }
+      });
+    }
+
+    if ('IntersectionObserver' in window && heroSection) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              if (!video.paused) {
+                video.pause();
+              }
+            } else if (!userManuallyPaused && !prefersReducedMotion) {
+              safePlay();
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      heroObserver.observe(heroSection);
+    }
   }
 
   /* ==========================================================================
@@ -1266,7 +1328,7 @@
     // Round 4 Editorial Motion & Interactive Section Controllers
     initScrollReveal();
     initScrollProgressAndSpy();
-    initHeroParallax();
+    initHeroVideoController();
     initCountUpAndGauges();
     initPhilosophyPillars();
     initScienceMechanismExplorer();

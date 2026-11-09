@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/video/nuit-hero-poster.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -66,65 +67,80 @@
   </header>
 
   <main id="top">
-    <!-- 3. Editorial Hero Section -->
-    <section class="hero-section" id="hero-section">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy-col">
-            <span class="hero-kicker reveal-item" data-delay="0">Formulation No. 04 · Clinical Night Ritual</span>
-            <h1 class="hero-title reveal-item" data-delay="80">깊은 밤을 설계하는<br />인지질 리포좀 마그네슘과<br />몽모랑시 타트체리 한 포</h1>
-            <p class="hero-lead reveal-item" data-delay="160">
-              정제 알약의 더딘 붕해와 미네랄 특유의 속쓰림을 덜어냈습니다.
-              세포막과 유사한 해바라기 레시틴 이중층으로 마그네슘 150mg을 감싸 안아,
-              잠들기 30분 전 가장 편안하게 스며드는 고밀도 액상 슬립 리추얼을 제안합니다.
-            </p>
+    <!-- 3. Full-Bleed Cinematic Video Hero Section -->
+    <section class="hero-section hero-video-fullbleed" id="hero-section">
+      <div class="hero-video-bg" aria-hidden="true">
+        <video
+          id="hero-bg-video"
+          class="hero-bg-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/video/nuit-hero-poster.jpg"
+        >
+          <source src="assets/video/nuit-hero-pour.webm" type="video/webm" />
+          <source src="assets/video/nuit-hero-pour.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-video-scrim"></div>
+      </div>
 
-            <div class="hero-stats-row reveal-item" data-delay="240" aria-label="브랜드 핵심 지표">
-              <div class="hero-stat-cell">
-                <span class="hero-stat-num" data-countup="91.4" data-decimals="1" data-suffix="%">91.4%</span>
-                <span class="hero-stat-label">생체 전달 효율*</span>
-              </div>
-              <div class="hero-stat-cell">
-                <span class="hero-stat-num" data-countup="48" data-decimals="0" data-suffix="만 포+">48만 포+</span>
-                <span class="hero-stat-label">누적 생산·출고</span>
-              </div>
-              <div class="hero-stat-cell">
-                <span class="hero-stat-num" data-countup="4.9" data-decimals="1" data-suffix=" / 5">4.9 / 5</span>
-                <span class="hero-stat-label">테스터 재선택률</span>
-              </div>
-              <div class="hero-stat-cell">
-                <span class="hero-stat-num" data-countup="128" data-decimals="0" data-suffix="곳">128곳</span>
-                <span class="hero-stat-label">제휴 약국·클리닉</span>
-              </div>
+      <div class="container hero-fullbleed-inner">
+        <div class="hero-copy-col">
+          <span class="hero-kicker reveal-item" data-delay="0">Formulation No. 04 · Clinical Night Ritual</span>
+          <h1 class="hero-title reveal-item" data-delay="80">깊은 밤을 설계하는<br />인지질 리포좀 마그네슘과<br />몽모랑시 타트체리 한 포</h1>
+          <p class="hero-lead reveal-item" data-delay="160">
+            정제 알약의 더딘 붕해와 미네랄 특유의 속쓰림을 덜어냈습니다.
+            세포막과 유사한 해바라기 레시틴 이중층으로 마그네슘 150mg을 감싸 안아,
+            잠들기 30분 전 가장 편안하게 스며드는 고밀도 액상 슬립 리추얼을 제안합니다.
+          </p>
+
+          <div class="hero-stats-row reveal-item" data-delay="240" aria-label="브랜드 핵심 지표">
+            <div class="hero-stat-cell">
+              <span class="hero-stat-num" data-countup="91.4" data-decimals="1" data-suffix="%">91.4%</span>
+              <span class="hero-stat-label">생체 전달 효율*</span>
             </div>
-
-            <div class="hero-cta-group reveal-item" data-delay="320">
-              <button type="button" class="btn-cta-primary" data-jump-form="b2c">
-                <span>무료 샘플키트 &amp; 얼리버드 혜택 신청</span>
-                <span class="cta-arrow" aria-hidden="true">→</span>
-              </button>
-              <a href="#science-section" class="btn-cta-secondary">
-                리포좀 흡수 메커니즘 보기
-              </a>
+            <div class="hero-stat-cell">
+              <span class="hero-stat-num" data-countup="48" data-decimals="0" data-suffix="만 포+">48만 포+</span>
+              <span class="hero-stat-label">누적 생산·출고</span>
+            </div>
+            <div class="hero-stat-cell">
+              <span class="hero-stat-num" data-countup="4.9" data-decimals="1" data-suffix=" / 5">4.9 / 5</span>
+              <span class="hero-stat-label">테스터 재선택률</span>
+            </div>
+            <div class="hero-stat-cell">
+              <span class="hero-stat-num" data-countup="128" data-decimals="0" data-suffix="곳">128곳</span>
+              <span class="hero-stat-label">제휴 약국·클리닉</span>
             </div>
           </div>
 
-          <div class="hero-visual-frame reveal-scale" id="hero-parallax-frame" data-delay="140">
-            <div class="hero-img-stage">
-              <img
-                id="hero-parallax-img"
-                src="assets/images/nuit-main-hero-banner.jpg"
-                alt="뉘이랩 리포좀 마그네슘 &amp; 몽모랑시 타트체리 나이트 샷 플래그십 화보"
-                width="1280"
-                height="832"
-                fetchpriority="high"
-              />
-            </div>
-            <div class="hero-visual-caption-bar">
-              <span><strong>NUIT LAB ORIGINAL</strong> · 1포 20mL 고농축 액상 앰플</span>
-              <span>무설탕 15kcal · 카페인 ZERO</span>
-            </div>
+          <div class="hero-cta-group reveal-item" data-delay="320">
+            <button type="button" class="btn-cta-primary" data-jump-form="b2c">
+              <span>무료 샘플키트 &amp; 얼리버드 혜택 신청</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </button>
+            <a href="#science-section" class="btn-cta-secondary">
+              리포좀 흡수 메커니즘 보기
+            </a>
           </div>
+        </div>
+
+        <div class="hero-film-hud reveal-item" data-delay="380">
+          <div class="hero-film-meta">
+            <span class="hero-film-dot" id="hero-film-dot" aria-hidden="true"></span>
+            <span><strong>LIVE FORMULATION FILM</strong> · 1포 20mL 고농축 액상 앰플 · 무설탕 15kcal · 카페인 ZERO</span>
+          </div>
+          <button
+            type="button"
+            class="hero-video-toggle-btn"
+            id="hero-video-toggle-btn"
+            aria-pressed="false"
+            aria-label="배경 영상 일시정지"
+          >
+            <span id="hero-video-toggle-label">일시정지</span>
+            <span id="hero-video-toggle-icon" aria-hidden="true">❚❚</span>
+          </button>
         </div>
       </div>
     </section>
