@@ -67,20 +67,30 @@
   </header>
 
   <main id="top">
-    <!-- 3. Full-Bleed Cinematic Video Hero Section -->
+    <!-- 3. Full-Bleed Cinematic Video Hero Section (Seamless Dual-Video Loop) -->
     <section class="hero-section hero-video-fullbleed" id="hero-section">
-      <div class="hero-video-bg" aria-hidden="true">
+      <div class="hero-video-bg" id="hero-video-stage" aria-hidden="true">
         <video
           id="hero-bg-video"
-          class="hero-bg-video"
+          class="hero-bg-video hero-loop-layer is-active"
           autoplay
           muted
-          loop
           playsinline
-          preload="metadata"
+          preload="auto"
           poster="assets/video/nuit-hero-poster.jpg"
         >
-          <source src="assets/video/nuit-hero-pour.webm" type="video/webm" />
+          <source src="assets/video/nuit-hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+          <source src="assets/video/nuit-hero-pour.mp4" type="video/mp4" />
+        </video>
+        <video
+          id="hero-bg-video-b"
+          class="hero-bg-video hero-loop-layer"
+          muted
+          playsinline
+          preload="auto"
+          poster="assets/video/nuit-hero-poster.jpg"
+        >
+          <source src="assets/video/nuit-hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
           <source src="assets/video/nuit-hero-pour.mp4" type="video/mp4" />
         </video>
         <div class="hero-video-scrim"></div>

@@ -459,9 +459,26 @@ html.js-motion-ready .reveal-scale.is-visible {
   display: block;
 }
 
+.hero-loop-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 700ms linear;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.hero-loop-layer.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
 .hero-video-scrim {
   position: absolute;
   inset: 0;
+  z-index: 2;
   pointer-events: none;
   background:
     linear-gradient(
@@ -480,7 +497,7 @@ html.js-motion-ready .reveal-scale.is-visible {
 
 .hero-fullbleed-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -644,15 +661,13 @@ html.js-motion-ready .reveal-scale.is-visible {
 }
 
 .hero-video-fullbleed .btn-cta-secondary {
-  border-color: rgba(250, 248, 245, 0.52);
-  background: rgba(24, 26, 24, 0.42);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border-color: rgba(250, 248, 245, 0.56);
+  background: rgba(20, 18, 17, 0.62);
   color: #FAF8F5;
 }
 
 .hero-video-fullbleed .btn-cta-secondary:hover {
-  background: rgba(250, 248, 245, 0.14);
+  background: rgba(20, 18, 17, 0.84);
   border-color: #FAF8F5;
 }
 
@@ -700,10 +715,8 @@ html.js-motion-ready .reveal-scale.is-visible {
   gap: 6px;
   padding: 6px 13px;
   border-radius: 999px;
-  border: 1px solid rgba(250, 248, 245, 0.3);
-  background: rgba(24, 26, 24, 0.52);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(250, 248, 245, 0.34);
+  background: rgba(20, 18, 17, 0.68);
   color: #FAF8F5;
   font-size: 12px;
   font-weight: 600;
@@ -713,8 +726,8 @@ html.js-motion-ready .reveal-scale.is-visible {
 }
 
 .hero-video-toggle-btn:hover {
-  background: rgba(24, 26, 24, 0.82);
-  border-color: rgba(250, 248, 245, 0.68);
+  background: rgba(20, 18, 17, 0.9);
+  border-color: rgba(250, 248, 245, 0.72);
 }
 
 /* Authority Partner Strip */
@@ -2565,9 +2578,8 @@ body.clean-mode .timesaver-banner {
   z-index: 105;
   padding: 5px 11px;
   border-radius: 999px;
-  background: rgba(24, 26, 24, 0.22);
-  backdrop-filter: blur(6px);
-  color: rgba(250, 248, 245, 0.85);
+  background: rgba(24, 26, 24, 0.56);
+  color: rgba(250, 248, 245, 0.9);
   font-size: 11px;
   font-weight: 600;
   transition: background-color var(--transition-fast), color var(--transition-fast);

@@ -376,17 +376,30 @@
   }
 
   function initHeroVideoController() {
-    const video = document.getElementById('hero-bg-video');
+    const videoA = document.getElementById('hero-bg-video');
+    const videoB = document.getElementById('hero-bg-video-b');
     const toggleBtn = document.getElementById('hero-video-toggle-btn');
     const toggleLabel = document.getElementById('hero-video-toggle-label');
     const toggleIcon = document.getElementById('hero-video-toggle-icon');
     const filmDot = document.getElementById('hero-film-dot');
     const heroSection = document.getElementById('hero-section');
-    if (!video) return;
+    if (!videoA) return;
 
-    video.muted = true;
-    video.defaultMuted = true;
+    const layers = videoB ? [videoA, videoB] : [videoA];
+    layers.forEach((v) => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+    });
+
+    const CROSSFADE_DURATION = 0.8; // seconds before end to trigger 700ms A/B crossfade
+    let activeKey = 'A';
+    let isTransitioning = false;
     let userManuallyPaused = false;
+    let crossfadeTimer = null;
+
+    const getActiveVideo = () => (activeKey === 'A' || !videoB ? videoA : videoB);
+    const getStandbyVideo = () => (activeKey === 'A' ? videoB : videoA);
 
     const syncUi = (isPaused) => {
       if (toggleBtn) {
@@ -404,36 +417,119 @@
       }
     };
 
-    const safePlay = () => {
-      const playPromise = video.play();
+    const safePlayActive = () => {
+      const activeVid = getActiveVideo();
+      const playPromise = activeVid.play();
       if (playPromise && typeof playPromise.then === 'function') {
         playPromise
           .then(() => syncUi(false))
           .catch(() => syncUi(true));
       } else {
-        syncUi(video.paused);
+        syncUi(activeVid.paused);
       }
     };
 
+    const pauseAll = () => {
+      if (crossfadeTimer) {
+        window.clearTimeout(crossfadeTimer);
+        crossfadeTimer = null;
+      }
+      isTransitioning = false;
+      layers.forEach((v) => {
+        if (!v.paused) v.pause();
+      });
+    };
+
+    // Pre-prime standby layer so frame 0 is decoded in GPU memory before first crossfade
+    if (videoB) {
+      videoB.addEventListener(
+        'loadeddata',
+        () => {
+          try {
+            videoB.currentTime = 0;
+          } catch {}
+        },
+        { once: true }
+      );
+    }
+
+    // Dual-Video A/B Seamless Crossfade Loop (components-seamless-video-loop skill)
+    const handleTimeUpdate = (video, key) => {
+      if (!videoB || activeKey !== key || isTransitioning || userManuallyPaused) return;
+      if (!video.duration || Number.isNaN(video.duration)) return;
+
+      if (video.currentTime >= video.duration - CROSSFADE_DURATION) {
+        isTransitioning = true;
+        const nextKey = key === 'A' ? 'B' : 'A';
+        const nextVideo = getStandbyVideo();
+        if (!nextVideo) {
+          isTransitioning = false;
+          return;
+        }
+
+        const commitCrossfade = () => {
+          nextVideo.classList.add('is-active');
+          video.classList.remove('is-active');
+          activeKey = nextKey;
+
+          crossfadeTimer = window.setTimeout(() => {
+            if (activeKey !== key) {
+              if (!video.paused) video.pause();
+              try {
+                video.currentTime = 0;
+              } catch {}
+            }
+            isTransitioning = false;
+            crossfadeTimer = null;
+          }, 720);
+        };
+
+        try {
+          nextVideo.currentTime = 0;
+        } catch {}
+        const p = nextVideo.play();
+        if (p && typeof p.then === 'function') {
+          p.then(commitCrossfade).catch(commitCrossfade);
+        } else {
+          commitCrossfade();
+        }
+      }
+    };
+
+    videoA.addEventListener('timeupdate', () => handleTimeUpdate(videoA, 'A'));
+    if (videoB) {
+      videoB.addEventListener('timeupdate', () => handleTimeUpdate(videoB, 'B'));
+    }
+
+    // Fallback if browser throttles timeupdate in background tab
+    layers.forEach((v, idx) => {
+      const key = idx === 0 ? 'A' : 'B';
+      v.addEventListener('ended', () => {
+        if (userManuallyPaused) return;
+        if (!isTransitioning && activeKey === key) {
+          v.currentTime = 0;
+          safePlayActive();
+        }
+      });
+    });
+
     if (prefersReducedMotion) {
-      video.pause();
+      pauseAll();
       userManuallyPaused = true;
       syncUi(true);
     } else {
-      safePlay();
+      safePlayActive();
     }
-
-    video.addEventListener('play', () => syncUi(false));
-    video.addEventListener('pause', () => syncUi(true));
 
     if (toggleBtn) {
       toggleBtn.addEventListener('click', () => {
-        if (video.paused) {
+        const activeVid = getActiveVideo();
+        if (activeVid.paused) {
           userManuallyPaused = false;
-          safePlay();
+          safePlayActive();
         } else {
           userManuallyPaused = true;
-          video.pause();
+          pauseAll();
           syncUi(true);
         }
       });
@@ -444,11 +540,10 @@
         (entries) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) {
-              if (!video.paused) {
-                video.pause();
-              }
+              pauseAll();
+              syncUi(true);
             } else if (!userManuallyPaused && !prefersReducedMotion) {
-              safePlay();
+              safePlayActive();
             }
           });
         },
