@@ -1370,45 +1370,6 @@
   }
 
   /* ==========================================================================
-     13. TimeSaver Outsourcing Modal & Threads Clean Mode
-     ========================================================================== */
-  function initPortfolioControls() {
-    const inquiryBtn = document.getElementById('open-ts-inquiry-btn');
-    const enableCleanBtn = document.getElementById('enable-clean-mode-btn');
-    const disableCleanBtn = document.getElementById('disable-clean-mode-btn');
-
-    if (inquiryBtn) {
-      inquiryBtn.addEventListener('click', () => openModal('inquiry-modal'));
-    }
-
-    const setCleanMode = (enabled) => {
-      document.body.classList.toggle('clean-mode', enabled);
-    };
-
-    if (enableCleanBtn) {
-      enableCleanBtn.addEventListener('click', () => setCleanMode(true));
-    }
-    if (disableCleanBtn) {
-      disableCleanBtn.addEventListener('click', () => setCleanMode(false));
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('clean') === '1') {
-      setCleanMode(true);
-    }
-
-    document.addEventListener('keydown', (e) => {
-      const tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
-      if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.metaKey || e.ctrlKey || e.altKey) {
-        return;
-      }
-      if (e.key === 'c' || e.key === 'C') {
-        setCleanMode(!document.body.classList.contains('clean-mode'));
-      }
-    });
-  }
-
-  /* ==========================================================================
      Bootstrap
      ========================================================================== */
   document.addEventListener('DOMContentLoaded', () => {
@@ -1418,7 +1379,6 @@
     initReviewControls();
     initFaqAccordion();
     initLeadForms();
-    initPortfolioControls();
 
     // Round 4 Editorial Motion & Interactive Section Controllers
     initScrollReveal();
