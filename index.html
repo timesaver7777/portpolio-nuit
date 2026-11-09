@@ -23,8 +23,8 @@
     </div>
   </div>
 
-  <!-- 2. Sticky Brand Homepage Header (Zero Cart Clutter) -->
-  <header class="site-header">
+  <!-- 2. Sticky Brand Homepage Header + Reading Progress Bar -->
+  <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="#top" class="brand-logo" aria-label="NUIT LAB 홈으로 이동">
         <span class="brand-wordmark">NUIT LAB</span>
@@ -32,12 +32,12 @@
       </a>
 
       <nav class="header-nav" aria-label="주요 섹션 내비게이션">
-        <a href="#philosophy-section">브랜드 철학</a>
-        <a href="#science-section">리포좀 흡수과학</a>
-        <a href="#lineup-section">포뮬러 라인업</a>
-        <a href="#routine-section">14일 루틴</a>
-        <a href="#voice-section">테스터 리포트</a>
-        <a href="#faq-section">FAQ</a>
+        <a href="#philosophy-section" data-spy-target="philosophy-section">브랜드 철학</a>
+        <a href="#science-section" data-spy-target="science-section">리포좀 흡수과학</a>
+        <a href="#lineup-section" data-spy-target="lineup-section">포뮬러 라인업</a>
+        <a href="#routine-section" data-spy-target="routine-section">14일 루틴</a>
+        <a href="#voice-section" data-spy-target="voice-section">테스터 리포트</a>
+        <a href="#faq-section" data-spy-target="faq-section">FAQ</a>
       </nav>
 
       <div class="header-actions">
@@ -47,16 +47,22 @@
     </div>
 
     <!-- Mobile 1-Tap Quick Scroll Bar -->
-    <nav class="mobile-anchor-bar" aria-label="모바일 빠른 이동">
+    <nav class="mobile-anchor-bar" id="mobile-anchor-bar" aria-label="모바일 빠른 이동">
       <div class="mobile-anchor-inner">
-        <a href="#philosophy-section" class="mobile-anchor-link">브랜드 철학</a>
-        <a href="#science-section" class="mobile-anchor-link">리포좀 과학</a>
-        <a href="#lineup-section" class="mobile-anchor-link">라인업 4종</a>
-        <a href="#routine-section" class="mobile-anchor-link">14일 변화</a>
-        <a href="#voice-section" class="mobile-anchor-link">후기(4.9)</a>
-        <a href="#conversion-section" class="mobile-anchor-link highlight" data-jump-form="b2c">샘플신청 →</a>
+        <a href="#philosophy-section" class="mobile-anchor-link" data-spy-target="philosophy-section">브랜드 철학</a>
+        <a href="#science-section" class="mobile-anchor-link" data-spy-target="science-section">리포좀 과학</a>
+        <a href="#lineup-section" class="mobile-anchor-link" data-spy-target="lineup-section">라인업 4종</a>
+        <a href="#routine-section" class="mobile-anchor-link" data-spy-target="routine-section">14일 변화</a>
+        <a href="#voice-section" class="mobile-anchor-link" data-spy-target="voice-section">후기(4.9)</a>
+        <a href="#faq-section" class="mobile-anchor-link" data-spy-target="faq-section">FAQ</a>
+        <a href="#conversion-section" class="mobile-anchor-link highlight" data-spy-target="conversion-section" data-jump-form="b2c">샘플신청 →</a>
       </div>
     </nav>
+
+    <!-- Scroll Reading Progress Line -->
+    <div class="scroll-progress-track" aria-hidden="true">
+      <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+    </div>
   </header>
 
   <main id="top">
@@ -64,37 +70,38 @@
     <section class="hero-section" id="hero-section">
       <div class="container">
         <div class="hero-grid">
-          <div>
-            <span class="hero-kicker">Formulation No. 04 · Clinical Night Ritual</span>
-            <h1 class="hero-title">깊은 밤을 설계하는<br />인지질 리포좀 마그네슘과<br />몽모랑시 타트체리 한 포</h1>
-            <p class="hero-lead">
+          <div class="hero-copy-col">
+            <span class="hero-kicker reveal-item" data-delay="0">Formulation No. 04 · Clinical Night Ritual</span>
+            <h1 class="hero-title reveal-item" data-delay="80">깊은 밤을 설계하는<br />인지질 리포좀 마그네슘과<br />몽모랑시 타트체리 한 포</h1>
+            <p class="hero-lead reveal-item" data-delay="160">
               정제 알약의 더딘 붕해와 미네랄 특유의 속쓰림을 덜어냈습니다.
               세포막과 유사한 해바라기 레시틴 이중층으로 마그네슘 150mg을 감싸 안아,
               잠들기 30분 전 가장 편안하게 스며드는 고밀도 액상 슬립 리추얼을 제안합니다.
             </p>
 
-            <div class="hero-stats-row" aria-label="브랜드 핵심 지표">
-              <div>
-                <span class="hero-stat-num">91.4%</span>
+            <div class="hero-stats-row reveal-item" data-delay="240" aria-label="브랜드 핵심 지표">
+              <div class="hero-stat-cell">
+                <span class="hero-stat-num" data-countup="91.4" data-decimals="1" data-suffix="%">91.4%</span>
                 <span class="hero-stat-label">생체 전달 효율*</span>
               </div>
-              <div>
-                <span class="hero-stat-num">48만 포+</span>
+              <div class="hero-stat-cell">
+                <span class="hero-stat-num" data-countup="48" data-decimals="0" data-suffix="만 포+">48만 포+</span>
                 <span class="hero-stat-label">누적 생산·출고</span>
               </div>
-              <div>
-                <span class="hero-stat-num">4.9 / 5</span>
+              <div class="hero-stat-cell">
+                <span class="hero-stat-num" data-countup="4.9" data-decimals="1" data-suffix=" / 5">4.9 / 5</span>
                 <span class="hero-stat-label">테스터 재선택률</span>
               </div>
-              <div>
-                <span class="hero-stat-num">128곳</span>
+              <div class="hero-stat-cell">
+                <span class="hero-stat-num" data-countup="128" data-decimals="0" data-suffix="곳">128곳</span>
                 <span class="hero-stat-label">제휴 약국·클리닉</span>
               </div>
             </div>
 
-            <div class="hero-cta-group">
+            <div class="hero-cta-group reveal-item" data-delay="320">
               <button type="button" class="btn-cta-primary" data-jump-form="b2c">
-                무료 샘플키트 &amp; 얼리버드 혜택 신청 →
+                <span>무료 샘플키트 &amp; 얼리버드 혜택 신청</span>
+                <span class="cta-arrow" aria-hidden="true">→</span>
               </button>
               <a href="#science-section" class="btn-cta-secondary">
                 리포좀 흡수 메커니즘 보기
@@ -102,14 +109,17 @@
             </div>
           </div>
 
-          <div class="hero-visual-frame">
-            <img
-              src="assets/images/nuit-main-hero-banner.jpg"
-              alt="뉘이랩 리포좀 마그네슘 &amp; 몽모랑시 타트체리 나이트 샷 플래그십 화보"
-              width="1280"
-              height="832"
-              fetchpriority="high"
-            />
+          <div class="hero-visual-frame reveal-scale" id="hero-parallax-frame" data-delay="140">
+            <div class="hero-img-stage">
+              <img
+                id="hero-parallax-img"
+                src="assets/images/nuit-main-hero-banner.jpg"
+                alt="뉘이랩 리포좀 마그네슘 &amp; 몽모랑시 타트체리 나이트 샷 플래그십 화보"
+                width="1280"
+                height="832"
+                fetchpriority="high"
+              />
+            </div>
             <div class="hero-visual-caption-bar">
               <span><strong>NUIT LAB ORIGINAL</strong> · 1포 20mL 고농축 액상 앰플</span>
               <span>무설탕 15kcal · 카페인 ZERO</span>
@@ -122,12 +132,12 @@
     <!-- Authority Partner Strip -->
     <div class="partner-authority-strip" role="region" aria-label="품질 및 인증 기준">
       <div class="container authority-inner">
-        <span>서울 성동구 연무장길 뉘이랩 포뮬러 연구소 자체 배합 설계</span>
+        <span class="authority-origin">서울 성동구 연무장길 뉘이랩 포뮬러 연구소 자체 배합 설계</span>
         <div class="authority-badges">
-          <span>✓ 식약처 HACCP 인증 제조</span>
-          <span>✓ 우수건강기능식품 GMP 기준</span>
-          <span>✓ 미국 미시간산 몽모랑시 100%</span>
-          <span>✓ 합성향료·설탕 6종 무첨가</span>
+          <span class="auth-pill">✓ 식약처 HACCP 인증 제조</span>
+          <span class="auth-pill">✓ 우수건강기능식품 GMP 기준</span>
+          <span class="auth-pill">✓ 미국 미시간산 몽모랑시 100%</span>
+          <span class="auth-pill">✓ 합성향료·설탕 6종 무첨가</span>
         </div>
       </div>
     </div>
@@ -137,14 +147,14 @@
       <div class="container">
         <div class="philosophy-grid">
           <div class="philosophy-img-grid">
-            <div class="philosophy-img-card">
+            <div class="philosophy-img-card reveal-scale" data-delay="0">
               <img
                 src="assets/images/nuit-hero-box.jpg"
                 alt="뉘이랩 14포 나이트 샷 패키지와 타트체리 원물 스튜디오 컷"
                 loading="lazy"
               />
             </div>
-            <div class="philosophy-img-card">
+            <div class="philosophy-img-card offset-card reveal-scale" data-delay="140">
               <img
                 src="assets/images/nuit-night-ritual.jpg"
                 alt="침실 협탁 위 잠들기 30분 전 뉘이랩 나이트 리추얼 연출 컷"
@@ -154,31 +164,39 @@
           </div>
 
           <div>
-            <span class="section-kicker">Brand Philosophy · Why Nuit Lab</span>
-            <h2 class="section-title">“좋은 성분표를 넘어,<br />밤마다 거르지 않고 마실 수 있는<br />액상 설계에 집중했습니다.”</h2>
-            <p class="section-lead">
+            <span class="section-kicker reveal-item" data-delay="0">Brand Philosophy · Why Nuit Lab</span>
+            <h2 class="section-title reveal-item" data-delay="80">“좋은 성분표를 넘어,<br />밤마다 거르지 않고 마실 수 있는<br />액상 설계에 집중했습니다.”</h2>
+            <p class="section-lead reveal-item" data-delay="150">
               수많은 현대인이 밤의 긴장을 풀기 위해 마그네슘을 찾지만, 목에 걸리는 큼직한 정제 크기와
               아침까지 남는 위장 부담 때문에 일주일을 넘기지 못하고 서랍 속에 방치하곤 합니다.
             </p>
 
-            <blockquote class="philosophy-quote">
+            <blockquote class="philosophy-quote reveal-item" data-delay="210">
               “물 한 모금조차 망설여지는 늦은 밤 11시 30분, 찢어서 그대로 마셔도 위장에 부드럽고
               입안에 깔끔한 루비빛 산미만 남는 한 포가 필요했습니다.”
             </blockquote>
 
-            <div class="philosophy-pillars">
-              <div class="phil-mini-box">
+            <div class="philosophy-pillars reveal-item" data-delay="270" role="tablist" aria-label="브랜드 3대 연구 원칙">
+              <button type="button" class="phil-mini-box is-active" data-pillar-idx="0" role="tab" aria-selected="true">
                 <div class="phil-mini-title">01 · 위장 저자극 리포좀</div>
                 <div class="phil-mini-sub">인지질 캡슐화 공법으로 빈속 섭취 부담 완화</div>
-              </div>
-              <div class="phil-mini-box">
+              </button>
+              <button type="button" class="phil-mini-box" data-pillar-idx="1" role="tab" aria-selected="false">
                 <div class="phil-mini-title">02 · 원산지 투명 공개</div>
                 <div class="phil-mini-sub">미시간 몽모랑시 &amp; 비유전자변형 해바라기 레시틴</div>
-              </div>
-              <div class="phil-mini-box">
+              </button>
+              <button type="button" class="phil-mini-box" data-pillar-idx="2" role="tab" aria-selected="false">
                 <div class="phil-mini-title">03 · 야간 당류 ZERO 설계</div>
                 <div class="phil-mini-sub">설탕·액상과당 배제, 잠들기 전 가벼운 15kcal</div>
-              </div>
+              </button>
+            </div>
+
+            <!-- Interactive Lab Formulation Readout -->
+            <div class="philosophy-lab-readout reveal-item" data-delay="320" id="philosophy-lab-readout" aria-live="polite">
+              <span class="lab-readout-tag" id="pillar-readout-tag">LAB NOTE 01</span>
+              <p class="lab-readout-text" id="pillar-readout-text">
+                해바라기 유래 인지질 이중층이 마그네슘 이온의 금속성 자극을 감싸 위산과의 직접 마찰을 줄이고, 늦은 밤 빈속에도 편안한 목넘김을 구현합니다.
+              </p>
             </div>
           </div>
         </div>
@@ -189,79 +207,87 @@
     <section class="funnel-section bg-stone" id="science-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Liposomal Delivery Science</span>
-          <h2 class="section-title">같은 150mg이라도 몸이 받아들이는 밀도는 다릅니다.<br />인지질 이중층 리포좀 공법의 차이</h2>
-          <p class="section-lead">
+          <span class="section-kicker reveal-item" data-delay="0">Liposomal Delivery Science</span>
+          <h2 class="section-title reveal-item" data-delay="80">같은 150mg이라도 몸이 받아들이는 밀도는 다릅니다.<br />인지질 이중층 리포좀 공법의 차이</h2>
+          <p class="section-lead reveal-item" data-delay="150">
             수용성 미네랄인 일반 산화마그네슘은 소화 효소와 위산 환경에서 상당량 유실됩니다.
             뉘이랩은 인체 세포막과 동일한 인지질 구조로 마그네슘 이온을 감싸 장 점막 도달 효율을 끌어올렸습니다.
           </p>
         </div>
 
         <div class="problem-absorption-grid">
-          <div class="problem-visual-card">
-            <img
-              src="assets/images/nuit-liquid-texture.jpg"
-              alt="루비빛 몽모랑시 타트체리 농축액과 골든 리포좀 구체 매크로 텍스처"
-              loading="lazy"
-            />
+          <div class="problem-visual-card reveal-scale" data-delay="100">
+            <div class="problem-img-wrap">
+              <img
+                src="assets/images/nuit-liquid-texture.jpg"
+                alt="루비빛 몽모랑시 타트체리 농축액과 골든 리포좀 구체 매크로 텍스처"
+                loading="lazy"
+              />
+              <span class="visual-live-chip" id="science-visual-chip">STEP 01 · 인지질 이중 보호막 형성</span>
+            </div>
             <div class="problem-visual-caption">
               <span><strong>Micro-Liposome Matrix</strong> · 해바라기 레시틴 인지질 미세 캡슐화</span>
               <span>비린 철분·금속 맛 차폐 완료</span>
             </div>
           </div>
 
-          <div class="absorption-panel">
+          <div class="absorption-panel reveal-item" data-delay="180" id="absorption-panel">
             <h3 class="absorption-panel-title">마그네슘 제형별 체내 전달 지수 비교</h3>
             <p class="absorption-panel-sub">동일 조건 In-vitro 인공 장막 투과율 비교 리포트 기반 재구성</p>
 
-            <div class="bar-metric-list">
+            <div class="bar-metric-list" id="science-bars">
               <div class="bar-metric-item">
                 <div class="bar-metric-head highlight">
                   <span>뉘이랩 인지질 리포좀 액상 마그네슘</span>
-                  <span>91.4% 전달</span>
+                  <span data-bar-counter="91.4">91.4% 전달</span>
                 </div>
                 <div class="bar-track">
-                  <div class="bar-fill nuit-primary" style="width: 91.4%"></div>
+                  <div class="bar-fill nuit-primary" data-bar-width="91.4" style="width: 91.4%"></div>
                 </div>
               </div>
 
               <div class="bar-metric-item">
                 <div class="bar-metric-head">
                   <span>유기염 킬레이트 정제 (글리시네이트 등)</span>
-                  <span>46.0% 전달</span>
+                  <span data-bar-counter="46.0">46.0% 전달</span>
                 </div>
                 <div class="bar-track">
-                  <div class="bar-fill" style="width: 46%"></div>
+                  <div class="bar-fill" data-bar-width="46" style="width: 46%"></div>
                 </div>
               </div>
 
               <div class="bar-metric-item">
                 <div class="bar-metric-head">
                   <span>일반 무기염 산화마그네슘 알약</span>
-                  <span>23.8% 전달</span>
+                  <span data-bar-counter="23.8">23.8% 전달</span>
                 </div>
                 <div class="bar-track">
-                  <div class="bar-fill" style="width: 23.8%"></div>
+                  <div class="bar-fill" data-bar-width="23.8" style="width: 23.8%"></div>
                 </div>
               </div>
             </div>
 
-            <div class="mechanism-steps">
-              <div class="mech-step">
+            <div class="mechanism-steps" role="tablist" aria-label="리포좀 3단계 흡수 원리">
+              <button type="button" class="mech-step is-active" data-mech-idx="0" role="tab" aria-selected="true">
                 <div class="mech-num">Step 01</div>
                 <div class="mech-title">인지질 이중 캡슐</div>
                 <div class="mech-desc">미네랄 특유의 비린 맛과 위산 반응을 원천 보호</div>
-              </div>
-              <div class="mech-step">
+              </button>
+              <button type="button" class="mech-step" data-mech-idx="1" role="tab" aria-selected="false">
                 <div class="mech-num">Step 02</div>
                 <div class="mech-title">붕해 시간 단축</div>
                 <div class="mech-desc">고체 정제와 달리 섭취 즉시 부드럽게 분산</div>
-              </div>
-              <div class="mech-step">
+              </button>
+              <button type="button" class="mech-step" data-mech-idx="2" role="tab" aria-selected="false">
                 <div class="mech-num">Step 03</div>
                 <div class="mech-title">세포막 친화 흡수</div>
                 <div class="mech-desc">장내 삼투압 자극을 줄여 다음 날 아침까지 편안함</div>
-              </div>
+              </button>
+            </div>
+
+            <div class="mech-detail-banner" id="mech-detail-banner" aria-live="polite">
+              <strong id="mech-detail-title">Step 01 · 위산 방어 인지질 코팅</strong>
+              <span id="mech-detail-body">300nm 미만의 미세 해바라기 레시틴 구형 캡슐이 마그네슘 이온을 감싸 위산에 의한 파괴를 막고 상큼한 타트체리 풍미만 전달합니다.</span>
             </div>
 
             <p class="footnote-disclaimer">
@@ -272,16 +298,24 @@
       </div>
     </section>
 
-    <!-- 6. Formulation Lineup Showcase (Brand Catalog without E-commerce Clutter) -->
+    <!-- 6. Formulation Lineup Showcase (With Interactive Purpose Filter) -->
     <section class="funnel-section" id="lineup-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">Formulation Portfolio</span>
-          <h2 class="section-title">라이프스타일과 제휴 목적에 맞춘<br />뉘이랩 4가지 슬립 &amp; 릴렉스 라인업</h2>
-          <p class="section-lead">
-            개인 무료 샘플 체험부터 클리닉·약국 전용 디스플레이 패키지, 기업 VIP 웰니스 기프트까지
-            각 배합의 원료 스펙을 확인하고 맞춤 샘플·제휴 상담을 신청하실 수 있습니다.
-          </p>
+        <div class="lineup-header-row">
+          <div class="section-header" style="margin-bottom: 0;">
+            <span class="section-kicker reveal-item" data-delay="0">Formulation Portfolio</span>
+            <h2 class="section-title reveal-item" data-delay="80">라이프스타일과 제휴 목적에 맞춘<br />뉘이랩 4가지 슬립 &amp; 릴렉스 라인업</h2>
+            <p class="section-lead reveal-item" data-delay="150">
+              개인 무료 샘플 체험부터 클리닉·약국 전용 디스플레이 패키지, 기업 VIP 웰니스 기프트까지
+              각 배합의 원료 스펙을 확인하고 맞춤 샘플·제휴 상담을 신청하실 수 있습니다.
+            </p>
+          </div>
+
+          <div class="lineup-filter-pills reveal-item" data-delay="200" role="tablist" aria-label="라인업 목적별 필터">
+            <button type="button" class="lineup-filter-btn active" data-lineup-filter="all">전체 포뮬러 (4)</button>
+            <button type="button" class="lineup-filter-btn" data-lineup-filter="personal">개인 데일리 루틴</button>
+            <button type="button" class="lineup-filter-btn" data-lineup-filter="partner">VIP 기프트 · 제휴 전용</button>
+          </div>
         </div>
 
         <div class="lineup-grid" id="lineup-grid-container">
@@ -290,17 +324,17 @@
       </div>
     </section>
 
-    <!-- 7. Competitor Comparison Table -->
-    <section class="funnel-section bg-stone">
+    <!-- 7. Competitor Comparison Table (Interactive Row Spotlight) -->
+    <section class="funnel-section bg-stone" id="comparison-section">
       <div class="container">
         <div class="section-header centered">
-          <span class="section-kicker">Formulation Standard</span>
-          <h2 class="section-title">일반 나이트 음료·정제 영양제와 무엇이 다른가요?</h2>
-          <p class="section-lead">성분 함량부터 당류 설계까지 5가지 핵심 기준으로 투명하게 비교했습니다.</p>
+          <span class="section-kicker reveal-item" data-delay="0">Formulation Standard</span>
+          <h2 class="section-title reveal-item" data-delay="80">일반 나이트 음료·정제 영양제와 무엇이 다른가요?</h2>
+          <p class="section-lead reveal-item" data-delay="150">각 비교 항목을 클릭하거나 마우스를 올려 뉘이랩의 설계 기준을 확인해 보세요.</p>
         </div>
 
-        <div class="comparison-table-wrap">
-          <table class="comparison-table">
+        <div class="comparison-table-wrap reveal-item" data-delay="180">
+          <table class="comparison-table" id="comparison-table">
             <thead>
               <tr>
                 <th scope="col">비교 항목</th>
@@ -310,31 +344,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="comp-row is-highlighted" data-comp-idx="0">
                 <td>핵심 미네랄 공법</td>
                 <td class="col-nuit">인지질 리포좀 액상 (150mg)</td>
                 <td class="comp-muted">산화마그네슘 고체 타정</td>
                 <td class="comp-muted">마그네슘 미함유 (단순 과채주스)</td>
               </tr>
-              <tr>
+              <tr class="comp-row" data-comp-idx="1">
                 <td>부원료 시너지 배합</td>
                 <td class="col-nuit">미시간 몽모랑시 2,400mg + L-테아닌 + GABA</td>
                 <td class="comp-muted">부형제(이산화규소·스테아린산) 포함</td>
                 <td class="comp-muted">타트체리 단일 농축액 위주</td>
               </tr>
-              <tr>
+              <tr class="comp-row" data-comp-idx="2">
                 <td>섭취 편의성</td>
                 <td class="col-nuit">물 없이 3초 만에 마시는 20mL 스틱</td>
                 <td class="comp-muted">큰 알약 2~3정 물과 함께 복용</td>
                 <td class="comp-muted">개봉 후 냉장 보관 및 계량 필요</td>
               </tr>
-              <tr>
+              <tr class="comp-row" data-comp-idx="3">
                 <td>당류 및 열량</td>
                 <td class="col-nuit">당류 0g · 저열량 15kcal</td>
                 <td class="comp-muted">열량 낮으나 금속성 이물감 존재</td>
                 <td class="comp-muted">1잔당 당류 12~24g (야간 혈당 부담)</td>
               </tr>
-              <tr>
+              <tr class="comp-row" data-comp-idx="4">
                 <td>위장 편안함</td>
                 <td class="col-nuit">빈속 섭취 시에도 속쓰림 부담 최소화</td>
                 <td class="comp-muted">위산 소모 및 장 자극 빈번</td>
@@ -343,51 +377,55 @@
             </tbody>
           </table>
         </div>
+
+        <div class="comparison-insight-bar reveal-item" data-delay="240" id="comparison-insight-bar" aria-live="polite">
+          <span class="insight-badge" id="comp-insight-badge">설계 포인트 01</span>
+          <span id="comp-insight-text">산화마그네슘 대비 체내 전달 효율이 높은 인지질 리포좀 액상 공법을 적용해 한 포만으로 일일 나이트 이완 루틴에 충분한 미네랄 밀도를 채웁니다.</span>
+        </div>
       </div>
     </section>
 
-    <!-- 8. 14-Night Ritual & Active Milligram Breakdown -->
+    <!-- 8. 14-Night Ritual & Bidirectional Ingredient Synergy Interactive Section -->
     <section class="funnel-section bg-charcoal" id="routine-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">14-Night Recovery Protocol</span>
-          <h2 class="section-title">하루 한 포, 잠들기 30분 전<br />2주간 차곡차곡 쌓이는 밤의 밀도</h2>
-          <p class="section-lead">
-            일시적인 졸음을 유도하는 성분이 아닙니다. 낮 동안 소모된 신경·근육의 긴장을 부드럽게 이완해
-            스스로 깊어지는 밤의 리듬을 되찾아 줍니다.
+          <span class="section-kicker reveal-item" data-delay="0">14-Night Recovery Protocol</span>
+          <h2 class="section-title reveal-item" data-delay="80">하루 한 포, 잠들기 30분 전<br />2주간 차곡차곡 쌓이는 밤의 밀도</h2>
+          <p class="section-lead reveal-item" data-delay="150">
+            일차별 타임라인 카드를 선택하거나 스크롤하면 해당 단계에서 핵심 작용하는 시너지 원료 배합이 함께 점등됩니다.
           </p>
         </div>
 
         <div class="synergy-layout">
-          <div class="ritual-editorial-card">
+          <div class="ritual-editorial-card reveal-scale" data-delay="100">
             <img
               src="assets/images/nuit-night-ritual.jpg"
               alt="취침 30분 전 조명 아래 준비된 뉘이랩 나이트 샷 앰플"
               loading="lazy"
             />
-            <div class="ingredient-spec-list" aria-label="1포당 핵심 원료 배합량">
-              <div class="ing-row">
+            <div class="ingredient-spec-list" id="ingredient-spec-list" aria-label="1포당 핵심 원료 배합량">
+              <div class="ing-row" data-synergy="magnesium" role="button" tabindex="0">
                 <div>
                   <span class="ing-name">리포좀 마그네슘 글리시네이트 블렌드</span>
                   <span class="ing-origin">비유전자변형 해바라기 레시틴 인지질 캡슐화</span>
                 </div>
                 <span class="ing-dose">순수 Mg 150mg</span>
               </div>
-              <div class="ing-row">
+              <div class="ing-row is-active" data-synergy="tartcherry" role="button" tabindex="0">
                 <div>
                   <span class="ing-name">미국 미시간산 몽모랑시 타트체리</span>
                   <span class="ing-origin">저온 효소 추출 공법 · 식물성 멜라토닌·안토시아닌 함유</span>
                 </div>
                 <span class="ing-dose">원물 환산 2,400mg</span>
               </div>
-              <div class="ing-row">
+              <div class="ing-row" data-synergy="gaba" role="button" tabindex="0">
                 <div>
                   <span class="ing-name">발효 미강 유래 GABA &amp; L-테아닌</span>
                   <span class="ing-origin">유산균 발효 가바 + 녹차 유래 아미노산 밸런스</span>
                 </div>
                 <span class="ing-dose">220mg 시너지</span>
               </div>
-              <div class="ing-row">
+              <div class="ing-row" data-synergy="vitb6" role="button" tabindex="0">
                 <div>
                   <span class="ing-name">비타민 B6 (피리독살 인산염 활성형)</span>
                   <span class="ing-origin">마그네슘 세포 내 이동 및 신경 전달 대사 보조</span>
@@ -397,49 +435,65 @@
             </div>
           </div>
 
-          <div class="timeline-list">
-            <article class="timeline-card">
-              <div class="timeline-day">Night 01</div>
-              <div>
-                <h3 class="timeline-heading">거부감 없는 첫 모금과 편안한 위장</h3>
-                <p class="timeline-copy">
-                  상큼하고 진한 타트체리 풍미로 정제 알약을 삼킬 때의 답답함이 사라집니다.
-                  양치 전 가볍게 한 포를 비우거나 미온수·탄산수에 타서 나이트 티로 즐기세요.
-                </p>
-              </div>
-            </article>
+          <div class="timeline-stage">
+            <div class="timeline-rail" aria-hidden="true">
+              <div class="timeline-rail-fill" id="timeline-rail-fill" style="height: 25%"></div>
+            </div>
 
-            <article class="timeline-card">
-              <div class="timeline-day">Night 04</div>
-              <div>
-                <h3 class="timeline-heading">잠자리 들기 전 팽팽했던 긴장 완화</h3>
-                <p class="timeline-copy">
-                  모니터와 스마트폰으로 지친 눈가·어깨 주변의 미세한 떨림과 뻣뻣함이 한결 차분해지며,
-                  침대에 누워 뒤척이는 시간이 자연스럽게 정돈됩니다.
-                </p>
-              </div>
-            </article>
+            <div class="timeline-list" id="routine-timeline-list">
+              <article class="timeline-card is-active" data-synergy="tartcherry" data-rail-pct="25" role="button" tabindex="0">
+                <div class="timeline-day">
+                  <span class="timeline-dot" aria-hidden="true"></span>
+                  Night 01
+                </div>
+                <div>
+                  <h3 class="timeline-heading">거부감 없는 첫 모금과 편안한 위장</h3>
+                  <p class="timeline-copy">
+                    상큼하고 진한 미시간 몽모랑시 타트체리 풍미로 정제 알약을 삼킬 때의 답답함이 사라집니다.
+                    양치 전 가볍게 한 포를 비우거나 미온수·탄산수에 타서 나이트 티로 즐기세요.
+                  </p>
+                </div>
+              </article>
 
-            <article class="timeline-card">
-              <div class="timeline-day">Night 07</div>
-              <div>
-                <h3 class="timeline-heading">새벽 중간 각성 감소와 또렷한 기상</h3>
-                <p class="timeline-copy">
-                  자다 깨기를 반복하던 얕은 밤 대신 끊김 없이 이어지는 휴식을 경험하기 시작합니다.
-                  일어난 직후 머리가 무겁지 않고 개운한 아침 컨디션을 마주합니다.
-                </p>
-              </div>
-            </article>
+              <article class="timeline-card" data-synergy="gaba" data-rail-pct="50" role="button" tabindex="0">
+                <div class="timeline-day">
+                  <span class="timeline-dot" aria-hidden="true"></span>
+                  Night 04
+                </div>
+                <div>
+                  <h3 class="timeline-heading">잠자리 들기 전 팽팽했던 긴장 완화</h3>
+                  <p class="timeline-copy">
+                    발효 GABA와 L-테아닌 시너지가 모니터와 스마트폰으로 지친 눈가·어깨 주변의 뻣뻣함을 한결 차분하게 정돈해 뒤척이는 시간을 줄여줍니다.
+                  </p>
+                </div>
+              </article>
 
-            <article class="timeline-card">
-              <div class="timeline-day">Night 14</div>
-              <div>
-                <h3 class="timeline-heading">몸이 먼저 기억하는 안정된 나이트 리추얼</h3>
-                <p class="timeline-copy">
-                  2주간의 미네랄 밸런스 충전으로 야근·출장·운동 후에도 흔들리지 않는 저녁 회복 루틴이 완성됩니다.
-                </p>
-              </div>
-            </article>
+              <article class="timeline-card" data-synergy="magnesium" data-rail-pct="75" role="button" tabindex="0">
+                <div class="timeline-day">
+                  <span class="timeline-dot" aria-hidden="true"></span>
+                  Night 07
+                </div>
+                <div>
+                  <h3 class="timeline-heading">새벽 중간 각성 감소와 또렷한 기상</h3>
+                  <p class="timeline-copy">
+                    리포좀 마그네슘 150mg이 안정적으로 축적되며 자다 깨기를 반복하던 얕은 밤 대신 끊김 없이 이어지는 개운한 아침 컨디션을 마주합니다.
+                  </p>
+                </div>
+              </article>
+
+              <article class="timeline-card" data-synergy="vitb6" data-rail-pct="100" role="button" tabindex="0">
+                <div class="timeline-day">
+                  <span class="timeline-dot" aria-hidden="true"></span>
+                  Night 14
+                </div>
+                <div>
+                  <h3 class="timeline-heading">몸이 먼저 기억하는 안정된 나이트 리추얼</h3>
+                  <p class="timeline-copy">
+                    활성형 비타민 B6와 미네랄 밸런스 충전으로 야근·출장·운동 후에도 흔들리지 않는 저녁 회복 루틴이 완성됩니다.
+                  </p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </div>
@@ -449,76 +503,83 @@
     <section class="funnel-section" id="cert-section">
       <div class="container">
         <div class="section-header centered">
-          <span class="section-kicker">Safety &amp; Quality Assurance</span>
-          <h2 class="section-title">매일 밤 몸에 닿는 한 포이기에<br />타협 없는 4중 안전 기준을 통과합니다</h2>
+          <span class="section-kicker reveal-item" data-delay="0">Safety &amp; Quality Assurance</span>
+          <h2 class="section-title reveal-item" data-delay="80">매일 밤 몸에 닿는 한 포이기에<br />타협 없는 4중 안전 기준을 통과합니다</h2>
         </div>
 
         <div class="cert-grid">
-          <div class="cert-card">
+          <div class="cert-card reveal-item" data-delay="0">
             <div>
               <div class="cert-seal">HACCP</div>
               <h3 class="cert-title">식약처 해썹 인증 시설</h3>
               <p class="cert-desc">원료 입고부터 액상 충진, 고온 살균까지 전 공정 자동화 위생 관리 라인에서 생산합니다.</p>
             </div>
+            <span class="cert-verified-foot">✓ 제2025-0418호 위생 공정 검증</span>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card reveal-item" data-delay="80">
             <div>
               <div class="cert-seal">GMP</div>
               <h3 class="cert-title">우수제조관리 기준 준수</h3>
               <p class="cert-desc">배치(Batch)별 마그네슘 함량 균일도 시험과 미생물 안전성 검사를 매 회차 실시합니다.</p>
             </div>
+            <span class="cert-verified-foot">✓ 전 배치 품질 적합 판정</span>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card reveal-item" data-delay="160">
             <div>
               <div class="cert-seal">6 FREE</div>
               <h3 class="cert-title">6종 화학 부형제 무첨가</h3>
               <p class="cert-desc">설탕, 합성착색료, 보존료(안식향산나트륨), 카페인, 이산화규소, 스테아린산마그네슘 ZERO.</p>
             </div>
+            <span class="cert-verified-foot">✓ 야간 무설탕 클린 배합</span>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card reveal-item" data-delay="240">
             <div>
               <div class="cert-seal">320종</div>
               <h3 class="cert-title">잔류농약·중금속 불검출</h3>
               <p class="cert-desc">공인 시험기관을 통해 납·카드뮴·수은 중금속 4종 및 잔류농약 320종 불검출 성적서를 보유하고 있습니다.</p>
             </div>
+            <span class="cert-verified-foot">✓ 공인기관 성적서 보유</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 10. Tester & Partner Voice (Filterable Reviews) -->
+    <!-- 10. Tester & Partner Voice (Live Count-Up + Filterable Reviews) -->
     <section class="funnel-section bg-stone" id="voice-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Verified Tester &amp; Partner Reports</span>
-          <h2 class="section-title">먼저 경험한 1,840명의 테스터와<br />제휴 클리닉이 기록한 실제 변화</h2>
+          <span class="section-kicker reveal-item" data-delay="0">Verified Tester &amp; Partner Reports</span>
+          <h2 class="section-title reveal-item" data-delay="80">먼저 경험한 1,840명의 테스터와<br />제휴 클리닉이 기록한 실제 변화</h2>
         </div>
 
-        <div class="review-summary-banner">
+        <div class="review-summary-banner reveal-item" data-delay="140">
           <div class="score-big-box">
-            <div class="score-num">4.9</div>
+            <div class="score-num" data-countup="4.9" data-decimals="1" data-suffix="">4.9</div>
             <div class="score-stars" aria-label="별점 5점 만점에 4.9점">★★★★★</div>
-            <div class="score-count">누적 실사용자 리포트 1,842건</div>
+            <div class="score-count">누적 실사용자 리포트 <strong data-countup="1842" data-decimals="0" data-comma="true" data-suffix="건">1,842건</strong></div>
           </div>
 
-          <div class="satisfaction-bars">
-            <div>
+          <div class="satisfaction-bars" id="voice-sat-bars">
+            <div class="sat-metric-box">
               <div class="sat-item-label">섭취 후 속 편안함</div>
               <div class="sat-item-title">빈속에도 부담 없음</div>
-              <div class="sat-item-pct">97.8%</div>
+              <div class="sat-item-pct" data-countup="97.8" data-decimals="1" data-suffix="%">97.8%</div>
+              <div class="sat-mini-track"><div class="sat-mini-fill" data-sat-width="97.8" style="width: 97.8%"></div></div>
             </div>
-            <div>
+            <div class="sat-metric-box">
               <div class="sat-item-label">기상 직후 개운함</div>
               <div class="sat-item-title">아침 컨디션 만족</div>
-              <div class="sat-item-pct">94.2%</div>
+              <div class="sat-item-pct" data-countup="94.2" data-decimals="1" data-suffix="%">94.2%</div>
+              <div class="sat-mini-track"><div class="sat-mini-fill" data-sat-width="94.2" style="width: 94.2%"></div></div>
             </div>
-            <div>
+            <div class="sat-metric-box">
               <div class="sat-item-label">맛 · 휴대 편의성</div>
               <div class="sat-item-title">본품 전환 희망률</div>
-              <div class="sat-item-pct">92.6%</div>
+              <div class="sat-item-pct" data-countup="92.6" data-decimals="1" data-suffix="%">92.6%</div>
+              <div class="sat-mini-track"><div class="sat-mini-fill" data-sat-width="92.6" style="width: 92.6%"></div></div>
             </div>
           </div>
         </div>
@@ -544,24 +605,28 @@
       </div>
     </section>
 
-    <!-- 11. FAQ Accordion -->
+    <!-- 11. Smooth Animated FAQ Accordion -->
     <section class="funnel-section" id="faq-section">
       <div class="container">
         <div class="section-header centered">
-          <span class="section-kicker">Frequently Asked Questions</span>
-          <h2 class="section-title">자주 묻는 질문</h2>
-          <p class="section-lead">섭취 방법부터 무료 샘플키트 발송, B2B 약국·클리닉 입점 절차까지 안내해 드립니다.</p>
+          <span class="section-kicker reveal-item" data-delay="0">Frequently Asked Questions</span>
+          <h2 class="section-title reveal-item" data-delay="80">자주 묻는 질문</h2>
+          <p class="section-lead reveal-item" data-delay="140">섭취 방법부터 무료 샘플키트 발송, B2B 약국·클리닉 입점 절차까지 안내해 드립니다.</p>
         </div>
 
-        <div class="faq-container" id="faq-accordion">
+        <div class="faq-container reveal-item" data-delay="180" id="faq-accordion">
           <div class="faq-item open">
             <button type="button" class="faq-question-btn" aria-expanded="true">
               <span><span class="faq-q-prefix">Q1.</span>무료 샘플키트 &amp; 얼리버드 신청 시 어떤 혜택을 받게 되나요?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer">
-              신청해 주신 연락처로 <strong>뉘이랩 나이트 샷 오리지널 2포 체험 키트 발송 안내 알림톡</strong>과 함께,
-              본품 프리오더 오픈 시에만 사용 가능한 <strong>30% 시크릿 얼리버드 혜택 코드</strong>를 우선 발송해 드립니다. 별도의 자동 결제나 정기구독 강제 전환이 전혀 없으니 안심하고 경험해 보세요.
+            <div class="faq-answer-shell">
+              <div class="faq-answer-inner">
+                <div class="faq-answer">
+                  신청해 주신 연락처로 <strong>뉘이랩 나이트 샷 오리지널 2포 체험 키트 발송 안내 알림톡</strong>과 함께,
+                  본품 프리오더 오픈 시에만 사용 가능한 <strong>30% 시크릿 얼리버드 혜택 코드</strong>를 우선 발송해 드립니다. 별도의 자동 결제나 정기구독 강제 전환이 전혀 없으니 안심하고 경험해 보세요.
+                </div>
+              </div>
             </div>
           </div>
 
@@ -570,9 +635,13 @@
               <span><span class="faq-q-prefix">Q2.</span>언제, 어떻게 섭취하는 것이 가장 효과적인가요?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer">
-              하루 일과를 마치고 <strong>잠자리에 들기 30분~1시간 전 1포(20mL)</strong>를 원액 그대로 섭취하시거나,
-              따뜻한 미온수 100mL 또는 시원한 탄산수에 희석해 나이트 릴렉스 음료로 드시는 것을 권장합니다. 인지질 리포좀 공법이 적용되어 저녁 식후나 빈속에도 편안하게 섭취하실 수 있습니다.
+            <div class="faq-answer-shell">
+              <div class="faq-answer-inner">
+                <div class="faq-answer">
+                  하루 일과를 마치고 <strong>잠자리에 들기 30분~1시간 전 1포(20mL)</strong>를 원액 그대로 섭취하시거나,
+                  따뜻한 미온수 100mL 또는 시원한 탄산수에 희석해 나이트 릴렉스 음료로 드시는 것을 권장합니다. 인지질 리포좀 공법이 적용되어 저녁 식후나 빈속에도 편안하게 섭취하실 수 있습니다.
+                </div>
+              </div>
             </div>
           </div>
 
@@ -581,9 +650,13 @@
               <span><span class="faq-q-prefix">Q3.</span>수면유도제처럼 다음 날 아침 멍하거나 내성이 생기지 않나요?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer">
-              뉘이랩 나이트 샷은 중추신경을 강제로 억제하는 수면제·의약품이 아닌, <strong>마그네슘과 식물 유래 타트체리·테아닌을 배합한 식품 포뮬러</strong>입니다.
-              내성이나 낮 시간대 졸음 유발 걱정 없이 매일 저녁 꾸준히 섭취하실 수 있습니다.
+            <div class="faq-answer-shell">
+              <div class="faq-answer-inner">
+                <div class="faq-answer">
+                  뉘이랩 나이트 샷은 중추신경을 강제로 억제하는 수면제·의약품이 아닌, <strong>마그네슘과 식물 유래 타트체리·테아닌을 배합한 식품 포뮬러</strong>입니다.
+                  내성이나 낮 시간대 졸음 유발 걱정 없이 매일 저녁 꾸준히 섭취하실 수 있습니다.
+                </div>
+              </div>
             </div>
           </div>
 
@@ -592,9 +665,13 @@
               <span><span class="faq-q-prefix">Q4.</span>임산부나 기존 복용 중인 영양제와 함께 먹어도 괜찮을까요?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer">
-              설탕·카페인·합성보존료를 배제한 안전한 원료로 설계되어 비타민D, 오메가3, 유산균 등 일상 영양제와 병행 섭취가 가능합니다.
-              다만 마그네슘이 이미 고함량 포함된 종합비타민을 드시거나 임신·수유기인 경우 담당 전문의와 일일 총 마그네슘 섭취량(315~350mg 내외)을 상의하시는 것을 권장합니다.
+            <div class="faq-answer-shell">
+              <div class="faq-answer-inner">
+                <div class="faq-answer">
+                  설탕·카페인·합성보존료를 배제한 안전한 원료로 설계되어 비타민D, 오메가3, 유산균 등 일상 영양제와 병행 섭취가 가능합니다.
+                  다만 마그네슘이 이미 고함량 포함된 종합비타민을 드시거나 임신·수유기인 경우 담당 전문의와 일일 총 마그네슘 섭취량(315~350mg 내외)을 상의하시는 것을 권장합니다.
+                </div>
+              </div>
             </div>
           </div>
 
@@ -603,9 +680,13 @@
               <span><span class="faq-q-prefix">Q5.</span>약국·클리닉 입점 및 기업 VIP 기프트 대량 구매 최소 수량(MOQ)은 어떻게 되나요?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer">
-              약국 및 수면·웰니스 클리닉 전용 카운터 디스플레이 세트는 <strong>초도 30박스부터 입점 계약</strong>이 가능하며,
-              기업 임직원 웰니스 키트·호텔 어메니티·웨딩 답례품의 경우 <strong>50세트 이상부터 커스텀 메시지 슬리브 제작 및 B2B 공급가</strong>가 적용됩니다. 하단 [B2B 입점·제휴 문의] 탭으로 남겨주시면 전담 매니저가 24시간 내 제안서를 회신드립니다.
+            <div class="faq-answer-shell">
+              <div class="faq-answer-inner">
+                <div class="faq-answer">
+                  약국 및 수면·웰니스 클리닉 전용 카운터 디스플레이 세트는 <strong>초도 30박스부터 입점 계약</strong>이 가능하며,
+                  기업 임직원 웰니스 키트·호텔 어메니티·웨딩 답례품의 경우 <strong>50세트 이상부터 커스텀 메시지 슬리브 제작 및 B2B 공급가</strong>가 적용됩니다. 하단 [B2B 입점·제휴 문의] 탭으로 남겨주시면 전담 매니저가 24시간 내 제안서를 회신드립니다.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -617,32 +698,33 @@
       <div class="container">
         <div class="conversion-grid">
           <div>
-            <span class="section-kicker">Direct Experience &amp; Partnership</span>
-            <h2 class="section-title">광고 문구 대신 직접 마셔보고 결정하세요.<br />샘플키트 신청 &amp; B2B 제휴 접수</h2>
-            <p class="section-lead">
+            <span class="section-kicker reveal-item" data-delay="0">Direct Experience &amp; Partnership</span>
+            <h2 class="section-title reveal-item" data-delay="80">광고 문구 대신 직접 마셔보고 결정하세요.<br />샘플키트 신청 &amp; B2B 제휴 접수</h2>
+            <p class="section-lead reveal-item" data-delay="150">
               첫 경험의 문턱을 낮추기 위해 매일 선착순 100분께 2일분 체험 샘플키트 발송 혜택과
               프리오더 30% 시크릿 쿠폰 알림을 보내드립니다. 약국·클리닉·기업 담당자분께는 전용 샘플 박스와 공급가 제안서를 즉시 전달해 드립니다.
             </p>
 
-            <div class="quota-status-card" aria-live="polite">
+            <div class="quota-status-card reveal-item" data-delay="210" id="quota-status-card" aria-live="polite">
               <div class="quota-head">
-                <span>오늘 무료 샘플키트 잔여 배정 수량</span>
+                <span class="quota-live-label"><span class="live-pulse-dot" aria-hidden="true"></span>오늘 무료 샘플키트 잔여 배정 수량</span>
                 <strong id="quota-remaining-text">잔여 17 / 100세트 (83% 마감)</strong>
               </div>
               <div class="quota-bar-track">
-                <div class="quota-bar-fill" id="quota-bar-fill" style="width: 83%"></div>
+                <div class="quota-bar-fill" id="quota-bar-fill" data-quota-width="83" style="width: 83%"></div>
               </div>
             </div>
 
-            <ul class="conversion-perks-list">
+            <ul class="conversion-perks-list reveal-item" data-delay="270">
               <li>✓ <strong>개인 고객 혜택</strong> : 나이트 샷 2포 샘플키트 안내 + 3차 프리오더 30% 시크릿 코드 즉시 발송</li>
               <li>✓ <strong>클리닉 · 약국 특전</strong> : 원장님·약사님 시음용 본품 1박스 무상 지원 및 POP 카운터 진열대 제공</li>
               <li>✓ <strong>안심 개인정보 보호</strong> : 마케팅 스팸 전화 없이 신청하신 안내 알림톡 및 제휴 제안서 회신 목적으로만 사용됩니다.</li>
             </ul>
           </div>
 
-          <div class="lead-form-card">
-            <div class="form-mode-tabs" role="tablist" aria-label="신청 유형 선택">
+          <div class="lead-form-card reveal-scale" data-delay="140">
+            <div class="form-mode-tabs" id="form-mode-tabs" data-active-mode="b2c" role="tablist" aria-label="신청 유형 선택">
+              <div class="form-tab-glider" aria-hidden="true"></div>
               <button
                 type="button"
                 class="form-mode-btn active"
@@ -865,7 +947,7 @@
       </div>
       <div class="modal-summary-line">
         <span>핵심 포함</span>
-        <strong>기획 카피라이팅 + 반응형 웹 + DB 알림톡/노션 연동</strong>
+        <strong>기획 카피라이팅 + 반응형 인터랙션 + DB 알림톡 연동</strong>
       </div>
       <div class="modal-summary-line">
         <span>제작 문의</span>

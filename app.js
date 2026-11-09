@@ -1,17 +1,82 @@
 /**
- * NUIT LAB (뉘이랩) — Official Brand Homepage & Dual DB Lead-Gen Landing System
- * Zero E-Commerce Cart Clutter · Focused on Brand Authority, Formulation Briefing & Lead Capture
+ * NUIT LAB (뉘이랩) — Official Brand Homepage & Dual DB Lead-Gen Landing System (Round 4)
+ * Bespoke Editorial Motion & Micro-Interactions across every section
  */
 
 (function () {
   'use strict';
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    document.documentElement.classList.add('js-motion-ready');
+  }
+
   /* ==========================================================================
-     1. Formulation Lineup Data (4 Bespoke Studio Visuals)
+     1. Section Interactive Content Dictionaries
+     ========================================================================== */
+  const PHILOSOPHY_NOTES = [
+    {
+      tag: 'LAB NOTE 01',
+      text: '해바라기 유래 인지질 이중층이 마그네슘 이온의 금속성 자극을 감싸 위산과의 직접 마찰을 줄이고, 늦은 밤 빈속에도 편안한 목넘김을 구현합니다.'
+    },
+    {
+      tag: 'LAB NOTE 02',
+      text: '일교차가 큰 미국 미시간주 과수원의 몽모랑시 타트체리만을 선별하고, 유럽산 비유전자변형(Non-GMO) 해바라기 레시틴 원산지를 전 배치 투명하게 공개합니다.'
+    },
+    {
+      tag: 'LAB NOTE 03',
+      text: '취침 직전 혈당 스파이크가 수면의 질을 방해하지 않도록 설탕·액상과당·물엿을 완전히 배제하고 자연 유래 알룰로스로 깔끔한 15kcal 산미를 완성했습니다.'
+    }
+  ];
+
+  const MECHANISM_STEPS = [
+    {
+      chip: 'STEP 01 · 인지질 이중 보호막 형성',
+      title: 'Step 01 · 위산 방어 인지질 코팅',
+      body: '300nm 미만의 미세 해바라기 레시틴 구형 캡슐이 마그네슘 이온을 감싸 위산에 의한 파괴를 막고 상큼한 타트체리 풍미만 전달합니다.'
+    },
+    {
+      chip: 'STEP 02 · 고체 붕해 과정 없는 즉시 분산',
+      title: 'Step 02 · 위장 체류 부담을 줄인 액상 분산',
+      body: '단단하게 압축된 고체 타정 알약처럼 위에서 녹는 시간을 기다릴 필요 없이, 섭취 즉시 미세 리포좀 입자 상태로 균일하게 퍼집니다.'
+    },
+    {
+      chip: 'STEP 03 · 장 점막 세포막 친화 흡수',
+      title: 'Step 03 · 삼투압 자극 없는 세포막 융합 전달',
+      body: '인체 세포막과 동일한 인지질 성분으로 구성되어 장내 수분을 과도하게 끌어당기지 않고 다음 날 아침까지 속이 편안하게 흡수됩니다.'
+    }
+  ];
+
+  const COMPARISON_INSIGHTS = [
+    {
+      badge: '설계 포인트 01',
+      text: '산화마그네슘 대비 체내 전달 효율이 높은 인지질 리포좀 액상 공법을 적용해 한 포만으로 일일 나이트 이완 루틴에 충분한 미네랄 밀도를 채웁니다.'
+    },
+    {
+      badge: '설계 포인트 02',
+      text: '타정 알약 제조에 쓰이는 화학 부형제 대신 미시간 몽모랑시 타트체리 2,400mg과 발효 GABA·L-테아닌을 한 포에 배합해 저녁 시너지를 완성했습니다.'
+    },
+    {
+      badge: '설계 포인트 03',
+      text: '잠들기 직전 물을 많이 마시면 야간 각성의 원인이 됩니다. 물 없이도 3초 만에 깔끔하게 비울 수 있는 20mL 고농축 스틱으로 설계했습니다.'
+    },
+    {
+      badge: '설계 포인트 04',
+      text: '일반 과채주스의 높은 당류(12~24g)는 밤사이 깊은 휴식을 방해합니다. 뉘이랩은 당류 0g·15kcal 설계로 양치 전이나 다이어트 중에도 부담이 없습니다.'
+    },
+    {
+      badge: '설계 포인트 05',
+      text: '산도가 높은 농축액 단독 섭취나 무거운 무기염 정제의 단점을 보완해, 위장이 예민한 분들도 매일 밤 거르지 않고 마실 수 있도록 pH 밸런스를 조율했습니다.'
+    }
+  ];
+
+  /* ==========================================================================
+     2. Formulation Lineup Data (With Interactive Filter Categories)
      ========================================================================== */
   const LINEUP_ITEMS = [
     {
       id: 'nuit-original',
+      groups: ['personal', 'partner'],
       code: 'FORMULATION 01',
       badge: 'BEST · 대표 시그니처',
       badgeClass: 'burgundy',
@@ -34,6 +99,7 @@
     },
     {
       id: 'nuit-gift-3box',
+      groups: ['partner'],
       code: 'FORMULATION 02',
       badge: 'VIP 기프트 · 클리닉 인기',
       badgeClass: '',
@@ -56,6 +122,7 @@
     },
     {
       id: 'nuit-chamomile',
+      groups: ['personal'],
       code: 'FORMULATION 03',
       badge: 'MILD RELAX',
       badgeClass: '',
@@ -78,6 +145,7 @@
     },
     {
       id: 'nuit-starter-kit',
+      groups: ['personal', 'partner'],
       code: 'FORMULATION 04',
       badge: 'TRIAL · 호텔 어메니티',
       badgeClass: 'burgundy',
@@ -101,7 +169,7 @@
   ];
 
   /* ==========================================================================
-     2. Tester & Partner Review Data
+     3. Tester & Partner Review Data
      ========================================================================== */
   const REVIEWS = [
     {
@@ -191,20 +259,402 @@
   ];
 
   /* ==========================================================================
-     3. State
+     4. State
      ========================================================================== */
   const state = {
+    lineupFilter: 'all',
     reviewFilter: 'all',
     reviewSort: 'helpful',
     votedReviews: new Set(),
     activeSpecItem: null,
     selectedConcern: '잠들기까지 뒤척임 완화',
     quotaRemaining: 17,
-    quotaTotal: 100
+    quotaTotal: 100,
+    manualSynergyLockUntil: 0
   };
 
   /* ==========================================================================
-     4. Countdown Timer
+     5. Editorial Scroll-Reveal, Progress Bar, Scroll-Spy & Hero Parallax
+     ========================================================================== */
+  function initScrollReveal() {
+    const items = document.querySelectorAll('.reveal-item, .reveal-scale');
+    items.forEach((el) => {
+      const delay = el.getAttribute('data-delay');
+      if (delay) {
+        el.style.setProperty('--reveal-delay', `${delay}ms`);
+      }
+    });
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      items.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -28px 0px' }
+    );
+
+    items.forEach((el) => observer.observe(el));
+  }
+
+  function initScrollProgressAndSpy() {
+    const headerEl = document.getElementById('site-header');
+    const progressBar = document.getElementById('scroll-progress-bar');
+    const spyLinks = Array.from(document.querySelectorAll('[data-spy-target]'));
+    const sectionIds = [
+      'philosophy-section',
+      'science-section',
+      'lineup-section',
+      'routine-section',
+      'voice-section',
+      'faq-section',
+      'conversion-section'
+    ];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    let ticking = false;
+    let lastActiveId = '';
+
+    const updateOnScroll = () => {
+      ticking = false;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+
+      if (progressBar) {
+        progressBar.style.width = `${pct.toFixed(1)}%`;
+      }
+      if (headerEl) {
+        headerEl.classList.toggle('is-scrolled', scrollTop > 18);
+      }
+
+      // Determine active section for GNB & Mobile Quick Bar
+      const triggerLine = scrollTop + 180;
+      let activeId = '';
+      for (const sec of sections) {
+        if (sec.offsetTop <= triggerLine) {
+          activeId = sec.id;
+        }
+      }
+
+      if (activeId !== lastActiveId) {
+        lastActiveId = activeId;
+        spyLinks.forEach((link) => {
+          const isMatch = link.getAttribute('data-spy-target') === activeId;
+          link.classList.toggle('active-spy', isMatch);
+        });
+      }
+    };
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateOnScroll);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    updateOnScroll();
+  }
+
+  function initHeroParallax() {
+    if (prefersReducedMotion) return;
+    const frame = document.getElementById('hero-parallax-frame');
+    const img = document.getElementById('hero-parallax-img');
+    if (!frame || !img) return;
+
+    frame.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'touch') return;
+      const rect = frame.getBoundingClientRect();
+      const nx = (e.clientX - rect.left) / rect.width - 0.5;
+      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      img.style.setProperty('--hero-px', `${(-nx * 10).toFixed(1)}px`);
+      img.style.setProperty('--hero-py', `${(-ny * 8).toFixed(1)}px`);
+    });
+
+    frame.addEventListener('pointerleave', () => {
+      img.style.setProperty('--hero-px', '0px');
+      img.style.setProperty('--hero-py', '0px');
+    });
+  }
+
+  /* ==========================================================================
+     6. Odometer Count-Up & Animated Bioavailability / Quota Gauges
+     ========================================================================== */
+  function animateNumber(el, target, decimals, suffix, useComma, duration = 1050) {
+    if (prefersReducedMotion) {
+      const formatted = useComma ? Math.round(target).toLocaleString('ko-KR') : target.toFixed(decimals);
+      el.textContent = `${formatted}${suffix}`;
+      return;
+    }
+
+    const start = performance.now();
+    const step = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(1, elapsed / duration);
+      // EaseOutQuart
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = target * eased;
+      const formatted = useComma
+        ? Math.round(current).toLocaleString('ko-KR')
+        : current.toFixed(decimals);
+      el.textContent = `${formatted}${suffix}`;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  function initCountUpAndGauges() {
+    const countEls = document.querySelectorAll('[data-countup]');
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+      const countObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const target = parseFloat(el.getAttribute('data-countup') || '0');
+              const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+              const suffix = el.getAttribute('data-suffix') || '';
+              const useComma = el.getAttribute('data-comma') === 'true';
+              animateNumber(el, target, decimals, suffix, useComma);
+              obs.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      countEls.forEach((el) => countObserver.observe(el));
+
+      // Science Bioavailability Bars + Percentage Counter
+      const scienceBars = document.getElementById('science-bars');
+      if (scienceBars) {
+        const barObs = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                scienceBars.classList.add('bars-animated');
+                scienceBars.querySelectorAll('[data-bar-counter]').forEach((counterEl) => {
+                  const target = parseFloat(counterEl.getAttribute('data-bar-counter') || '0');
+                  animateNumber(counterEl, target, 1, '% 전달', false, 1100);
+                });
+                obs.unobserve(scienceBars);
+              }
+            });
+          },
+          { threshold: 0.22 }
+        );
+        barObs.observe(scienceBars);
+      }
+
+      // Voice Satisfaction Mini-Bars
+      const voiceBars = document.getElementById('voice-sat-bars');
+      if (voiceBars) {
+        const satObs = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                voiceBars.classList.add('bars-animated');
+                obs.unobserve(voiceBars);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+        satObs.observe(voiceBars);
+      }
+
+      // Conversion Quota Gauge
+      const quotaCard = document.getElementById('quota-status-card');
+      if (quotaCard) {
+        const quotaObs = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                quotaCard.classList.add('quota-animated');
+                obs.unobserve(quotaCard);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+        quotaObs.observe(quotaCard);
+      }
+    } else {
+      document.getElementById('science-bars')?.classList.add('bars-animated');
+      document.getElementById('voice-sat-bars')?.classList.add('bars-animated');
+      document.getElementById('quota-status-card')?.classList.add('quota-animated');
+    }
+  }
+
+  /* ==========================================================================
+     7. Section Micro-Interactions (Philosophy, Science, Comparison, 14-Night)
+     ========================================================================== */
+  function initPhilosophyPillars() {
+    const buttons = document.querySelectorAll('[data-pillar-idx]');
+    const tagEl = document.getElementById('pillar-readout-tag');
+    const textEl = document.getElementById('pillar-readout-text');
+    if (!buttons.length || !tagEl || !textEl) return;
+
+    const activatePillar = (idx) => {
+      const note = PHILOSOPHY_NOTES[idx];
+      if (!note) return;
+      buttons.forEach((btn, i) => {
+        const active = i === idx;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+      tagEl.textContent = note.tag;
+      textEl.textContent = note.text;
+    };
+
+    buttons.forEach((btn) => {
+      const idx = parseInt(btn.getAttribute('data-pillar-idx') || '0', 10);
+      btn.addEventListener('click', () => activatePillar(idx));
+      btn.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'touch') activatePillar(idx);
+      });
+    });
+  }
+
+  function initScienceMechanismExplorer() {
+    const stepBtns = document.querySelectorAll('[data-mech-idx]');
+    const chipEl = document.getElementById('science-visual-chip');
+    const titleEl = document.getElementById('mech-detail-title');
+    const bodyEl = document.getElementById('mech-detail-body');
+    if (!stepBtns.length) return;
+
+    const activateStep = (idx) => {
+      const info = MECHANISM_STEPS[idx];
+      if (!info) return;
+      stepBtns.forEach((btn, i) => {
+        const active = i === idx;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+      if (chipEl) chipEl.textContent = info.chip;
+      if (titleEl) titleEl.textContent = info.title;
+      if (bodyEl) bodyEl.textContent = info.body;
+    };
+
+    stepBtns.forEach((btn) => {
+      const idx = parseInt(btn.getAttribute('data-mech-idx') || '0', 10);
+      btn.addEventListener('click', () => activateStep(idx));
+      btn.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'touch') activateStep(idx);
+      });
+    });
+  }
+
+  function initComparisonSpotlight() {
+    const rows = document.querySelectorAll('.comp-row[data-comp-idx]');
+    const badgeEl = document.getElementById('comp-insight-badge');
+    const textEl = document.getElementById('comp-insight-text');
+    if (!rows.length) return;
+
+    const highlightRow = (idx) => {
+      const insight = COMPARISON_INSIGHTS[idx];
+      if (!insight) return;
+      rows.forEach((r, i) => r.classList.toggle('is-highlighted', i === idx));
+      if (badgeEl) badgeEl.textContent = insight.badge;
+      if (textEl) textEl.textContent = insight.text;
+    };
+
+    rows.forEach((row) => {
+      const idx = parseInt(row.getAttribute('data-comp-idx') || '0', 10);
+      row.addEventListener('click', () => highlightRow(idx));
+      row.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'touch') highlightRow(idx);
+      });
+    });
+  }
+
+  function initRoutineSynergyTimeline() {
+    const timelineCards = Array.from(document.querySelectorAll('#routine-timeline-list .timeline-card'));
+    const ingRows = Array.from(document.querySelectorAll('#ingredient-spec-list .ing-row'));
+    const railFill = document.getElementById('timeline-rail-fill');
+    if (!timelineCards.length || !ingRows.length) return;
+
+    const activateSynergy = (synergyKey, isManual = false) => {
+      if (isManual) {
+        state.manualSynergyLockUntil = Date.now() + 2400;
+      }
+      let railPct = '25';
+      timelineCards.forEach((card) => {
+        const match = card.getAttribute('data-synergy') === synergyKey;
+        card.classList.toggle('is-active', match);
+        if (match) {
+          railPct = card.getAttribute('data-rail-pct') || '25';
+        }
+      });
+      ingRows.forEach((row) => {
+        row.classList.toggle('is-active', row.getAttribute('data-synergy') === synergyKey);
+      });
+      if (railFill) {
+        railFill.style.height = `${railPct}%`;
+      }
+    };
+
+    timelineCards.forEach((card) => {
+      const key = card.getAttribute('data-synergy');
+      card.addEventListener('click', () => activateSynergy(key, true));
+      card.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'touch') activateSynergy(key, true);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateSynergy(key, true);
+        }
+      });
+    });
+
+    ingRows.forEach((row) => {
+      const key = row.getAttribute('data-synergy');
+      row.addEventListener('click', () => activateSynergy(key, true));
+      row.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'touch') activateSynergy(key, true);
+      });
+      row.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateSynergy(key, true);
+        }
+      });
+    });
+
+    // Scroll-linked progression on mobile/desktop when scrolling naturally
+    if ('IntersectionObserver' in window) {
+      const cardObs = new IntersectionObserver(
+        (entries) => {
+          if (Date.now() < state.manualSynergyLockUntil) return;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const key = entry.target.getAttribute('data-synergy');
+              if (key) activateSynergy(key, false);
+            }
+          });
+        },
+        { rootMargin: '-32% 0px -45% 0px', threshold: 0.2 }
+      );
+      timelineCards.forEach((c) => cardObs.observe(c));
+    }
+  }
+
+  /* ==========================================================================
+     8. Countdown Timer & Modal Helpers
      ========================================================================== */
   function initCountdown() {
     const timerEl = document.getElementById('dispatch-countdown');
@@ -224,9 +674,6 @@
     setInterval(renderTick, 1000);
   }
 
-  /* ==========================================================================
-     5. Modal Helpers
-     ========================================================================== */
   const backdropEl = document.getElementById('modal-backdrop');
 
   function openModal(modalId) {
@@ -259,46 +706,52 @@
   }
 
   /* ==========================================================================
-     6. Lineup Showcase & Spec Briefing Modal
+     9. Lineup Showcase, Filter Pills & Spec Briefing Modal
      ========================================================================== */
   function renderLineup() {
     const container = document.getElementById('lineup-grid-container');
     if (!container) return;
 
-    container.innerHTML = LINEUP_ITEMS.map((item) => {
-      const badgeCls = item.badgeClass ? `lineup-badge ${item.badgeClass}` : 'lineup-badge';
-      const specsHtml = item.specShort
-        .map((line) => {
-          const [label, rest] = line.split(': ');
-          return `<span><strong>${label}:</strong> ${rest}</span>`;
-        })
-        .join('');
+    const filtered = LINEUP_ITEMS.filter(
+      (item) => state.lineupFilter === 'all' || item.groups.includes(state.lineupFilter)
+    );
 
-      return `
-        <article class="lineup-card" data-lineup-id="${item.id}">
-          <div>
-            <div class="lineup-thumb-wrap" data-open-spec="${item.id}" role="button" tabindex="0" aria-label="${item.title} 배합 상세 보기">
-              <img src="${item.image}" alt="${item.title}" loading="lazy" />
-              <span class="${badgeCls}">${item.badge}</span>
-            </div>
-            <div class="lineup-body">
-              <div>
-                <span class="lineup-code">${item.code}</span>
-                <h3 class="lineup-title">${item.title}</h3>
-                <p class="lineup-desc">${item.desc}</p>
+    container.innerHTML = filtered
+      .map((item, idx) => {
+        const badgeCls = item.badgeClass ? `lineup-badge ${item.badgeClass}` : 'lineup-badge';
+        const specsHtml = item.specShort
+          .map((line) => {
+            const [label, rest] = line.split(': ');
+            return `<span><strong>${label}:</strong> ${rest}</span>`;
+          })
+          .join('');
+
+        return `
+          <article class="lineup-card" data-lineup-id="${item.id}" style="--card-delay: ${idx * 70}ms">
+            <div>
+              <div class="lineup-thumb-wrap" data-open-spec="${item.id}" role="button" tabindex="0" aria-label="${item.title} 배합 상세 보기">
+                <img src="${item.image}" alt="${item.title}" loading="lazy" />
+                <span class="${badgeCls}">${item.badge}</span>
               </div>
-              <div class="lineup-spec-tags">
-                ${specsHtml}
+              <div class="lineup-body">
+                <div>
+                  <span class="lineup-code">${item.code}</span>
+                  <h3 class="lineup-title">${item.title}</h3>
+                  <p class="lineup-desc">${item.desc}</p>
+                </div>
+                <div class="lineup-spec-tags">
+                  ${specsHtml}
+                </div>
               </div>
             </div>
-          </div>
-          <div class="lineup-footer">
-            <button type="button" class="btn-lineup-spec" data-open-spec="${item.id}">배합·성분 브리핑</button>
-            <button type="button" class="btn-lineup-apply" data-apply-lineup="${item.id}">샘플·제휴 신청</button>
-          </div>
-        </article>
-      `;
-    }).join('');
+            <div class="lineup-footer">
+              <button type="button" class="btn-lineup-spec" data-open-spec="${item.id}">배합·성분 브리핑</button>
+              <button type="button" class="btn-lineup-apply" data-apply-lineup="${item.id}">샘플·제휴 신청</button>
+            </div>
+          </article>
+        `;
+      })
+      .join('');
 
     container.querySelectorAll('[data-open-spec]').forEach((el) => {
       el.addEventListener('click', () => openSpecModal(el.getAttribute('data-open-spec')));
@@ -318,6 +771,17 @@
         }
       });
     });
+  }
+
+  function initLineupControls() {
+    document.querySelectorAll('[data-lineup-filter]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-lineup-filter]').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.lineupFilter = btn.getAttribute('data-lineup-filter') || 'all';
+        renderLineup();
+      });
+    });
 
     const specApplyBtn = document.getElementById('spec-modal-apply-btn');
     if (specApplyBtn) {
@@ -329,6 +793,8 @@
         }
       });
     }
+
+    renderLineup();
   }
 
   function openSpecModal(lineupId) {
@@ -361,7 +827,7 @@
   }
 
   /* ==========================================================================
-     7. Reviews Filter, Sort, Helpful Vote & Photo Lightbox
+     10. Reviews Filter, Sort, Helpful Vote & Photo Lightbox
      ========================================================================== */
   function renderReviews() {
     const container = document.getElementById('review-cards-container');
@@ -380,7 +846,7 @@
     }
 
     container.innerHTML = list
-      .map((r) => {
+      .map((r, idx) => {
         const isVoted = state.votedReviews.has(r.id);
         const count = r.helpful + (isVoted ? 1 : 0);
         const stars = '★'.repeat(r.stars);
@@ -394,7 +860,7 @@
           : '';
 
         return `
-          <article class="review-card">
+          <article class="review-card" style="--card-delay: ${idx * 55}ms">
             <div class="review-card-top">
               <div>
                 <div class="review-meta-badges">
@@ -467,7 +933,7 @@
   }
 
   /* ==========================================================================
-     8. FAQ Accordion
+     11. Smooth Grid-Row FAQ Accordion
      ========================================================================== */
   function initFaqAccordion() {
     const faqContainer = document.getElementById('faq-accordion');
@@ -494,14 +960,19 @@
   }
 
   /* ==========================================================================
-     9. Dual Lead-Capture & B2B Inquiry Forms
+     12. Dual Lead-Capture & B2B Inquiry Forms (With Sliding Tab Glider)
      ========================================================================== */
   function switchFormTab(tabKey) {
     const isB2B = tabKey === 'b2b';
+    const tabsWrap = document.getElementById('form-mode-tabs');
     const btnB2C = document.getElementById('tab-btn-b2c');
     const btnB2B = document.getElementById('tab-btn-b2b');
     const panelB2C = document.getElementById('form-panel-b2c');
     const panelB2B = document.getElementById('form-panel-b2b');
+
+    if (tabsWrap) {
+      tabsWrap.setAttribute('data-active-mode', isB2B ? 'b2b' : 'b2c');
+    }
 
     if (btnB2C && btnB2B && panelB2C && panelB2B) {
       btnB2C.classList.toggle('active', !isB2B);
@@ -545,10 +1016,12 @@
   }
 
   function updateQuotaDisplay() {
+    const cardEl = document.getElementById('quota-status-card');
     const textEl = document.getElementById('quota-remaining-text');
     const fillEl = document.getElementById('quota-bar-fill');
     const usedPct = Math.min(99, Math.round(((state.quotaTotal - state.quotaRemaining) / state.quotaTotal) * 100));
 
+    if (cardEl) cardEl.classList.add('quota-animated');
     if (textEl) {
       textEl.textContent = `잔여 ${state.quotaRemaining} / ${state.quotaTotal}세트 (${usedPct}% 마감)`;
     }
@@ -733,7 +1206,7 @@
   }
 
   /* ==========================================================================
-     10. TimeSaver Outsourcing Modal & Threads Clean Mode
+     13. TimeSaver Outsourcing Modal & Threads Clean Mode
      ========================================================================== */
   function initPortfolioControls() {
     const inquiryBtn = document.getElementById('open-ts-inquiry-btn');
@@ -761,7 +1234,7 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+      const tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
       if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.metaKey || e.ctrlKey || e.altKey) {
         return;
       }
@@ -777,10 +1250,20 @@
   document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initModalListeners();
-    renderLineup();
+    initLineupControls();
     initReviewControls();
     initFaqAccordion();
     initLeadForms();
     initPortfolioControls();
+
+    // Round 4 Editorial Motion & Interactive Section Controllers
+    initScrollReveal();
+    initScrollProgressAndSpy();
+    initHeroParallax();
+    initCountUpAndGauges();
+    initPhilosophyPillars();
+    initScienceMechanismExplorer();
+    initComparisonSpotlight();
+    initRoutineSynergyTimeline();
   });
 })();
