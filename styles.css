@@ -466,16 +466,15 @@ html.js-motion-ready .reveal-scale.is-visible {
   background:
     linear-gradient(
       90deg,
-      rgba(18, 20, 18, 0.88) 0%,
-      rgba(18, 20, 18, 0.72) 38%,
-      rgba(18, 20, 18, 0.22) 66%,
-      rgba(18, 20, 18, 0.34) 100%
+      rgba(20, 18, 17, 0.52) 0%,
+      rgba(20, 18, 17, 0.32) 36%,
+      rgba(20, 18, 17, 0.04) 58%,
+      rgba(20, 18, 17, 0) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(18, 20, 18, 0.26) 0%,
-      rgba(18, 20, 18, 0.06) 52%,
-      rgba(18, 20, 18, 0.64) 100%
+      rgba(20, 18, 17, 0) 74%,
+      rgba(20, 18, 17, 0.34) 100%
     );
 }
 
@@ -505,7 +504,8 @@ html.js-motion-ready .reveal-scale.is-visible {
 }
 
 .hero-video-fullbleed .hero-kicker {
-  color: #F2C6CE;
+  color: #F7D4DB;
+  text-shadow: 0 1px 10px rgba(14, 12, 12, 0.42);
 }
 
 .hero-title {
@@ -518,7 +518,7 @@ html.js-motion-ready .reveal-scale.is-visible {
 
 .hero-video-fullbleed .hero-title {
   color: #FAF8F5;
-  text-shadow: 0 2px 24px rgba(12, 14, 12, 0.36);
+  text-shadow: 0 2px 20px rgba(14, 12, 12, 0.46), 0 1px 3px rgba(14, 12, 12, 0.32);
 }
 
 .hero-lead {
@@ -529,7 +529,8 @@ html.js-motion-ready .reveal-scale.is-visible {
 }
 
 .hero-video-fullbleed .hero-lead {
-  color: rgba(250, 248, 245, 0.86);
+  color: rgba(250, 248, 245, 0.95);
+  text-shadow: 0 1px 14px rgba(14, 12, 12, 0.44), 0 1px 2px rgba(14, 12, 12, 0.28);
 }
 
 .hero-stats-row {
@@ -543,8 +544,8 @@ html.js-motion-ready .reveal-scale.is-visible {
 }
 
 .hero-video-fullbleed .hero-stats-row {
-  border-top-color: rgba(250, 248, 245, 0.18);
-  border-bottom-color: rgba(250, 248, 245, 0.18);
+  border-top-color: rgba(250, 248, 245, 0.26);
+  border-bottom-color: rgba(250, 248, 245, 0.26);
 }
 
 .hero-stat-cell {
@@ -564,6 +565,7 @@ html.js-motion-ready .reveal-scale.is-visible {
 
 .hero-video-fullbleed .hero-stat-num {
   color: #FAF8F5;
+  text-shadow: 0 1px 12px rgba(14, 12, 12, 0.42);
 }
 
 .hero-stat-label {
@@ -574,7 +576,8 @@ html.js-motion-ready .reveal-scale.is-visible {
 }
 
 .hero-video-fullbleed .hero-stat-label {
-  color: rgba(250, 248, 245, 0.72);
+  color: rgba(250, 248, 245, 0.86);
+  text-shadow: 0 1px 10px rgba(14, 12, 12, 0.4);
 }
 
 .hero-cta-group {
@@ -2663,9 +2666,9 @@ body.clean-mode .clean-mode-restore-pill {
   .hero-video-scrim {
     background: linear-gradient(
       180deg,
-      rgba(18, 20, 18, 0.54) 0%,
-      rgba(18, 20, 18, 0.68) 46%,
-      rgba(18, 20, 18, 0.88) 100%
+      rgba(20, 18, 17, 0.26) 0%,
+      rgba(20, 18, 17, 0.38) 48%,
+      rgba(20, 18, 17, 0.56) 100%
     );
   }
 
