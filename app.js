@@ -350,6 +350,13 @@
         spyLinks.forEach((link) => {
           const isMatch = link.getAttribute('data-spy-target') === activeId;
           link.classList.toggle('active-spy', isMatch);
+          if (isMatch && link.classList.contains('mobile-anchor-link')) {
+            const bar = document.getElementById('mobile-anchor-bar');
+            if (bar && bar.scrollWidth > bar.clientWidth) {
+              const targetLeft = link.offsetLeft - (bar.clientWidth - link.offsetWidth) / 2;
+              bar.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+            }
+          }
         });
       }
     };
